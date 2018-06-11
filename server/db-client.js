@@ -1,4 +1,5 @@
-const DATABASE_URL = 'postgres://localhost:5432/viewer';
+const loginString = process.env.POSTGRES_LOGIN;
+const DATABASE_URL = `postgres://${loginString}localhost:5432/viewer`;
 const pg = require('pg');
 const Client = pg.Client;
 
