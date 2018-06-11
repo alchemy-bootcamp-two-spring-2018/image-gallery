@@ -1,7 +1,6 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "create-tables": "node scripts/create-tables.js",
@@ -23,5 +22,6 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "nodemon": "^1.17.5"
-  }
+  },
+  "description": ""
 }
