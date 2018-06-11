@@ -6,7 +6,8 @@
         :key="album.id"
         :albumId="album.id"
       >
-      {{ album.title}}
+      test
+      {{ album.title }}
       </li>
     </ul>
   </div>
@@ -22,7 +23,8 @@ export default {
     }
   },
   created() {
-    this.albums = getAlbums();
+    console.log('getette', getAlbums());
+    getAlbums().then(res => this.albums = res);
   }
 };
 </script>
