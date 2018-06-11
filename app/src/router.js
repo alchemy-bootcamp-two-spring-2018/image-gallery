@@ -7,3 +7,21 @@ import GalleryViewer from './components/GalleryViewer.vue';
 import ListViewer from './components/ListViewer.vue';
 import ThumbnailViewer from './components/ThumbnailViewer.vue';
 
+export default new VueRouter({
+  routes: [
+    { path: '/', component: Home },
+    { path: '/about', component: About },
+    { path: '/albums', component: Albums },
+    {
+      path: '/albums/:id',
+      component: AlbumDetail,
+      children: [
+        { path: 'list', component: ListViewer },
+        { path: 'thumbnail', component: ThumbnailViewer},
+        { path: 'gallery', component: GalleryViewer},
+        { path: '', redirect: 'list' }
+      ]
+    }, 
+    { path: '*', redirect: '/' },
+  ]
+});
