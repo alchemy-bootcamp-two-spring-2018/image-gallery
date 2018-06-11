@@ -9,7 +9,7 @@ client.query(`
 
   CREATE TABLE IF NOT EXISTS images (
     id SERIAL PRIMARY KEY,
-    album_id  INTEGER,
+    albumid  INTEGER,
     title VARCHAR(256),
     description VARCHAR(256),
     url VARCHAR(256)
