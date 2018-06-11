@@ -1,4 +1,5 @@
-const DATABASE_URL = 'postgres://localhost:5432/gallery';
+// const DATABASE_URL = 'postgres://localhost:5432/gallery';
+const DATABASE_URL = 'postgres://postgres:1234@localhost:5432/gallery';
 const pg = require('pg');
 const Client = pg.Client;
 
