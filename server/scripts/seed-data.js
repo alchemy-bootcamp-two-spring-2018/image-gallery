@@ -1,15 +1,48 @@
 const client = require('../db-client');
-const albums = require('../data/albums.js');
-console.log(albums);
+
+let albums = [];
+let images = [];
+
+for(let i = 0; i < 3; i++) {
+  albums.push({});
+  albums[i].id = i;
+  albums[i].title = 'album #' + i;
+  albums[i].description = 'Description here!';
+}
+
+for(let i = 0; i < 5; i++) {
+  images.push({});
+  images[i].id = i;
+  images[i].albumId = parseInt(Math.random() * 3) + 1;
+  images[i].title = 'fun times #' + i;
+  images[i].description = 'woooo fun times fun';
+  images[i].url = 'https://picsum.photos/200/300/?random';
+}
+// console.log('albums', albums, 'images', images);
+
 
 Promise.all(
   albums.map(album => {
     return client.query(`
-        INSERT INTO albums (id, title, description)
-        VALUES ($1, $2, $3);
+        insert into albums (id, title, description)
+        values ($1, $2, $3);
     `,
     [album.id, album.title, album.description]
-    ).then(result => result.rows[0]);
+    ).then(result => {
+      console.log(result.rows);
+      result.rows;
+    });
+  }),
+  images.map(image => {
+    return client.query(`
+        insert into images (id, album_id, title, description, url)
+        values ($1, $2, $3, $4, $5);
+    `,
+    [image.id, image.albumId, image.title, image.description, image.url]
+    ).then(result => {
+      console.log(result.rows);
+      result.rows;
+    });
   })
 )
   .then(
