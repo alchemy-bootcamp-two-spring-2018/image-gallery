@@ -4,9 +4,9 @@
     <nav>
       <router-link to ="/">Go to Home</router-link>
       &nbsp;
-      <router-link to ="/">Go to About</router-link>
+      <router-link to ="/about">Go to About</router-link>
       &nbsp;
-      <router-link to ="/">List of Albums</router-link>
+      <router-link to ="/albums">List of Albums</router-link>
     </nav>
 
     <router-view></router-view>
