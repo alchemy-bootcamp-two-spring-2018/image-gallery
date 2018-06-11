@@ -11,8 +11,15 @@ const client = new Client(databaseUrl);
 
 client.connect();
 
-// app.get('/api/albums',(req, res) => {
+app.get('/api/albums',(req, res) => {
 
-//     client.query(`
-//     `)
-// }
+    client.query(`
+    select * 
+    from albums;
+    `)
+    .then(result => {
+        res.send(result.rows);
+    });
+});
+
+app.listen(3000, () => console.log('APPLICATION IS RUNNING...'));
