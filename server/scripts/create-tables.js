@@ -4,10 +4,11 @@ client.query(`
 
   CREATE TABLE IF NOT EXISTS album_info (
     id SERIAL PRIMARY KEY,
+    genre VARCHAR(256),
     album_name VARCHAR(256) NOT NULL,
     artist VARCHAR(256),
     date INTEGER,
-    cover VARCHAR(256)
+    cover VARCHAR(512)
   );
 
 `)
