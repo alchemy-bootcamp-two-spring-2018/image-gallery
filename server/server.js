@@ -48,7 +48,7 @@ app.delete('/api/galleries/:id', (req, res) =>{
   `,
   [req.params.id]
   ).then(() => {
-    res.send({ removed: true })
+    res.send({ removed: true });
   });
 });
 
