@@ -12,7 +12,7 @@ export default new VueRouter({
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/albums', component: Albums },
-    { 
+    {
       path: '/albums/:id',
       children: [
         { path: 'thumbnail', component: Thumbnail },
