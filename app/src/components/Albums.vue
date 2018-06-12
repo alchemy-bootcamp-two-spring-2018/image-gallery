@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import getAlbums from '../services/api.js'
+import {getAlbums} from '../services/api.js'
 
 export default {
   data() {
