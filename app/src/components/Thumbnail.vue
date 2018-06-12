@@ -1,15 +1,19 @@
 <template>
-  <div>
+  <div id="container-thumb">
     <ul>
       <li
         v-for="image in images"
         :key="image.id"
       >
-        <p>{{ image.title }}</p>
-        <img
-          :src="image.url"
-          :alt="image.title"
-        >
+        <a @click.prevent="handleZoom(image.id)">
+          <div>
+            <p>{{ image.title }}</p>
+            <img
+              :src="image.url"
+              :alt="image.title"
+            >
+          </div>
+        </a>
       </li>
     </ul>
   </div>
@@ -17,12 +21,33 @@
 
 <script>
 export default {
-  props: ['images']
+  props: {
+    images: Array,
+    handleZoom: {
+      type: Function,
+      required: true
+    }
+  }
 };
 </script>
+
 <style scoped>
-ul {
+a, a:hover, a:focus {
+  border: none;
+  padding: none;
+  margin: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+span {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   list-style: none;
+}
+ul {
+  padding: 0 13px;
 }
 li {
   display: inline-block;

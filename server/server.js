@@ -66,13 +66,11 @@ app.delete('/api/albums/:id', (req, res) => {
 });
 
 app.get('/api/images/:id', (req, res) => {
-  console.log('id\n', req.params.id);
   client.query(`
     SELECT * FROM images
     WHERE albumid=$1;
   `, [req.params.id])
     .then(result => {
-      // console.log('\n results should be', result.rows);
       res.send(result.rows);
     });
 });
@@ -92,7 +90,6 @@ app.get('/api/images/:id', (req, res) => {
 
 app.post('/api/images', (req, res) => {
   const body = req.body;
-
   client.query(`
     INSERT INTO images (title, description, albumid, url)
     VALUES ($1, $2, $3, $4)

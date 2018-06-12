@@ -4,16 +4,17 @@
     <nav>
       <router-link to="/">Home</router-link>
       &nbsp;
-      <router-link to="/albums">Anal bum covers</router-link>
+      <router-link to="/albums">Albums</router-link>
       &nbsp;
-      <router-link to="/about">Aboot</router-link>
+      <router-link to="/about">About</router-link>
     </nav>
 
-    <router-view></router-view>
+    <div id="container-view">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 <script>
-
 export default {
 };
 </script>
@@ -23,11 +24,20 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: black;
+  margin: 0 auto;
+  width: 800px;
 }
-
+ul {
+  padding: 0;
+}
+li, a {
+  background: darkslategray;
+}
 nav {
   margin: 33px 0;
 }
@@ -35,7 +45,7 @@ nav {
 a {
   cursor: pointer;
   text-decoration: none;
-  color: black;
+  color: white;
   padding: 6px;
   border-top: 2px solid gray;
   border-right: 2px solid black;
@@ -49,8 +59,12 @@ a:hover {
 }
 
 a:focus {
-  background: gray;
+  background: black;
 }
 
-
+#container-view {
+  border-top-left-radius: 33px;
+  border-top-right-radius: 33px;
+  background-color: rgba(0, 0, 0, .69);
+}
 </style>

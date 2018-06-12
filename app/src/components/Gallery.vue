@@ -1,20 +1,21 @@
 <template>
   <div
     id="container-main"
-    v-if="images"
   >
     <div id="container-sub">
       <a @click.prevent="handlePrevious">Previous</a>
       <a @click.prevent="handleNext">Next</a>
     </div>
       <p>{{ images[this.currentImage].title }}</p>
+    <transition mode="in-out" name="fade">
       <img :src="images[this.currentImage].url">
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['images'],
+  props: ['images', 'selectedImage'],
   data() {
     return {
       currentImage: 0
@@ -30,6 +31,11 @@ export default {
       if(this.currentImage < this.images.length - 1) {
         this.currentImage++;
       }
+    }
+  },
+  created() {
+    if(this.selectedImage) {
+      this.currentImage = this.selectedImage;
     }
   }
 };
