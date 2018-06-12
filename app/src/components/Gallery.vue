@@ -28,7 +28,6 @@
         :src="images[this.currentImage].url"
       >
     </transition>
-    {{ images }}
   </div>
 </template>
 

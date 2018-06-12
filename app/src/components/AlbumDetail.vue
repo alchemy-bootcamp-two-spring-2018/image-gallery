@@ -26,6 +26,10 @@
         Add New Image
       </router-link>
 
+      <a @click="handleDeleteAlbum">
+        Delete This Album
+      </a>
+
     </nav>
     <transition mode="out-in" name="fade">
       <router-view
@@ -39,7 +43,7 @@
 
 <script>
 import Zoom from './Zoom.vue';
-import { getImages } from '../services/api';
+import { getImages, deleteAlbums } from '../services/api';
 export default {
   data() {
     return {
@@ -56,6 +60,16 @@ export default {
     handleZoom(image) {
       this.zoomed = !this.zoomed;
       this.selectedImage = this.images.findIndex(a => a.id === image);
+    },
+    handleDeleteAlbum() {
+      if(confirm('Are you sure you would like to delete this album?')) {
+        deleteAlbums(this.$route.params.id)
+          .then(res => {
+            if(res.removed) {
+              this.$router.push('/albums');
+            }
+          });
+      }
     }
   },
   created() {
@@ -77,9 +91,6 @@ nav {
   border-top-left-radius: 33px;
   border-top-right-radius: 33px;
 
-}
-nav * {
-  /* margin: 0 13px; */
 }
 
 .fade-enter-active, .fade-leave-active {

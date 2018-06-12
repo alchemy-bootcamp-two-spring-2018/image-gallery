@@ -55,14 +55,21 @@ app.get('/api/albums', (req, res) => {
 //   });
 // });
 
+// DELETE FROM images WHERE albumid=$1;
 app.delete('/api/albums/:id', (req, res) => {
-  client.query(`
+  const promiseAlbum = client.query(`
     DELETE FROM albums WHERE id=$1;
   `,
   [req.params.id]
-  ).then(() => {
+  ).then(() => true);
+  const promiseImages = client.query(`
+    DELETE FROM images where albumid=$1;
+  `,
+  [req.params.id]
+  ).then(() => true);
+  if(promiseAlbum && promiseImages) {
     res.send({ removed: true });
-  });
+  }
 });
 
 app.delete('/api/images/:id', (req, res) => {
