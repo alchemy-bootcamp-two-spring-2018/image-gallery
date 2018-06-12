@@ -12,10 +12,10 @@ Complete [Kata 1](https://www.codewars.com/kata/use-map-to-double-the-values-in-
 Continue with same pairs. For day two complete:
 
 1. Four image-related subroutes:
-  1. View 1 (Thumbnail)
-  1. New Image
-  1. View 3 (List)
-  1. STRETCH GOAL: View 2 (Gallery)
+    1. View 1 (Thumbnail)
+    1. New Image
+    1. View 3 (List)
+    1. STRETCH GOAL: View 2 (Gallery)
 1. Create a dedicated `albums/new` route for adding a new album
 1. STRETCH GOAL: Add remove (delete) for albums and images (one or more views)
 1. STRETCH GOAL: Add a `albums/update` route for updating an existing album
