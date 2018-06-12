@@ -31,5 +31,10 @@ export default {
 </script>
 
 <style scoped>
-
+ul {
+  list-style: none;
+}
+li {
+  padding: 6px;
+}
 </style>

@@ -3,8 +3,8 @@ import Home from './components/Home.vue';
 import About from './components/About.vue';
 import Albums from './components/Albums.vue';
 import Thumbnail from './components/Thumbnail.vue';
-import GalleryAlbum from './components/GalleryAlbum.vue';
-import GalleryImage from './components/GalleryImage.vue';
+import Gallery from './components/Gallery.vue';
+// import GalleryImage from './components/GalleryImage.vue';
 import List from './components/List.vue';
 import New from './components/New.vue';
 import AlbumDetail from './components/AlbumDetail.vue';
@@ -19,8 +19,8 @@ export default new VueRouter({
       component: AlbumDetail,
       children: [
         { path: 'thumbnail', component: Thumbnail },
-        { path: 'galleryalbum/:id', component: GalleryAlbum },
-        { path: 'galleryimage/:imgid', component: GalleryImage },
+        // { path: 'galleryalbum/:id', component: GalleryAlbum },
+        { path: 'gallery', component: Gallery },
         { path: 'list', component: List },
         { path: 'new', component: New },
         { path: '', redirect: 'thumbnail' }

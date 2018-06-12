@@ -14,7 +14,7 @@ for(let i = 0; i < 50; i++) {
   images[i].albumid = parseInt(Math.random() * albums.length) + 1;
   images[i].title = 'fun times #' + (i + 1);
   images[i].description = 'woooo fun times fun';
-  images[i].url = 'https://picsum.photos/200/300/?random';
+  images[i].url = 'https://picsum.photos/200/300/?image=' + parseInt(Math.random() * 200);
 }
 // console.log('albums', albums, 'images', images);
 
