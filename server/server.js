@@ -12,30 +12,28 @@ const databaseUrl = 'postgres://localhost:5432/galleries';
 const client = new Client(databaseUrl);
 client.connect();
 
-app.get('/api/galleries', (req, res) => {
+app.get('/api/albums', (req, res) => {
 
   client.query(`
     SELECT id,
       title,
-      album_id, 
-      description,
-      url
-    FROM galleries;
+      description
+    FROM albums;
   `)
     .then(result => {
       res.send(result.rows);
     });
 });
 
-app.post('/api/galleries', (req, res) =>{
+app.post('/api/albums', (req, res) =>{
   const body = req.body;
 
   client.query(`
-    INSERT INTO galleries (title, album_id, description, url)
-    VALUES ($1, $2, $3, $4)
+    INSERT INTO albums (title, description)
+    VALUES ($1, $2)
     RETURNING *
   `,
-  [body.title, body.album_id, body.description, body.url]
+  [body.title, body.description]
   ).then(result => {
     res.send(result.row[0]);
   });
@@ -45,7 +43,7 @@ app.post('/api/galleries', (req, res) =>{
 
 // });
 
-app.delete('/api/galleries/:id', (req, res) =>{
+app.delete('/api/albums/:id', (req, res) =>{
   
   client.query(`
     DELETE FROM galleries 

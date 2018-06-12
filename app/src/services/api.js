@@ -2,14 +2,20 @@ const URL = 'http://localhost:3000/api';
 const ALBUMS_URL = `${URL}/albums`;
 //images url?
 
-//getAlbum
-export function getAlbum() {
-
+export function getAlbums() {
+  return fetch(ALBUMS_URL, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => response.json());
 }
 
-//addAlbum
-export function addAlbum() {
-
+export function addAlbum(album) {
+  return fetch(ALBUMS_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(album)
+  })
+    .then(response => response.json());
 }
 
 //updateAlbum

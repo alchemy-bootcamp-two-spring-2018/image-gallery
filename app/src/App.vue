@@ -1,6 +1,16 @@
 <template>
   <div id="app">
-    <h1>App hello</h1>
+    <h1>App Page</h1>
+    <nav>
+      <router-link to="/">Home</router-link>
+      &nbsp;
+      <router-link to="/about">About</router-link>
+      &nbsp;
+      <router-link to="/albums">Albums</router-link>
+    </nav>
+
+    <router-view></router-view>
+
   </div>
 </template>
 
@@ -15,8 +25,10 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1, nav {
+  text-align: center;
 }
 </style>
