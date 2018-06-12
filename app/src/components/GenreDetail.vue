@@ -12,7 +12,7 @@
     <router-view
     :records="genre.records"
     :genre-id="genre.id"
-    :on-Add="handleAdd"
+    :on-add="handleAdd"
     ></router-view>
   </div>
 </template>

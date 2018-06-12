@@ -30,9 +30,9 @@ app.post('/api/records', (req, res) => {
       cover
     ) 
     values ($1, $2, $3, $4, $5)
-    returning *, genre_id as "genreId";
+    returning *;
   `,
-  [body.title, body.genreId, body.artist, body.description, body.cover]
+  [body.title, body.genre_id, body.artist, body.description, body.cover]
   ).then(result => {
     res.send(result.rows[0]);
   });

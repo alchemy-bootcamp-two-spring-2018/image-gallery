@@ -29,6 +29,7 @@
       <input type= "text" name="cover" required
         v-model="record.cover">
       </label>
+      <button type="submit">Add</button>
     </form>
   </section>
   
@@ -52,7 +53,7 @@ export default {
       record: initRecord()
     };
   },
-
+  props: ['onAdd'],
   methods: {
     handleSubmit() {
       this.onAdd(this.record)
