@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 ul {
-  list-style: none;
+  list-style: nguone;
   display: flex;
   flex-direction: row;
   justify-content: center;
