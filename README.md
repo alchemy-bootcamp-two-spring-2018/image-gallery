@@ -19,7 +19,7 @@ A single page app created to learn about using Vue routes. This app allows the u
 * PostgreSQL
 
 ### Authors
-Mariah Adams  Chris Golden
+Mariah Adams & Chris Golden
 
 #### License
 This project is licensed under the MIT License - see the LICENSE.md file for details

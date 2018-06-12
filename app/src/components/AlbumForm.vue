@@ -36,9 +36,9 @@ export default {
   methods: {
     handleSubmit(){
       return this.onChange(this.change)
-      .then(() => {
-        this.change = initAlbum;
-      });
+        .then(() => {
+          this.change = initAlbum;
+        });
     }
   }
 };
