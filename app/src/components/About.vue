@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>List Viewer</h1>
+    <h2> I'm the About Component</h2>
   </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 </style>

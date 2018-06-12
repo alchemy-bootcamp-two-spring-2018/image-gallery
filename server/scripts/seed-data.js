@@ -4,10 +4,10 @@ const albums = require('./albums.json');
 Promise.all(
   albums.map(album => {
     return client.query(`
-      INSERT INTO albums (title)
-      VALUES ($1);
+      INSERT INTO albums (title, description)
+      VALUES ($1, $2);
     `,
-    [album.title]
+    [album.title, album.description]
     ).then(result => result.rows[0]);
   })
 )

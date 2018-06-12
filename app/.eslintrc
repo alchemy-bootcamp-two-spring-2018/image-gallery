@@ -15,9 +15,9 @@
     "browser": true,
     "es6": true
   },
-  "plugins": [
-    "html"
-  ],
+  "settings": {
+    "html/xml-extensions": [".html"]
+  },
   "rules": {
     "eqeqeq": ["error", "always"],
     "no-console": "off",
@@ -28,7 +28,7 @@
           "ignoreEOLComments": true
       }
     ],
-    "no-trailing-spaces": "warn",
+    "no-trailing-spaces": "off",
     "new-cap": "error",
     "no-redeclare": [
       "error",
@@ -43,9 +43,9 @@
     "comma-spacing": "error",
     "space-before-function-paren": ["error", "never"],
     "keyword-spacing": [
-      "error", 
-      { 
-        "before": true, 
+      "error",
+      {
+        "before": true,
         "after": true,
         "overrides": {
           "if": { "after": false },
@@ -53,7 +53,7 @@
           "while": { "after": false },
           "do": { "after": false },
           "switch": { "after": false }
-        } 
+        }
       }
     ],
     "array-bracket-spacing": "error"
