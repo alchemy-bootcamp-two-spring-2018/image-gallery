@@ -2,37 +2,37 @@
     {
         "album_id": 1,
         "title": "London",
-        "description": "Westminster castle at night",
-        "url": ""
+        "description": "Kensington Palace",
+        "url": "europe_2.jpg"
     },
     {
         "album_id": 1,
         "title": "Paris",
-        "description": "The Eiffel Tower at dusk",
-        "url": ""
+        "description": "The Eiffel Tower",
+        "url": "europe_1.jpg"
     },
     {
         "album_id": 2,
-        "title": "Cap and Gown",
-        "description": "Max in his finest.",
-        "url": ""
+        "title": "The Happy Couple",
+        "description": "Max and his date.",
+        "url": "max_2.jpg"
     },
     {
         "album_id": 2,
-        "title": "Max with Family",
-        "description": "The whole gang gets together.",
-        "url": ""
+        "title": "Putting on flowers",
+        "description": "Always a tricky process.",
+        "url": "max_1.jpg"
     },
     {
         "album_id": 3,
         "title": "Birthday Girl",
-        "description": "Smile, grandma!",
-        "url": ""
+        "description": "C'mon and smile, grandma!",
+        "url": "./img/grandma-1.jpg"
     },
     {
         "album_id": 3,
-        "title": "Beautiful Cake",
-        "description": "Aunt Ruth worked for hours!",
-        "url": ""
+        "title": "The family",
+        "description": "Several generations of the family were there",
+        "url": "./img/grandma-2.jpg"
     }
 ]
