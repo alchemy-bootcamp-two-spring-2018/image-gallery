@@ -18,13 +18,14 @@ Promise.all(
         return client.query(`
           INSERT INTO records (
             title,
+            genre_id,
             artist,
             description,
             cover
           )
-          VALUES ($1, $2, $3, $4);
+          VALUES ($1, $2, $3, $4, $5);
         `,
-        [record.title, record.artist, record.description, record.cover]
+        [record.title, record.genre_id, record.artist, record.description, record.cover]
         ).then(result => result.rows[0]);
       })
     );

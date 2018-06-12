@@ -11,7 +11,8 @@ client.query(`
   CREATE TABLE IF NOT EXISTS records (
     id SERIAL PRIMARY KEY,
     title VARCHAR(256),
-    artist VARCHAR(256) NOT NULL,
+    genre_id INTEGER NOT NULL,
+    artist VARCHAR(256),
     description VARCHAR(256),
     cover VARCHAR(512)
   );

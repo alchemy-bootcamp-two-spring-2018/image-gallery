@@ -1,5 +1,5 @@
 [
- { "title": "Fancy", "artist": "Reba", "description": "A record by Reba", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
- { "title": "Rubber Soul", "artist": "The Beatles", "description": "An album by the Beatles", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
- { "title": "Illmatic", "artist": "Nas", "description": "An album by Nas", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" } 
+ { "title": "Fancy", "genre_id": "2", "artist": "Reba", "description": "A record by Reba", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
+ { "title": "Rubber Soul", "genre_id": "1","artist": "The Beatles", "description": "An album by the Beatles", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
+ { "title": "Illmatic", "genre_id": "3","artist": "Nas", "description": "An album by Nas", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" } 
 ]
