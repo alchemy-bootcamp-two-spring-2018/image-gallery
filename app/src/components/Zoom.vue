@@ -21,13 +21,13 @@ export default {
   },
   props: {
     handleZoom: {
-        type: Function,
-        required: true
+      type: Function,
+      required: true
     },
     zimages: Array,
     selectedImage: Number
   }
-}
+};
 </script>
 
 <style scoped>
