@@ -6,6 +6,7 @@
     <router-link to="/albums" class="nav">Albums</router-link>
     <router-link to="/about" class="nav">About</router-link>
     </nav>
+    <hr>
     <router-view></router-view>
 
   </div>
