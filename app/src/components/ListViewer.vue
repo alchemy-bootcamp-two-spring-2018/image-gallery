@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Albums Component</h1>
+    <h1>ListViewer Component</h1>
 
   </div>
 </template>

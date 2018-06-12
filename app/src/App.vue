@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <h1>This is our homepage</h1>
+    <h1>Image Gallery App</h1>
     <nav>
-      <!-- <router-link to="/">Go to Home</router-link> -->
+      <router-link to="/">Go to Home</router-link>
+        &nbsp;
 
       <router-link to="/about">Go to About</router-link>
       &nbsp;
@@ -16,12 +17,19 @@
 
 <script>
 
-
 export default {
-  
+
 };
 </script>
 
 <style>
+
+h1 {
+  text-align: center;
+}
+
+nav {
+  text-align: center;
+}
 
 </style>
