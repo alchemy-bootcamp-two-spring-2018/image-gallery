@@ -66,4 +66,14 @@ export default {
 
 <style>
 
+.record-form {
+  width: 400px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
 </style>
