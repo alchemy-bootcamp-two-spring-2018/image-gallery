@@ -45,7 +45,7 @@ export default {
   props: ['images'],
   methods: {
     handleAdd() {
-      this.newImage.id = this.$route.params.id;
+      this.newImage.albumid = this.$route.params.id;
       return addImage(this.newImage)
         .then((result) => {
           this.images.push(result);

@@ -29,8 +29,11 @@ export default {
   justify-content: space-between;
   text-align: center;
   color: black;
-  margin: 20px auto;
+  margin: 0 auto;
   width: 800px;
+}
+ul {
+  padding: 0;
 }
 li, a {
   background: darkslategray;
@@ -60,6 +63,8 @@ a:focus {
 }
 
 #container-view {
+  border-top-left-radius: 33px;
+  border-top-right-radius: 33px;
   background-color: rgba(0, 0, 0, .69);
 }
 </style>

@@ -7,7 +7,9 @@
       <a @click.prevent="handleNext">Next</a>
     </div>
       <p>{{ images[this.currentImage].title }}</p>
+    <transition mode="in-out" name="fade">
       <img :src="images[this.currentImage].url">
+    </transition>
   </div>
 </template>
 

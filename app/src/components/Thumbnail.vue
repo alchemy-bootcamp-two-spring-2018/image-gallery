@@ -6,11 +6,13 @@
         :key="image.id"
       >
         <a @click.prevent="handleZoom(image.id)">
-          <p>{{ image.title }}</p>
-          <img
-            :src="image.url"
-            :alt="image.title"
-          >
+          <div>
+            <p>{{ image.title }}</p>
+            <img
+              :src="image.url"
+              :alt="image.title"
+            >
+          </div>
         </a>
       </li>
     </ul>
@@ -28,18 +30,24 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 a, a:hover, a:focus {
   border: none;
   padding: none;
   margin: none;
   background: none;
+  padding: 0;
+  margin: 0;
 }
-ul {
+span {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   list-style: none;
+}
+ul {
+  padding: 0 13px;
 }
 li {
   display: inline-block;
