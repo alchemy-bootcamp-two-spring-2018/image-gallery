@@ -7,6 +7,7 @@
             <gallery
               :images="zimages"
               :selectedImage="selectedImage"
+              
             />
         </div>
       </div>
@@ -19,13 +20,21 @@ export default {
   components: {
     Gallery
   },
+  created() {
+    // document.body.addEventListener('keydown', e => {
+    //   if(e.keyCode === 27 && this.zoomed) {
+    //     this.handleZoom();
+    //  }
+    // });
+  },
   props: {
     handleZoom: {
       type: Function,
       required: true
     },
     zimages: Array,
-    selectedImage: Number
+    selectedImage: Number,
+    zoomed: Boolean
   }
 };
 </script>

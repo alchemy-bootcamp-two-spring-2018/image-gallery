@@ -6,6 +6,7 @@
         :handleZoom="handleZoom"
         :selectedImage="selectedImage"
         :zimages="images"
+        :zoomed="zoomed"
       />
     </transition>
     <nav>
@@ -53,7 +54,6 @@ export default {
   },
   methods: {
     handleZoom(image) {
-      console.log('this is the image', image);
       this.zoomed = !this.zoomed;
       this.selectedImage = this.images.findIndex(a => a.id === image);
     }
