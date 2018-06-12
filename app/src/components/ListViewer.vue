@@ -5,8 +5,16 @@
 </template>
 
 <script>
-export default {
 
+
+export default {
+  props: [],
+  data() {
+    //code here
+  },
+  method: {
+
+  }
 };
 </script>
 
