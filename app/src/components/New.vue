@@ -50,7 +50,7 @@ export default {
         .then((result) => {
           this.images.push(result);
           this.newImage = {};
-          document.getElementById("message").textContent = "Image sucessfully added!";
+          document.getElementById('message').textContent = 'Image sucessfully added!';
         });
     }
   }
