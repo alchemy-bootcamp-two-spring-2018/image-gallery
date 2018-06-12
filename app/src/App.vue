@@ -6,7 +6,7 @@
       &nbsp;
       <router-link to="/about">About</router-link>
       &nbsp;
-      <router-link to="/albums">Go to Home</router-link>
+      <router-link to="/albums">Go to Albums</router-link>
     </nav>
 
     <router-view></router-view>

@@ -25,6 +25,16 @@ app.get('/api/albums', (req, res) => {
     });
 });
 
+app.get('/api/images', (req, res) => {
+  client.query(`
+    SELECT * FROM images;
+  `)
+    .then(result => {
+      res.send(result.rows);
+    });
+});
+
+
 app.get('/api/albums/:id', (req, res) => {
   const albumPromise = client.query(`
 
@@ -47,13 +57,14 @@ app.get('/api/albums/:id', (req, res) => {
     });
 });
 
-app.post('/api/albums', (req, res) =>{
+
+app.post('/api/albums', (req, res) => {
   const body = req.body;
 
   client.query(`
     INSERT INTO albums (title, description)
     VALUES ($1, $2)
-    RETURNING *
+    RETURNING *;
   `,
   [body.title, body.description]
   ).then(result => {
@@ -61,9 +72,18 @@ app.post('/api/albums', (req, res) =>{
   });
 });
 
-// app.put('/api/galleries', (req, res) => {
-
-// });
+app.post('api/images', (req, res) => {
+  const body = req.body;
+  client.query(`
+    INSERT INTO images (title, album_id, description, url)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *, album_id as "albumId";
+  `, 
+  [body.title, body.albumId, body.description, body.url]
+  ).then(result =>{
+    res.send(result.rows[0]);
+  });
+});
 
 app.delete('/api/albums/:id', (req, res) =>{
   
@@ -76,9 +96,5 @@ app.delete('/api/albums/:id', (req, res) =>{
     res.send({ removed: true });
   });
 });
-
-//Promise all placeholder
-
-//additional gets?
 
 app.listen(3000, () => console.log('server running...'));
