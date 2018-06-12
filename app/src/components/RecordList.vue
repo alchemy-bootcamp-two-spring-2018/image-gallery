@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h2>This is the list!</h2>
+    <h2>The list component!</h2>
     <ul>
       <li
       v-for="record in records"
       :key="record.id"
-      >{{ record.title}}</li>
+      >{{ record.title }}</li>
     </ul>
   </div>
 </template>

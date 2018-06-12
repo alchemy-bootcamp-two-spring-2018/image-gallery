@@ -5,10 +5,10 @@
       v-for="(record, index) in records"
       :key="record.id"
     >
-      <p>{{ records[index].title }}</p>
       <img 
       :src="records[index].cover"
       >
+      &nbsp;
     </div>
   </div>
 </template>
@@ -21,5 +21,9 @@ export default {
 </script>
 
 <style>
+
+div {
+  display: inline;
+}
 
 </style>
