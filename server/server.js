@@ -7,7 +7,7 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/album_info', (req, res) => {
+app.get('/api/genres', (req, res) => {
 
   client.query(`
     select id,
@@ -16,7 +16,7 @@ app.get('/api/album_info', (req, res) => {
       artist,
       date,
       cover
-    from album_info;
+    from genres;
   `).then(result => {
     res.send(result.rows);
   });
