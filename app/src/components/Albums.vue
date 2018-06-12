@@ -1,5 +1,5 @@
 <template>
-  <div id="albums">
+  <div>
     <h2>
       This is the ALBUMS component
     </h2>
@@ -13,7 +13,5 @@ export default {
 </script>
 
 <style>
-#albums {
-  border: 2px solid blue;
-}
+
 </style>

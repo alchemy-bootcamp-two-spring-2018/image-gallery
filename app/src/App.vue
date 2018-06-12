@@ -1,20 +1,25 @@
 <template>
   <div id="app">
-    <h1>This is the APP component</h1>
-    <p>About</p>
-    <p>Albums</p>
-    <About/>
-    <Albums/>
+    <h1>Photos APP</h1>
+    <nav>
+    <router-link to="/" class="nav">Go Home</router-link>
+    <router-link to="/albums" class="nav">Albums</router-link>
+    <router-link to="/about" class="nav">About</router-link>
+    </nav>
+    <router-view></router-view>
+
   </div>
 </template>
 
 <script>
+import Home from './components/Home';
 import About from './components/About';
 import Albums from './components/Albums';
 
 export default {
   name: 'app',
   components: {
+    Home,
     About,
     Albums
   }
@@ -32,8 +37,7 @@ export default {
   border: 2px solid black;
 }
 
-p {
-  display: inline;
+.nav {
   margin: 10px;
 }
 </style>
