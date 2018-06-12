@@ -13,12 +13,12 @@ client.query(`
     make VARCHAR(256),
     model VARCHAR(256),
     description VARCHAR(256),
-    image_url VARCHAR](256)
+    image_url VARCHAR(256)
   );
 `)
   .then(
     () => console.log('create tables complete'),
-    err => console.log(err)
+    err => console.error(err)
   )
   .then(() => {
     client.end();
