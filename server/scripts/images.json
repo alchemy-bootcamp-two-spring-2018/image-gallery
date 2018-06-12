@@ -3,36 +3,36 @@
         "album_id": 1,
         "title": "London",
         "description": "Kensington Palace",
-        "url": "europe_2.jpg"
+        "url": "http://www.worldwidewalrusweb.com/bc2/europe_2.jpg"
     },
     {
         "album_id": 1,
         "title": "Paris",
         "description": "The Eiffel Tower",
-        "url": "europe_1.jpg"
+        "url": "http://www.worldwidewalrusweb.com/bc2/europe_1.jpg"
     },
     {
         "album_id": 2,
         "title": "The Happy Couple",
         "description": "Max and his date.",
-        "url": "max_2.jpg"
+        "url": "http://www.worldwidewalrusweb.com/bc2/max_2.jpg"
     },
     {
         "album_id": 2,
         "title": "Putting on flowers",
         "description": "Always a tricky process.",
-        "url": "max_1.jpg"
+        "url": "http://www.worldwidewalrusweb.com/bc2/max_1.jpg"
     },
     {
         "album_id": 3,
         "title": "Birthday Girl",
         "description": "C'mon and smile, grandma!",
-        "url": "./img/grandma-1.jpg"
+        "url": "http://www.worldwidewalrusweb.com/bc2/grandma-2.jpg"
     },
     {
         "album_id": 3,
         "title": "The family",
         "description": "Several generations of the family were there",
-        "url": "./img/grandma-2.jpg"
+        "url": "http://www.worldwidewalrusweb.com/bc2/grandma_2.jpg"
     }
 ]

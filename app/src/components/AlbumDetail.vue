@@ -10,14 +10,12 @@
         &nbsp;
         <router-link to="add-image">Add Image</router-link>
       </nav>
-    <router-view />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
 
-}
 </script>
 
 <style>
