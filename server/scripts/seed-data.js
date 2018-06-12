@@ -4,10 +4,10 @@ const seedAlbums = require('./albums.json');
 Promise.all(
   seedAlbums.map(seedAlbum => {
     return client.query(`
-      INSERT INTO genres (genre, album_name, artist, date, cover)
-      VALUES ($1, $2, $3, $4, $5);
+      INSERT INTO genres (genre, title, description)
+      VALUES ($1, $2, $3);
     `,
-    [seedAlbum.genre, seedAlbum.album_name, seedAlbum.artist, seedAlbum.date, seedAlbum.cover]
+    [seedAlbum.genre, seedAlbum.title, seedAlbum.description]
     ).then(result => result.rows[0]);
   })
 )
