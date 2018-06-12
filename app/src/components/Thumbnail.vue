@@ -24,7 +24,6 @@ export default {
     };
   },
   created() {
-    console.log('we are here', this.$route.params);
     getImages(this.$route.params.id)
       .then(image => {
         this.images = image;

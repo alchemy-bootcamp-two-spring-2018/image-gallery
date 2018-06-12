@@ -14,13 +14,11 @@
 </template>
 
 <script>
-import { getAlbums } from '../services/api.js';
-
 export default {
   data() {
     return {
       id: this.$route.params.id
-    }
+    };
   }
 };
 </script>
