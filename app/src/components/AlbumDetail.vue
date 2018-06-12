@@ -1,11 +1,13 @@
 <template>
   <div>
-    <zoom
-      v-if="zoomed"
-      :handleZoom="handleZoom"
-      :selectedImage="selectedImage"
-      :zimages="images"
-    />
+    <transition name="fade">
+      <zoom
+        v-if="zoomed"
+        :handleZoom="handleZoom"
+        :selectedImage="selectedImage"
+        :zimages="images"
+      />
+    </transition>
     <nav>
       <router-link :to="`/albums/${this.$route.params.id}/`">
         Thumbnail View
@@ -24,11 +26,13 @@
       </router-link>
 
     </nav>
-    <router-view
-      v-if="images"
-      :images="images"
-      :handleZoom="handleZoom"
-    />
+    <transition mode="out-in" name="fade">
+      <router-view
+        v-if="images"
+        :images="images"
+        :handleZoom="handleZoom"
+      />
+    </transition>
   </div>
 </template>
 
@@ -49,6 +53,7 @@ export default {
   },
   methods: {
     handleZoom(image) {
+      console.log('this is the image', image);
       this.zoomed = !this.zoomed;
       this.selectedImage = this.images.findIndex(a => a.id === image);
     }
@@ -64,9 +69,23 @@ export default {
 
 <style scoped>
 nav {
-  margin: 13px 0;
+  padding: 23px;
+  margin: 0;
+  background-color: rgba(0, 0, 0, .69);
+  display: flex;
+  justify-content: space-around;
+  border-top-left-radius: 33px;
+  border-top-right-radius: 33px;
+
 }
 nav * {
-  margin: 0 13px;
+  /* margin: 0 13px; */
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
