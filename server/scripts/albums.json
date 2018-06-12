@@ -1,7 +1,8 @@
 [
-    { "title": "album1" },
-    { "title": "album2" },
-    { "title": "album3" },
-    { "title": "album4" }
+    { "title": "album1", "description": "Pokemon caught on day 1" },
+    { "title": "album2", "description": "Pokemon caught on day 2" },
+    { "title": "album3", "description": "Pokemon caught on day 3" },
+    { "title": "album4", "description": "Pokemon caught on day 4" },
+    { "title": "album5", "description": "Pokemon caught on day 5" }
 
 ]
