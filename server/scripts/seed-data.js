@@ -3,16 +3,16 @@ const client = require('../db-client');
 let albums = [];
 let images = [];
 
-for(let i = 0; i < 3; i++) {
+for(let i = 0; i < 5; i++) {
   albums.push({});
-  albums[i].title = 'album #' + i;
+  albums[i].title = 'album #' + (i + 1);
   albums[i].description = 'Description here!';
 }
 
-for(let i = 0; i < 5; i++) {
+for(let i = 0; i < 50; i++) {
   images.push({});
-  images[i].albumid = parseInt(Math.random() * 3) + 1;
-  images[i].title = 'fun times #' + i;
+  images[i].albumid = parseInt(Math.random() * albums.length) + 1;
+  images[i].title = 'fun times #' + (i + 1);
   images[i].description = 'woooo fun times fun';
   images[i].url = 'https://picsum.photos/200/300/?random';
 }

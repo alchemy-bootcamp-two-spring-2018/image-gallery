@@ -6,6 +6,7 @@ import Thumbnail from './components/Thumbnail.vue';
 import Gallery from './components/Gallery.vue';
 import List from './components/List.vue';
 import New from './components/New.vue';
+import AlbumDetail from './components/AlbumDetail.vue';
 
 export default new VueRouter({
   routes: [
@@ -14,6 +15,7 @@ export default new VueRouter({
     { path: '/albums', component: Albums },
     {
       path: '/albums/:id',
+      component: AlbumDetail,
       children: [
         { path: 'thumbnail', component: Thumbnail },
         { path: 'gallery', component: Gallery },
