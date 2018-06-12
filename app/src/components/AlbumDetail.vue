@@ -4,7 +4,7 @@
       <router-link :to="`/albums/${this.$route.params.id}/`">
         Thumbnail View
       </router-link>
-      
+
       <router-link :to="`/albums/${this.$route.params.id}/list`">
         List View
       </router-link>
