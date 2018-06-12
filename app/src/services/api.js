@@ -15,6 +15,16 @@ export function getGenre(id) {
     .then(response => response.json());
 }
 
+export function addRecord(record) {
+  return fetch('http://localhost:3000/api/genres', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(record)
+  })
+    .then(response => response.json());
+
+}
+
 // export function deleteAlbum(id) {
 //   return fetch('http://localhost:3000/api/album_info' + id, {
 //     method: 'DELETE',

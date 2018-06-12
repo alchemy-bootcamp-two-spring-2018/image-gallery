@@ -19,6 +19,24 @@ app.get('/api/genres', (req, res) => {
   });
 });
 
+app.post('/api/records', (req, res) => {
+  const body = req.body;
+  client.query(`
+    insert into records (
+      title,
+      genre_id,
+      artist,
+      description,
+      cover
+    ) 
+    values ($1, $2, $3, $4, $5)
+    returning *, genre_id as "genreId";
+  `,
+  [body.title, body.genreId, body.artist, body.description, body.cover]
+  ).then(result => {
+    res.send(result.rows[0]);
+  });
+});
 
 app.get('/api/genres/:id', (req, res) => {
 
