@@ -15,13 +15,15 @@
 
     <router-view 
       :albumId="album.id"
+      :images="album.images"
     ></router-view>
   
   </div>
 </template>
 
 <script>
-import { getAlbums } from '../services/api';
+import { getAlbum } from '../services/api';
+
 export default {
   data() {
     return {
@@ -29,7 +31,7 @@ export default {
     };
   },
   created() {
-    getAlbums(this.$route.params.id)
+    getAlbum(this.$route.params.id)
       .then(album => {
         this.album = album;
       });

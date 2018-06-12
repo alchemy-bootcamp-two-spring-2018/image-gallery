@@ -11,6 +11,7 @@ client.query(`
         id SERIAL PRIMARY KEY,
         name VARCHAR(256),
         album_id INTEGER NOT NULL REFERENCES albums(id),
+        description VARCHAR(1024),
         url VARCHAR(256)
     );
 `)
