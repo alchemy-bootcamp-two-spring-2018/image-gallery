@@ -9,6 +9,8 @@
       <router-link :to="`/albums/${decade.id}/gallery`">Gallery</router-link>
       &nbsp;
       <router-link :to="`/albums/${decade.id}/thumbnail`">Thumbnail</router-link>
+      &nbsp;
+      <router-link :to="`/albums/${decade.id}/new`">New Image</router-link>
       
     </nav>
 
