@@ -1,6 +1,10 @@
 <template>
   <div id="albums">
     <h2>This is the Albums component</h2>
+    <nav>
+      <router-link to="add-album">Add Album</router-link>
+      <router-view/>
+    </nav>
     <ul v-if="albums !== null">
       <li
         v-for="album in albums"
