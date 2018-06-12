@@ -4,7 +4,7 @@
       v-if="zoomed"
       :handleZoom="handleZoom"
       :selectedImage="selectedImage"
-      :images="images"
+      :zimages="images"
     />
     <nav>
       <router-link :to="`/albums/${this.$route.params.id}/`">
@@ -50,7 +50,7 @@ export default {
   methods: {
     handleZoom(image) {
       this.zoomed = !this.zoomed;
-      this.selectedImage = image;
+      this.selectedImage = this.images.findIndex(a => a.id === image);
     }
   },
   created() {

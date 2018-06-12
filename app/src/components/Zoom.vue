@@ -1,16 +1,15 @@
 <template>
     <div>
       <div id="zoom-main"
-        @click.prevent="handleZoom"
+        @click.self="handleZoom"
       >
         <div id="container-zoom">
             <gallery
-              :images="images"
-              :selectedImage="handleImage()"
+              :images="zimages"
+              :selectedImage="selectedImage"
             />
         </div>
       </div>
-      <!-- {{ images }} -->
     </div>
 </template>
 
@@ -25,15 +24,8 @@ export default {
         type: Function,
         required: true
     },
-    images: Array,
+    zimages: Array,
     selectedImage: Number
-  },
-  methods: {
-    handleImage() {
-      console.log('images', images);
-      // console.log('this is sparta!!!!', this.images.findIndex(a => a.id === this.selectedImage));
-      // return this.images.findIndex(a => a.id === this.selectedImage);
-    }
   }
 }
 </script>
@@ -52,7 +44,7 @@ export default {
   background: rgba(0, 0, 0, .69);
   width: 100%;
   height: 100%;
-  z-index: 99;
+  z-index: 0;
 }
 
 #container-zoom {
@@ -66,6 +58,7 @@ export default {
     align-content: center;
     justify-content: space-around;
     align-items: center;
+    z-index: 1;
 }
 
 h1 {

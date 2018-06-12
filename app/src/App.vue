@@ -4,9 +4,9 @@
     <nav>
       <router-link to="/">Home</router-link>
       &nbsp;
-      <router-link to="/albums">Anal bum covers</router-link>
+      <router-link to="/albums">Albums</router-link>
       &nbsp;
-      <router-link to="/about">Aboot</router-link>
+      <router-link to="/about">About</router-link>
     </nav>
 
     <router-view></router-view>

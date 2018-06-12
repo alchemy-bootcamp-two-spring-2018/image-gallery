@@ -5,11 +5,13 @@
         v-for="image in images"
         :key="image.id"
       >
-        <p>{{ image.title }}</p>
-        <img
-          :src="image.url"
-          :alt="image.title"
-        >
+        <a @click.prevent="handleZoom(image.id)">
+          <p>{{ image.title }}</p>
+          <img
+            :src="image.url"
+            :alt="image.title"
+          >
+        </a>
       </li>
     </ul>
   </div>
@@ -17,10 +19,23 @@
 
 <script>
 export default {
-  props: ['images']
+  props: {
+    images: Array,
+    handleZoom: {
+      type: Function,
+      required: true
+    }
+  }
 };
 </script>
 <style scoped>
+a, a:hover, a:focus {
+  border: none;
+  padding: none;
+  margin: none;
+  background: none;
+  color: black;
+}
 ul {
   list-style: none;
 }
