@@ -7,8 +7,25 @@
       <a @click.prevent="handleNext">Next</a>
     </div>
       <p>{{ images[this.currentImage].title }}</p>
-    <transition mode="in-out" name="fade">
-      <img :src="images[this.currentImage].url">
+    <transition
+      v-if="isNext"
+      mode="out-in"
+      name="slide-fade-next"
+    >
+      <img
+        :key="images[this.currentImage].id"
+        :src="images[this.currentImage].url"
+      >
+    </transition>
+    <transition
+      v-else
+      mode="out-in"
+      name="slide-fade-prev"
+    >
+      <img
+        :key="images[this.currentImage].id"
+        :src="images[this.currentImage].url"
+      >
     </transition>
   </div>
 </template>
@@ -18,18 +35,21 @@ export default {
   props: ['images', 'selectedImage'],
   data() {
     return {
-      currentImage: 0
+      currentImage: 0,
+      isNext: true
     };
   },
   methods: {
     handlePrevious() {
       if(this.currentImage > 0) {
         this.currentImage--;
+        this.isNext = false;
       }
     },
     handleNext() {
       if(this.currentImage < this.images.length - 1) {
         this.currentImage++;
+        this.isNext = true;
       }
     }
   },
@@ -72,4 +92,27 @@ li {
 img {
   width: 100%;
 }
+
+/* .fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+} */
+
+.slide-fade-prev-enter-active, .slide-fade-next-enter-active {
+  transition: all .1s ease;
+}
+.slide-fade-prev-leave-active, .slide-fade-next-leave-active {
+  transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-next-enter, .slide-fade-prev-leave-to {
+  transform: translateX(200px);
+  opacity: 0;
+}
+.slide-fade-next-leave-to, .slide-fade-prev-enter {
+  transform: translateX(-200px);
+  opacity: 0;
+}
+
 </style>
