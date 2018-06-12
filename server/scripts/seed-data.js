@@ -22,11 +22,12 @@ Promise.all(
             INSERT INTO images (
             name,
             album_id,
+            description,
             url
             )
-            VALUES ($1, $2, $3);
+            VALUES ($1, $2, $3, $4);
         `,
-        [images.name, images.album_id, images.url]
+        [images.name, images.album_id, images.description, images.url]
         ).then(result => result.rows[0]);
       })
     );

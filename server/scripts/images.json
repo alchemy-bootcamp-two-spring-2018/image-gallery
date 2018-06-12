@@ -2,51 +2,61 @@
     {
        "name": "image1",
        "album_id": 1,
+       "description": "pokemon caught on day 1",
        "url": "http://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
     },
     {
         "name": "image2",
         "album_id": 2,
+        "description": "pokemon caught on day 2",
         "url": "http://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png"
     },
     {
         "name": "image3",
         "album_id": 3,
+        "description": "pokemon caught on day 3",
         "url": "http://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png"
     },
     {
         "name": "image4",
         "album_id": 4,
+        "description": "pokemon caught on day 4",
         "url": "http://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"
     },
     {
         "name": "image5",
         "album_id": 1,
+        "description": "pokemon caught on day 1",
         "url": "http://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png"
      },
      {
          "name": "image6",
          "album_id": 2,
+         "description": "pokemon caught on day 2",
          "url": "http://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png"
      },
      {
          "name": "image7",
          "album_id": 3,
+         "description": "pokemon caught on day 3",
          "url": "http://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"
      },
      {
          "name": "image8",
          "album_id": 4,
+         "description": "pokemon caught on day 4",
          "url": "http://assets.pokemon.com/assets/cms2/img/pokedex/full/008.png"
      },
      {
         "name": "image9",
         "album_id": 5,
+        "description": "pokemon caught on day 5",
         "url": "http://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png"
     },
     {
         "name": "image10",
         "album_id": 5,
+        "description": "pokemon caught on day 5",
         "url": "http://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png"
     }
 ]

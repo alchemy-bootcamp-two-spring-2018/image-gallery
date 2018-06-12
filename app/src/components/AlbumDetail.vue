@@ -22,6 +22,8 @@
 
 <script>
 import { getAlbums } from '../services/api';
+// import { getImages } from '../services/api';
+
 export default {
   data() {
     return {

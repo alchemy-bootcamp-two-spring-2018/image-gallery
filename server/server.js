@@ -34,30 +34,38 @@ app.get('/api/images', (req, res) => {
     });
 });
 
-//   const imagesPromise = client.query(`
-//     select id, title, album_id
-//     from images
-//     where album_id = $1;
-//   `,
-//   [req.params.id]);
+app.get('/api/albums/:id', (req, res) => {
 
-// Promise.all([albumPromise, imagesPromise])
-//   .then(results => {
-//     const albumResult = results[0];
-//     const imagesResult = results[1];
+  const albumPromise = client.query(`
+    select id, title, description
+    from albums
+    where albums.id = $1;
+  `,
+  [req.params.id]);
 
-//     if(albumResult.rows.length === 0) {
-//       res.sendStatus(404);
-//       return;
-//     }
+  const imagesPromise = client.query(`
+    select id, name, description, url
+    from images
+    where album_id = $1;
+  `,
+  [req.params.id]);
 
-//     const album = albumResult.rows[0];
-//     const images = imagesResult.rows;
+  Promise.all([albumPromise, imagesPromise])
+    .then(promiseValues => {
+      const albumResult = promiseValues[0];
+      const imagesResult = promiseValues[1];
 
-//     album.images = images;
+      if(albumResult.rows.length === 0) {
+        res.sendStatus(404);
+        return;
+      }
 
-//     res.send(album);
-//   });
+      const album = albumResult.rows[0];
+      const images = imagesResult.rows;
+      album.images = images;
 
+      res.send(album);
+    });
+});
 
 app.listen(3000, () => console.log('app is running...'));
