@@ -10,16 +10,20 @@ Promise.all(
     `,
     [albums.title, albums.description]
     ).then(result => result.rows[0]);
-  }),
-  images.map(images => {
-    return client.query(`
-    INSERT INTO images (album_id, title, description, url)
-    VALUES ($1, $2, $3, $4);
-    `,
-    [images.album_id, images.title, images.description, images.url]
-    ).then(result => result.rows[0]);
   })
 )
+  .then(() => {
+    return Promise.all(
+      images.map(images => {
+        return client.query(`
+        INSERT INTO images (album_id, title, description, url)
+        VALUES ($1, $2, $3, $4);
+        `,
+        [images.album_id, images.title, images.description, images.url]
+        ).then(result => result.rows[0]);
+    })
+  );
+})
   .then(
     () => console.log('seed data load was successful'),
     err => console.log(err)
