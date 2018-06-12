@@ -4,7 +4,9 @@ const app = express();
 const client = require('./db-client');
 
 const cors = require('cors');
+const morgan = require('morgan');
 app.use(cors());
+app.use(morgan());
 app.use(express.json());
 
 app.get('/api/genres', (req, res) => {

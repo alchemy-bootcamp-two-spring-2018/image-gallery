@@ -11,7 +11,7 @@
     </nav>
     <router-view
     :records="genre.records"
-    :genreId="genre.id"
+    :genre-id="genre.id"
     ></router-view>
   </div>
 </template>
