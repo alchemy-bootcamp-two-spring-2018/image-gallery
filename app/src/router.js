@@ -2,7 +2,9 @@ import VueRouter from 'vue-router';
 import Home from './components/Home.vue';
 import About from './components/About.vue';
 import Albums from './components/Albums.vue';
-import DecadesList from './components/DecadesList.vue';
+import AlbumDetail from './components/AlbumDetail.vue';
+import ListViewer from './components/ListViewer.vue';
+import NewImage from './components/NewImage.vue';
 
 
 export default new VueRouter({
@@ -12,9 +14,10 @@ export default new VueRouter({
     { path: '/albums', component: Albums },
     {
       path: '/albums/:id',
-
+      component: AlbumDetail,
       children: [
-        { path: 'list', component: DecadesList },
+        { path: 'list', component: ListViewer },
+        { path: 'new', component: NewImage },
         // Add 'new' component here
         { path: '', redirect: 'list' }
       ]
