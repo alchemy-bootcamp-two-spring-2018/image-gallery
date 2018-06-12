@@ -32,7 +32,7 @@ function deleteImage(id) {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(res => res);
+    .then(res => res.json());
 }
 
 function deleteAlbums(id) {
@@ -40,5 +40,5 @@ function deleteAlbums(id) {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(res => res);
+    .then(res => res.json());
 }

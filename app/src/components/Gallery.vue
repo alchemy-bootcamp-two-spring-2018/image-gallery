@@ -28,6 +28,7 @@
         :src="images[this.currentImage].url"
       >
     </transition>
+    {{ images }}
   </div>
 </template>
 
@@ -59,7 +60,9 @@ export default {
       deleteImage(this.images[this.currentImage].id)
         .then(res => {
           if(res.removed) {
-            this.images.splice(this.images[this.currentImage], 1);
+            // this.images.splice(this.images[this.currentImage], 1); // remove image from the server
+            this.images.splice(this.images.findIndex(a => a.id === this.images[this.currentImage].id), 1); // remove image from server AND client
+            // this.images.splice(this.images.indexOf(this.images[this.currentImage]), 1); // another way of removing image
           }
         });
     }
