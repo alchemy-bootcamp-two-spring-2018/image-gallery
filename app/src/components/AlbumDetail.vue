@@ -13,15 +13,13 @@
     </nav>
 
     <router-view
-      v-for="image in images" 
-      :key="image.id" 
       :images="images"
     ></router-view>
   </div>
 </template>
 
 <script>
-import { getAlbum, getImages } from '../services/api';
+import { getAlbum } from '../services/api';
 
 export default {
   data() {
@@ -34,10 +32,7 @@ export default {
     getAlbum(this.$route.params.id)
       .then(album => {
         this.album = album;
-      }),
-    getImages(this.$route.params.id)
-      .then(images => {
-        this.images = images;
+        this.images = album.images;
       });
   }
 };
