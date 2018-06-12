@@ -1,18 +1,37 @@
 const client = require('../db-client');
-const seedAlbums = require('./albums.json');
+const records = require('./records.json');
+const genres = require('./genres.json');
 
 Promise.all(
-  seedAlbums.map(seedAlbum => {
-    return client.query(`
-      INSERT INTO genres (genre, title, description)
-      VALUES ($1, $2, $3);
-    `,
-    [seedAlbum.genre, seedAlbum.title, seedAlbum.description]
+  genres.map(genre => {
+    return client.query(` 
+      INSERT INTO genres (title, description)
+      VALUES ($1, $2);
+      `,
+    [genre.title, genre.description]
     ).then(result => result.rows[0]);
   })
 )
+  .then(() => {
+    return Promise.all(
+      records.map(record => {
+        return client.query(`
+          INSERT INTO records (
+            title,
+            genre_id,
+            artist,
+            description,
+            cover
+          )
+          VALUES ($1, $2, $3, $4, $5);
+        `,
+        [record.title, record.genre_id, record.artist, record.description, record.cover]
+        ).then(result => result.rows[0]);
+      })
+    );
+  })
   .then(
-    () => console.log('seed albums success'),
+    () => console.log('seed data load successful'),
     err => console.error(err)
   )
   .then(() => client.end());

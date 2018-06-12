@@ -1,0 +1,7 @@
+[
+ { "title": "Fancy", "genre_id": "2", "artist": "Reba", "description": "A record by Reba", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
+ { "title": "Rubber Soul", "genre_id": "1","artist": "The Beatles", "description": "An album by the Beatles", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Rubber_Soul.jpg/220px-Rubber_Soul.jpg" },
+ { "title": "Illmatic", "genre_id": "3","artist": "Nas", "description": "An album by Nas", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/NasIllmatic.jpg/220px-NasIllmatic.jpg" },
+ { "title": "Physical Graffiti", "genre_id": "1","artist": "Led Zeppelin", "description": "An album by Led Zeppelin", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Led_Zeppelin_-_Physical_Graffiti.jpg/220px-Led_Zeppelin_-_Physical_Graffiti.jpg" },
+ { "title": "To Pimp a Butterfly", "genre_id": "3","artist": "Kendrick Lamar", "description": "An album by Kendrick Lamar", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Kendrick_Lamar_-_To_Pimp_a_Butterfly.png/220px-Kendrick_Lamar_-_To_Pimp_a_Butterfly.png" } 
+]
