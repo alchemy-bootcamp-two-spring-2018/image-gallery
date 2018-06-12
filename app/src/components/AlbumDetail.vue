@@ -11,21 +11,28 @@
         &nbsp;
       <router-link to="newImage">Add Image</router-link>
     </nav>
+
+    <router-view
+      :images="images"
+    ></router-view>
   </div>
 </template>
 
 <script>
 import { getAlbum } from '../services/api';
+
 export default {
   data() {
     return {
-      album: null
+      album: null,
+      images: null
     };
   },
   created() {
     getAlbum(this.$route.params.id)
       .then(album => {
         this.album = album;
+        this.images = album.images;
       });
   }
 };
