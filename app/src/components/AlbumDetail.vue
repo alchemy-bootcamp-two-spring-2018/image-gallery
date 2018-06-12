@@ -2,6 +2,15 @@
   <div v-if="album !== null">
     <h2>{{ album.title }}</h2>
     <h3>{{ album.description }}</h3>
+    <nav>
+      <router-link to="list">View as List</router-link>
+      &nbsp;
+      <router-link to="thumbnail">View as Thumbnail</router-link>
+      &nbsp;
+      <router-link to="gallery">View as Gallery</router-link>
+        &nbsp;
+      <router-link to="newImage">Add Image</router-link>
+    </nav>
   </div>
 </template>
 

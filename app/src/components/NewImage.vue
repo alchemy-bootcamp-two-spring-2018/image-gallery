@@ -1,13 +1,13 @@
 <template>
   <div>
-    <!-- placeholder -->
+    <h1> New Image Component </h1>
   </div>
 </template>
 
 <script>
 export default {
 
-}
+};
 </script>
 
 <style>
