@@ -5,6 +5,11 @@
 
     <nav>
       <router-link :to="`/albums/${decade.id}/list`">List</router-link>
+      &nbsp;
+      <router-link :to="`/albums/${decade.id}/gallery`">Gallery</router-link>
+      &nbsp;
+      <router-link :to="`/albums/${decade.id}/thumbnail`">Thumbnail</router-link>
+      
     </nav>
 
     <router-view 
