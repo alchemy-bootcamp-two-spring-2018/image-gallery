@@ -6,9 +6,9 @@
 
 <script>
 export default {
-    
+  props: ['albums']
 
-}
+};
 </script>
 
 <style>

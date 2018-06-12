@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div v-if="album !== null">
     <h2>Album detail</h2>
  
-    <!-- <nav>
+    <nav>
         <router-link :to="`/albums/${album.id}/list`">list</router-link>
         &nbsp;
         <router-link :to="`/albums/${album.id}/thumbnail`">thumbnail</router-link>
@@ -11,18 +11,17 @@
         &nbsp;
         <router-link :to="`/albums/${album.id}/gallery`">gallery</router-link>
       
-    </nav> -->
+    </nav>
 
-    <!-- <router-view 
-      :images="album.images"
+    <router-view 
       :albumId="album.id"
-    ></router-view> -->
+    ></router-view>
   
   </div>
 </template>
 
 <script>
-import { getAlbum } from '../services/api';
+import { getAlbums } from '../services/api';
 export default {
   data() {
     return {
@@ -30,7 +29,7 @@ export default {
     };
   },
   created() {
-    getAlbum(this.$route.params.id)
+    getAlbums(this.$route.params.id)
       .then(album => {
         this.album = album;
       });
