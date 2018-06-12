@@ -1,14 +1,38 @@
 <template>
-  <div>
+  <div v-if="decade">
     <h1>AlbumDetail Component</h1>
+    <h2>{{ decade.description }}</h2>
 
+    <nav>
+      <router-link :to="`/decades/${quadrant.id}/list`">List</router-link>
+    </nav>
+
+    <router-view 
+      :cars="decade.images"
+      :decadeId="decade.id"
+    >
+    </router-view>
   </div>
 </template>
 
 <script>
-export default {
+import { getDecade } from '../services/api';
 
-}
+export default {
+  data() {
+    return {
+      decade: null
+    };
+  },
+
+  created() {
+    getDecade(this.$route.params.id)
+      .then(decade => {
+        this.decade = decade;
+      });
+  }
+
+};
 </script>
 
 <style>

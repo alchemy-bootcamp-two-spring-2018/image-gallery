@@ -22,4 +22,4 @@ client.query(`
   )
   .then(() => {
     client.end();
-  })
+  });
