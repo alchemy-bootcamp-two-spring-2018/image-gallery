@@ -55,7 +55,7 @@ export default {
     handleSubmit() {
         return addImage(this.image)
         .then(() => {
-          //this.image = emptyProgram();
+          this.$router.push(`/albums/${this.image.albumId}`);
         });
     },
     handleCancel() {
