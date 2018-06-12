@@ -11,11 +11,15 @@
         </router-link>
       </li>
     </ul>
+    <AlbumForm
+      :onChange="handleAdd"
+    />
   </div>
 </template>
 
 <script>
-import { getAlbums } from '../services/api';
+import AlbumForm from './AlbumForm';
+import { getAlbums, addAlbum } from '../services/api';
 
 export default {
   data() {
@@ -28,6 +32,18 @@ export default {
       .then(albumlist => {
         this.albums = albumlist;
       });
+  },
+  components: {
+    AlbumForm
+  },
+  methods: {
+    handleAdd(album) {
+      return addAlbum(album)
+        .then(saved => {
+          this.albums.push(saved);
+          this.$router.push(`/albums/${saved.id}`);
+        });
+    }
   }
 };
 

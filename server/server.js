@@ -35,7 +35,7 @@ app.post('/api/albums', (req, res) =>{
   `,
   [body.title, body.description]
   ).then(result => {
-    res.send(result.row[0]);
+    res.send(result.rows[0]);
   });
 });
 
