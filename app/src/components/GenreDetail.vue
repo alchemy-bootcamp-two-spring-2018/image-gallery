@@ -9,7 +9,10 @@
       &nbsp;
       <router-link :to="`/genres/${genre.id}/new`">add a new album</router-link>
     </nav>
-    <router-view></router-view>
+    <router-view
+    :records="genre.records"
+    :genreId="genre.id"
+    ></router-view>
   </div>
 </template>
 
