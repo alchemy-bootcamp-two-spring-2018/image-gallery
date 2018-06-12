@@ -18,7 +18,6 @@ app.get('/api/albums', (req, res) => {
   `).then(result => {
     res.send(result.rows);
   });
-
 });
 
 // app.post('/api/neighborhoods', (req, res) => {
@@ -91,18 +90,18 @@ app.get('/api/images/:id', (req, res) => {
 //     });
 // });
 
-// app.post('/api/restaurants', (req, res) => {
-//   const body = req.body;
+app.post('/api/images', (req, res) => {
+  const body = req.body;
 
-//   client.query(`
-//     insert into restaurants (name, cuisine, neighborhood_id)
-//     values ($1, $2, $3)
-//     returning *, neighborhood_id as "neighborhoodId";
-//   `,
-//   [body.name, body.cuisine, body.neighborhoodId])
-//     .then(result => {
-//       res.send(result.rows[0]);
-//     });
-// });
+  client.query(`
+    INSERT INTO images (title, description, albumid, url)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *;
+  `,
+  [body.title, body.description, body.albumid, body.url])
+    .then(result => {
+      res.send(result.rows[0]);
+    });
+});
 
 app.listen(3000, () => console.log('server running...'));
