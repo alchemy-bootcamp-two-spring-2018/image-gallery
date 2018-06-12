@@ -8,19 +8,18 @@ A single page app created to learn about using Vue routes. This app allows the u
 ### Installing
 * Fork repository, clone locally, navigate to repository directory,
 * Download all the files,
-<!-- Add more detailed step=-by-step instructions here on what to download -->
 * Launch app in Vue,
 * Start server with npm on local host.
+<!-- Add more detailed step=-by-step instructions here on what to download -->
 
 ### Built With
-Vue.js 
-Vue Router
-Express.js
-PostgreSQL
+* Vue.js 
+* Vue Router
+* Express.js
+* PostgreSQL
 
 ### Authors
-Mariah Adams
-Chris Golden
+Mariah Adams  Chris Golden
 
 #### License
 This project is licensed under the MIT License - see the LICENSE.md file for details
