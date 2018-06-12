@@ -65,6 +65,16 @@ app.delete('/api/albums/:id', (req, res) => {
   });
 });
 
+app.delete('/api/images/:id', (req, res) => {
+  client.query(`
+    DELETE FROM images WHERE id=$1;
+  `,
+  [req.params.id]
+  ).then(() => {
+    res.send({ removed: true });
+  });
+});
+
 app.get('/api/images/:id', (req, res) => {
   client.query(`
     SELECT * FROM images

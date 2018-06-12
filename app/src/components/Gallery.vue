@@ -4,6 +4,7 @@
   >
     <div id="container-sub">
       <a @click.prevent="handlePrevious">Previous</a>
+      <a @click.prevent="handleDelete">Delete</a>
       <a @click.prevent="handleNext">Next</a>
     </div>
       <p>{{ images[this.currentImage].title }}</p>
@@ -31,6 +32,8 @@
 </template>
 
 <script>
+import { deleteImage } from '../services/api.js';
+
 export default {
   props: ['images', 'selectedImage'],
   data() {
@@ -51,6 +54,14 @@ export default {
         this.currentImage++;
         this.isNext = true;
       }
+    },
+    handleDelete() {
+      deleteImage(this.images[this.currentImage].id)
+        .then(res => {
+          if(res.removed) {
+            this.images.splice(this.images[this.currentImage], 1);
+          }
+        });
     }
   },
   created() {
@@ -101,10 +112,10 @@ img {
 } */
 
 .slide-fade-prev-enter-active, .slide-fade-next-enter-active {
-  transition: all .1s ease;
+  transition: all .3s ease;
 }
 .slide-fade-prev-leave-active, .slide-fade-next-leave-active {
-  transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .slide-fade-next-enter, .slide-fade-prev-leave-to {
   transform: translateX(200px);
