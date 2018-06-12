@@ -6,7 +6,7 @@
       &nbsp;
       <router-link to ="/about">Go to About</router-link>
       &nbsp;
-      <router-link to ="/albums">List of Albums</router-link>
+      <router-link to ="/genres">List of Genres</router-link>
     </nav>
 
     <router-view></router-view>
