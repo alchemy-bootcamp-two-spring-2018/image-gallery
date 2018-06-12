@@ -9,7 +9,9 @@
       <router-link to="/about">About</router-link>
     </nav>
 
-    <router-view></router-view>
+    <div id="container-view">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 <script>
@@ -22,11 +24,17 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: black;
+  margin: 20px auto;
+  width: 800px;
 }
-
+li, a {
+  background: darkslategray;
+}
 nav {
   margin: 33px 0;
 }
@@ -34,7 +42,7 @@ nav {
 a {
   cursor: pointer;
   text-decoration: none;
-  color: black;
+  color: white;
   padding: 6px;
   border-top: 2px solid gray;
   border-right: 2px solid black;
@@ -48,8 +56,10 @@ a:hover {
 }
 
 a:focus {
-  background: gray;
+  background: black;
 }
 
-
+#container-view {
+  background-color: rgba(0, 0, 0, .69);
+}
 </style>

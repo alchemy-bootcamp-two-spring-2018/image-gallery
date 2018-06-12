@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="container-thumb">
     <ul>
       <li
         v-for="image in images"
@@ -34,9 +34,11 @@ a, a:hover, a:focus {
   padding: none;
   margin: none;
   background: none;
-  color: black;
 }
 ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   list-style: none;
 }
 li {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="container-add">
     <h4>Add a new image</h4>
     <form @submit.prevent="handleAdd">
       <label>
@@ -59,6 +59,19 @@ export default {
 </script>
 
 <style scoped>
+#container-add {
+  color: white;
+}
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+}
+form * {
+  margin: 3px 0;
+}
 img {
   width: 200px;
   height: auto;

@@ -33,8 +33,11 @@ export default {
 <style scoped>
 ul {
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 li {
-  padding: 6px;
+  margin: 6px;
 }
 </style>
