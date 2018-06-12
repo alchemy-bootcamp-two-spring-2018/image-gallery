@@ -1,0 +1,27 @@
+[
+  {
+    "album_id": 1,
+    "title": "Bonzai",
+    "description": "A lovable butler cat",
+    "url": "https://i.imgur.com/Nzg44ix.jpg"
+  },
+  {
+    "album_id": 1,
+    "title": "Lola",
+    "description": "Devil's minion",
+    "url": "https://i.imgur.com/F3rJ4IM.jpg"
+  },
+  {
+    "album_id": 2,
+    "title": "Puchungo",
+    "description": "Portland's cutest",
+    "url": "https://i.imgur.com/nJFrJf1.jpg"
+  },
+  {
+    "album_id": 2,
+    "title": "Seymour",
+    "description": "A cool corgi from Vancouver BC",
+    "url": "https://i.imgur.com/FEGaX1S.jpg"
+  }
+
+]
