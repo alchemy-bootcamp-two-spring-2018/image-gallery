@@ -49,9 +49,9 @@ app.get('/api/decades/:id', (req, res) => {
       decade,
       description
     FROM car_decades
-    WHERE decades.id = $1;
-  `)
-  [req.params.id];
+    WHERE car_decades.id = $1;
+  `,
+  [req.params.id]);
 
   const imagesPromise = client.query(`
     SELECT id,
@@ -61,8 +61,8 @@ app.get('/api/decades/:id', (req, res) => {
     image_url as "imageUrl"
     FROM car_images
     WHERE decade_id = $1;
-  `)
-  [req.params.id];
+  `,
+  [req.params.id]);
 
   Promise.all([decadePromise, imagesPromise])
     .then(results => {
