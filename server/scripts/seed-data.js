@@ -5,10 +5,13 @@ const images = require('./images.json');
 Promise.all(
   albums.map(album => {
     return client.query(`
-        INSERT INTO albums (title)
-        VALUES ($1);
+        INSERT INTO albums (
+        title,
+        description
+        )
+        VALUES ($1, $2);
     `,
-    [album.title]
+    [album.title, album.description]
     ).then(result => result.rows[0]);
   })
 )
@@ -17,12 +20,13 @@ Promise.all(
       images.map(images => {
         return client.query(`
             INSERT INTO images (
-            title,
-            album_id
+            name,
+            album_id,
+            url
             )
-            VALUES ($1, $2);
+            VALUES ($1, $2, $3);
         `,
-        [images.title, images.album_id]
+        [images.name, images.album_id, images.url]
         ).then(result => result.rows[0]);
       })
     );
