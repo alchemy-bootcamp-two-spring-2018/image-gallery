@@ -4,7 +4,7 @@
     <h2>{{ decade.description }}</h2>
 
     <nav>
-      <router-link :to="`/decades/${quadrant.id}/list`">List</router-link>
+      <router-link :to="`/albums/${decade.id}/list`">List</router-link>
     </nav>
 
     <router-view 
