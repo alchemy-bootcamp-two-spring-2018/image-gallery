@@ -1,5 +1,7 @@
 [
  { "title": "Fancy", "genre_id": "2", "artist": "Reba", "description": "A record by Reba", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
  { "title": "Rubber Soul", "genre_id": "1","artist": "The Beatles", "description": "An album by the Beatles", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
- { "title": "Illmatic", "genre_id": "3","artist": "Nas", "description": "An album by Nas", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" } 
+ { "title": "Illmatic", "genre_id": "3","artist": "Nas", "description": "An album by Nas", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
+ { "title": "Physical Graffiti", "genre_id": "1","artist": "Led Zeppelin", "description": "An album by Led Zeppelin", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
+ { "title": "To Pimp a Butterfly", "genre_id": "3","artist": "Kendrick Lamar", "description": "An album by Kendrick Lamar", "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" } 
 ]

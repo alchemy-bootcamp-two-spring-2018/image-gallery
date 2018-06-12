@@ -41,9 +41,9 @@ app.get('/api/genres/:id', (req, res) => {
   [req.params.id]);
 
   Promise.all([genrePromise, recordsPromise])
-    .then(results => {
-      const genreResult = results[0];
-      const recordsResult = results[1];
+    .then(promiseValues => {
+      const genreResult = promiseValues[0];
+      const recordsResult = promiseValues[1];
 
       if(genreResult.rows.length === 0) {
         res.sendStatus(404);

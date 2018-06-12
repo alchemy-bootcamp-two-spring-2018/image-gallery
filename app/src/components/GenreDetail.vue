@@ -31,7 +31,6 @@ export default {
         this.genre = genre;
       })
   }
-
 }
 </script>
 
