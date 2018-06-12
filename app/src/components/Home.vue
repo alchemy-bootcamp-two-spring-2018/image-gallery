@@ -1,10 +1,10 @@
 <template>
   <div>
     <h2>
-      This is the ABOUT component
+      Welcome to our home page!
     </h2>
 
-    <p>This is the ABOUT HTML body and other text</p>
+    <img src="../assets/home_bg.jpg">
   </div>
 </template>
 
