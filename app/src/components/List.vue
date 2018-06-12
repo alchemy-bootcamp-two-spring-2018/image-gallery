@@ -5,7 +5,7 @@
         v-for="image in images"
         :key="image.id"
       >
-        <div>{{ image.title }}</div>
+        <a @click.prevent="handleZoom(image.id)">{{ image.title }}</a>
       </li>
     </ul>
   </div>
@@ -13,11 +13,20 @@
 
 <script>
 export default {
-  props: ['images']
+  props: {
+    images: Array,
+    handleZoom: {
+      type: Function,
+      required: true
+    }
+  }
 };
 </script>
 <style scoped>
 ul {
   list-style: none;
+}
+li {
+  padding: 13px 0;
 }
 </style>

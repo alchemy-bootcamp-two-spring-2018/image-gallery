@@ -1,5 +1,11 @@
 <template>
   <div>
+    <zoom
+      v-if="zoomed"
+      :handleZoom="handleZoom"
+      :selectedImage="selectedImage"
+      :images="images"
+    />
     <nav>
       <router-link :to="`/albums/${this.$route.params.id}/`">
         Thumbnail View
@@ -18,18 +24,34 @@
       </router-link>
 
     </nav>
-    <router-view :images="images"></router-view>
+    <router-view
+      v-if="images"
+      :images="images"
+      :handleZoom="handleZoom"
+    />
   </div>
 </template>
 
 <script>
+import Zoom from './Zoom.vue';
 import { getImages } from '../services/api';
 export default {
   data() {
     return {
       id: this.$route.params.id,
-      images: null
+      images: null,
+      zoomed: false,
+      selectedImage: null
     };
+  },
+  components: {
+    Zoom
+  },
+  methods: {
+    handleZoom(image) {
+      this.zoomed = !this.zoomed;
+      this.selectedImage = image;
+    }
   },
   created() {
     getImages(this.$route.params.id)
