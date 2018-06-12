@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { getAlbum } from '../services/api'
+import { getAlbum } from '../services/api';
 export default {
   data() {
     return {
