@@ -2,8 +2,11 @@
   <div>
     <nav>
       <router-link :to="`/genres/${genre.id}/list`">list</router-link>
+      &nbsp;
       <router-link :to="`/genres/${genre.id}/thumbnail`">thumbnail</router-link>
+      &nbsp;
       <router-link :to="`/genres/${genre.id}/gallery`">gallery</router-link>
+      &nbsp;
       <router-link :to="`/genres/${genre.id}/new`">add a new album</router-link>
     </nav>
     <router-view></router-view>
@@ -20,7 +23,6 @@ export default {
     };
   },
   created() {
-    console.log(this.$route.params.id)
     getGenre(this.$route.params.id)
       .then(genre => {
         this.genre = genre;

@@ -10,14 +10,13 @@ app.use(express.json());
 app.get('/api/genres', (req, res) => {
 
   client.query(`
-    select id,
-      title,
-      description
+    select *
     from genres;
   `).then(result => {
     res.send(result.rows);
   });
 });
+
 
 app.get('/api/genres/:id', (req, res) => {
 
@@ -33,7 +32,6 @@ app.get('/api/genres/:id', (req, res) => {
   const recordsPromise = client.query(`
     select id,
     title,
-    genre_id,
     artist,
     description,
     cover
