@@ -6,14 +6,14 @@ export { getAlbums, getImages };
 
 function getAlbums() {
   return fetch(ALBUMS_URL, {
-    heders: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' }
   })
     .then(res => res.json());
 }
 
-function getImages() {
-  return fetch(IMAGES_URL, {
-    heders: { 'Content-Type': 'application/json' }
+function getImages(id) {
+  return fetch(`${IMAGES_URL}/${id}`, {
+    headers: { 'Content-Type': 'application/json' }
   })
     .then(res => res.json());
 }

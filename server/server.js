@@ -66,11 +66,14 @@ app.delete('/api/albums/:id', (req, res) => {
   });
 });
 
-app.get('/api/images', (req, res) => {
+app.get('/api/images/:id', (req, res) => {
+  console.log(req.params.id);
 
   client.query(`
-    SELECT * FROM images;
-  `)
+    SELECT * FROM images
+    WHERE albumid = $1;
+  `[req.params.id]
+  )
     .then(result => {
       res.send(result.rows);
     });

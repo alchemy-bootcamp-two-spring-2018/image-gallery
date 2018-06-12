@@ -6,8 +6,9 @@
         :key="album.id"
         :albumId="album.id"
       >
-      test
-      {{ album.title }}
+      <router-link :to="`/albums/${album.id}`">
+        {{ album.title }}
+      </router-link>
       </li>
     </ul>
   </div>
@@ -20,7 +21,7 @@ export default {
   data() {
     return {
       albums: null
-    }
+    };
   },
   created() {
     console.log('getette', getAlbums());
