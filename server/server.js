@@ -73,7 +73,7 @@ app.get('/api/images/:id', (req, res) => {
     WHERE albumid=$1;
   `, [req.params.id])
     .then(result => {
-      console.log('\n results should be', result.rows);
+      // console.log('\n results should be', result.rows);
       res.send(result.rows);
     });
 });

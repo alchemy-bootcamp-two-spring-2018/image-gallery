@@ -27,4 +27,30 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+nav {
+  margin: 33px 0;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  padding: 6px;
+  border-top: 2px solid gray;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid gray;
+}
+
+a:hover {
+  background: black;
+  color: white;
+}
+
+a:focus {
+  background: gray;
+}
+
+
 </style>

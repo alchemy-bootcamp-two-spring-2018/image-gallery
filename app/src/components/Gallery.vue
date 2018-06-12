@@ -1,30 +1,56 @@
 <template>
-  <div>
-    <!-- <button @click="">Previous</button>
-    <button @click="">Next</button> -->
-      <p>{{ images[this.currentImage].id }}</p>
+  <div
+    id="container-main"
+    v-if="images"
+  >
+    <div id="container-sub">
+      <a @click.prevent="handlePrevious">Previous</a>
+      <a @click.prevent="handleNext">Next</a>
+    </div>
+      <p>{{ images[this.currentImage].title }}</p>
       <img :src="images[this.currentImage].url">
   </div>
 </template>
 
 <script>
-import { getImages } from '../services/api';
 export default {
+  props: ['images'],
   data() {
     return {
-      images: null,
       currentImage: 0
     };
   },
-  created() {
-    getImages(this.$route.params.id)
-      .then(image => {
-        this.images = image;
-      });
+  methods: {
+    handlePrevious() {
+      if(this.currentImage > 0) {
+        this.currentImage--;
+      }
+    },
+    handleNext() {
+      if(this.currentImage < this.images.length - 1) {
+        this.currentImage++;
+      }
+    }
   }
 };
 </script>
 <style scoped>
+
+#container-main {
+  background-color: lightsteelblue;
+  width: 250px;
+  margin: auto;
+  padding: 6px;
+  border-top: 3px solid gray;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  border-left: 3px solid gray;
+}
+
+#container-sub {
+  display: flex;
+  justify-content: space-between;
+}
 ul {
   list-style: none;
 }
@@ -37,8 +63,7 @@ li {
   border-bottom: 3px solid black;
   border-left: 3px solid gray;
 }
-/* img {
-  height: 100px;
-  width: auto;
-} */
+img {
+  width: 100%;
+}
 </style>

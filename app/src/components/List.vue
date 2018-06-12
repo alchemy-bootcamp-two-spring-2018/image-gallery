@@ -12,19 +12,8 @@
 </template>
 
 <script>
-import { getImages } from '../services/api';
 export default {
-  data() {
-    return {
-      images: null
-    };
-  },
-  created() {
-    getImages(this.$route.params.id)
-      .then(image => {
-        this.images = image;
-      });
-  }
+  props: ['images']
 };
 </script>
 <style scoped>
