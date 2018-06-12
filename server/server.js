@@ -28,7 +28,7 @@ app.get('/api/albums', (req, res) => {
 app.get('/api/albums/:id', (req, res) => {
   const albumPromise = client.query(`
 
-  SELECT id, name, description
+  SELECT id, title, description
   FROM albums
   WHERE albums.id = $1;
   `,

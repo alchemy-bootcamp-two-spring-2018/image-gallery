@@ -6,7 +6,7 @@
         v-for="album in albums"
         :key="album.id"
       >
-        <router-link :to="`/albums/:${album.id}`">
+        <router-link :to="`/albums/${album.id}`">
           {{ album.title }}
         </router-link>
       </li>
