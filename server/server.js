@@ -25,6 +25,28 @@ app.get('/api/albums', (req, res) => {
     });
 });
 
+app.get('/api/albums/:id', (req, res) => {
+  const albumPromise = client.query(`
+
+  SELECT id, name, description
+  FROM albums
+  WHERE albums.id = $1;
+  `,
+  [req.params.id]);
+  
+  Promise.all([albumPromise])
+    .then(results => {
+      const albumResult = results[0];
+
+      if(albumResult.rows.length === 0) {
+        res.sendStatus(404);
+        return;
+      }
+      const album = albumResult.rows[0];
+      res.send(album);
+    });
+});
+
 app.post('/api/albums', (req, res) =>{
   const body = req.body;
 
