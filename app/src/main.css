@@ -1,0 +1,21 @@
+@keyframes back-glow {
+  from {
+    background-position: 0 0;
+  } to {
+    background-position: 50% 50%;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  color: white;
+  background: linear-gradient(45deg, cyan, darkcyan);
+  background-size: 800%;
+  animation: back-glow 33s alternate infinite;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
