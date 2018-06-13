@@ -18,11 +18,11 @@
         List View
       </router-link>
 
-      <router-link :to="`/albums/${this.$route.params.id}/gallery`">
+      <router-link v-if="images.length !== 0" :to="`/albums/${this.$route.params.id}/gallery`">
         Gallery View
       </router-link>
 
-      <router-link :to="`/albums/${this.$route.params.id}/new`">
+      <router-link :to="`/albums/${this.$route.params.id}/newimage`">
         Add New Image
       </router-link>
 
@@ -48,7 +48,7 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      images: null,
+      images: 0,
       zoomed: false,
       selectedImage: null
     };
