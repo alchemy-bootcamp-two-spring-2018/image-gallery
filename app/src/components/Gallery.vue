@@ -10,7 +10,6 @@
       Description: <textarea v-model="tempImage.description"></textarea>
     </div>
 
-
     <div
       v-else
       id="container-view"
@@ -21,7 +20,7 @@
       </div>
         <p>{{ currentImage.title }}</p>
     </div>
-    
+
     <transition
       v-if="isNext"
       mode="out-in"
@@ -46,7 +45,7 @@
     <div v-if="!editing">
       {{ currentImage.description }}
     </div>
-    
+
     <div id="container-sub">
       <a v-if="editing" @click.prevent="toggleEdit">Cancel</a>
       <a v-else @click.prevent="toggleEdit">Edit</a>
@@ -108,7 +107,7 @@ export default {
             this.images[this.currentCount] = this.currentImage;
             this.editing = false;
           }
-        })
+        });
     }
   },
   created() {
