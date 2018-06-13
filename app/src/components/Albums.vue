@@ -7,7 +7,7 @@
         :albumId="album.id"
       >
       <router-link :to="`/albums/${album.id}`">
-        {{ album.title }} {{ album.imagecount }}
+        <strong>{{ album.title }}</strong> ({{ album.imageCount }})
       </router-link>
       </li>
       <li>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { getAlbums, getImageCount, addAlbum } from '../services/api.js';
+import { getAlbums, addAlbum } from '../services/api.js';
 import NewAlbum from './NewAlbum.vue';
 export default {
   components: {
@@ -48,16 +48,15 @@ export default {
     };
   },
   created() {
-    getAlbums()
-      .then(res => this.albums = res)
-      .then(() => {
-        this.albums.forEach(a => a.imageCount = getImageCount(a.id).then(res => res));
-      });
+    getAlbums().then(res => {
+      this.albums = res;
+    });
   },
   methods: {
     handleAdd(album) {
       return addAlbum(album)
         .then((result) => {
+          result.imageCount = 0;
           this.albums.push(result);
           album = {};
           document.getElementById('message').textContent = 'Album sucessfully added!';
