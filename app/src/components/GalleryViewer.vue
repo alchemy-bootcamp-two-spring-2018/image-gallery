@@ -1,5 +1,5 @@
  <template>
-  <div>
+  <div class="gallery">
     <h2>This is the Gallery Viewer component</h2>
     <gallery :images="urlList" :index="index" @close="index = null"></gallery>
     <div
@@ -14,22 +14,29 @@
 
 <script>
   import VueGallery from 'vue-gallery';
+  import { getImages } from '../services/api';
   
   export default {
     data: function () {
       return {
-      
+        images: null,
         index: null
       };
     },
-    props: ['images'],
+    created() {
+      getImages(this.$route.params.id)
+        .then(result => {
+          this.images = result;
+        });
+    },
+
     computed: {
       urlList() {
         return this.images.map(image => image.url);
-      },
+      }
     },
     components: {
       'gallery': VueGallery
-    },
+    }
   }
 </script> 
