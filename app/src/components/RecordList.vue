@@ -5,7 +5,11 @@
       <li
       v-for="record in records"
       :key="record.id"
-      >{{ record.title }}</li>
+      >
+      <strong>{{ record.title }}</strong> &nbsp;
+      <em>{{ record.artist }}</em> &nbsp;
+      {{ record.description }}
+      </li>
     </ul>
   </div>
 </template>
@@ -29,6 +33,8 @@ li {
     margin-left: 10%;
     margin-top: 6%;
     list-style-type: none;
+    display: block
   }
+
 
 </style>
