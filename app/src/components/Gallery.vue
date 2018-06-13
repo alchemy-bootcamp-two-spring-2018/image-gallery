@@ -91,6 +91,9 @@ export default {
             if(res.removed) {
               this.images.splice(this.images.findIndex(a => a.id === this.currentImage.id), 1); // remove image from server AND client
               this.currentImage = this.images[this.currentCount];
+              if(!this.currentImge) {
+                this.$router.push('/albums');
+              }
             }
           });
       }
