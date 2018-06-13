@@ -11,14 +11,34 @@
     </nav>
     <hr />
 
-    <router-view></router-view>
+    <router-view
+      :album="albums"
+      :albumstats="albumstats"
+    ></router-view>
 
   </div>
 </template>
 
 <script>
-export default {
+import { getAlbums, getAlbumStats } from './services/api';
 
+export default {
+  data() {
+    return {
+      albums: null,
+      albumstats: null
+    };
+  },
+  created() {
+    getAlbums()
+      .then(albumlist => {
+        this.albums = albumlist;
+      }),
+    getAlbumStats()
+      .then(albumlist => {
+        this.albumstats = albumlist;
+      });
+  },
 };
 </script>
 
@@ -46,7 +66,7 @@ a {
   text-decoration: none;
 }
 .router-link-active {
-  color: gray;
+  color: #2c3e50;
 }
 
 hr {
