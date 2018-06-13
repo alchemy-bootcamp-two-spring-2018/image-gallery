@@ -2,7 +2,7 @@
   <div id="album-detail">
     <h2>This is the Album Detail component</h2>
       <nav>
-        <span class = "nav-link"
+        <span class = "nav-link">
         <router-link to="list">List View</router-link>
         &nbsp;
         <router-link to="thumbnail">Thumbnail View</router-link>
