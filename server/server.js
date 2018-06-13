@@ -11,35 +11,24 @@ const client = require('./db-client');
 
 // GET albums
 app.get('/api/albums', (req, res) => {
-
   client.query(`
-    SELECT *
-    FROM albums;
-  `).then(result => {
-    res.send(result.rows);
-  });
-});
-
-// GET image count per album
-app.get('api/images/:albumid', (req, res) => {
-  client.query(`
-    SELECT count(i.albumid) as "albumCount"
-    FROM images i
-    LEFT JOIN albums a
+    SELECT
+      a.id,
+      a.title,
+      a.description,
+      COUNT(i.albumid) as "imageCount"
+    FROM albums a
+    LEFT JOIN images i
     ON i.albumid = a.id
-    WHERE albumid=$1;
-  `, [req.params.albumid])
-    .then(result => {
-      console.log('in the server', result.rows);
-      return res.send(result.rows);
-    });
+    GROUP BY a.id;
+  `).then(result => res.send(result.rows));
 });
 
 // GET images
 app.get('/api/images/:id', (req, res) => {
   client.query(`
-    SELECT * FROM images
-    WHERE albumid=$1;
+  SELECT * FROM images
+  WHERE albumid=$1;
   `, [req.params.id])
     .then(result => {
       return res.send(result.rows);
