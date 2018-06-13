@@ -1,6 +1,5 @@
 
 const URL = 'http://localhost:3000/api';
-const IMAGES_URL = `${URL}/images`;
 
 export function getAlbums() {
   return fetch(`${URL}/albums`, {
@@ -17,8 +16,8 @@ export function getAlbum(id) {
 }
 
 export function getImages() {
-  return fetch(IMAGES_URL, {
-    headers: { 'Content-Type': 'application/json' }
+  return fetch(`${URL}/images`, {
+    headers: { 'Content-Type': 'application/json' },
   })
     .then(response => response.json());
 }

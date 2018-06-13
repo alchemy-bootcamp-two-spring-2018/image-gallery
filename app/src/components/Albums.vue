@@ -10,6 +10,8 @@
         <router-link :to="`/albums/${album.id}`">
         {{ album.title }}
         </router-link>
+        <br>
+        {{ album.description}}
         </li>
       </ul>
   </div>
