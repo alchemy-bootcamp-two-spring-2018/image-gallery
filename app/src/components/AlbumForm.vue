@@ -20,25 +20,19 @@
 </template>
 
 <script>
-const initAlbum = () => {
-  return {
-    title: '',
-    description: ''
-  };
-};
 export default {
   data() {
     return {
-      change: this.album ? Object.assign({}, this.album) : initAlbum()
+      change: {
+        title: '', 
+        description: '' }
     };
   },
+
   props: ['album', 'onChange'],
   methods: {
     handleSubmit(){
-      return this.onChange(this.change)
-        .then(() => {
-          this.change = initAlbum;
-        });
+      this.onChange(this.change);
     }
   }
 };

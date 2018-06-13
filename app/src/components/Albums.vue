@@ -1,6 +1,6 @@
 <template>
   <div class="albums">
-    <h2>I'm the Albums Component</h2>
+    <h2>Albums</h2>
     <ul v-if="albums">
       <li
         v-for="album in albums"

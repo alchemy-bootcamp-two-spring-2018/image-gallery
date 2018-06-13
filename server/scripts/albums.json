@@ -1,14 +1,22 @@
 [
   {
+    "id": 1,
     "title": "The Beach",
-    "description":"A day at the beach, with ma peeps"
-  }, 
+    "description": "A day at the beach, with ma peeps"
+  },
   {
+    "id": 2,
     "title": "The Moon",
     "description": "It's not Rocket Science!"
   },
   {
+    "id": 3,
     "title": "The Mole People of Portland",
     "description": "They can DIG it"
+  },
+  {
+    "id": 4,
+    "title": "Boogie folks",
+    "description": "Boogie Fever, forever and ever"
   }
 ]
