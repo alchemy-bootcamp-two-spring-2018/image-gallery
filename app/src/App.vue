@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <h1>Photos APP</h1>
+    <h1>Photo Albums!</h1>
     <nav>
-    <router-link to="/" class="nav">Go Home</router-link>
+    <router-link to="/" class="nav">Home</router-link>
     <router-link to="/albums" class="nav">Albums</router-link>
     <router-link to="/about" class="nav">About</router-link>
     </nav>
     <hr>
     <router-view></router-view>
-
   </div>
 </template>
 
@@ -37,7 +36,6 @@ export default {
   margin-top: 60px;
   border: 2px solid black;
 }
-
 .nav {
   margin: 10px;
 }

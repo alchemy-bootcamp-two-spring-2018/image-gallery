@@ -1,14 +1,16 @@
 <template>
   <div v-if="album !== null">
-    <h2>
-      This is the ALBUM DETAIL component
-    </h2>
     <nav>
-      <router-link :to="`/albums/${album.id}/list`">List View</router-link>
-      <router-link :to="`/albums/${album.id}/thumbnail`">Thumbnail View</router-link>
+      <ul>
+        <li><router-link :to="`/albums/${album.id}/list`">List View</router-link></li>
+        <li><router-link :to="`/albums/${album.id}/thumbnail`">Thumbnail View</router-link></li>
+      </ul>
     </nav>
 
-    <router-view></router-view>
+    <router-view
+      :images="album.images"
+      :albumId="album.id"
+    ></router-view>
 
   </div>
 </template>
@@ -20,7 +22,7 @@ export default {
   
   data() {
     return {
-      album: null
+      album: null,
     };
   },
   created() {
@@ -34,5 +36,14 @@ export default {
 </script>
 
 <style>
-
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin-left: -40px;
+}
+li {
+  margin: 5px;
+}
 </style>
