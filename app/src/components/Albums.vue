@@ -40,9 +40,10 @@ ul {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  margin-left: 5px;
+  margin-left: -25px;
 }
 p {
+  max-width: 150px;
   margin: 10px;
 }
 

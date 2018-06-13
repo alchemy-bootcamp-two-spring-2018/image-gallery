@@ -1,12 +1,16 @@
 <template>
-  <div class="list-viewer-content">
+  <div>
     <ul v-if="images">
-      <li
+      <span class="links">
+      <p
       v-for="image in images"
       :key="image.id"
       >
-      <img :src="image.url">
-      </li>
+      <router-link :to="`/gallery/${image.id}`">
+      {{ image.title }}
+      </router-link>
+      </p>
+      </span>
     </ul>
   </div>
 </template>
@@ -18,16 +22,17 @@ export default {
 </script>
 
 <style scoped>
-.list-viewer-content {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
+img {
+  width: 120px;
+}
+p {
+  display: inline;
+  flex-flow: column wrap;
+  overflow: auto;
+  margin: 5px;
   overflow: auto;
 }
-ul {
-  margin-left: -40px;
-}
-img {
-  width: 200px;
+.links {
+  width: 700px;
 }
 </style>

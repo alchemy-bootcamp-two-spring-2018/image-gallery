@@ -21,3 +21,12 @@ export function getImages() {
   })
     .then(response => response.json());
 }
+
+export function addImage(image) {
+  return fetch(`${URL}/images`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(image)
+  })
+    .then(response => response.json());
+}

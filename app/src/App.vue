@@ -2,13 +2,12 @@
   <div id="app">
     <h1>Photo Albums!</h1>
     <nav>
-    <router-link to="/" class="nav">Go Home</router-link>
+    <router-link to="/" class="nav">Home</router-link>
     <router-link to="/albums" class="nav">Albums</router-link>
     <router-link to="/about" class="nav">About</router-link>
     </nav>
     <hr>
     <router-view></router-view>
-
   </div>
 </template>
 
