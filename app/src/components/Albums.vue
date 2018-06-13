@@ -43,7 +43,8 @@ export default {
   data() {
     return {
       albums: null,
-      editing: false
+      editing: false,
+      error: null
     };
   },
   created() {
@@ -60,6 +61,9 @@ export default {
           album = {};
           document.getElementById('message').textContent = 'Album sucessfully added!';
           this.editing = false;
+        })
+        .catch(err => {
+          this.error = err;
         });
     }
   }
