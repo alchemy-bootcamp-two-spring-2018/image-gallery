@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>This is the Thumbnail!</h2>
+    
     <div
       v-for="(record, index) in records"
       :key="record.id"
