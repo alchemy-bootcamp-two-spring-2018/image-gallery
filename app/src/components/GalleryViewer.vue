@@ -1,15 +1,42 @@
-<template>
-  <div id="gallery-viewer">
+ <template>
+  <div class="gallery">
     <h2>This is the Gallery Viewer component</h2>
+    <gallery :images="urlList" :index="index" @close="index = null"></gallery>
+    <div
+      class="image"
+      v-for="(image, imageIndex) in urlList"
+      :key="imageIndex"
+      @click="index = imageIndex"
+      :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '200px' }"
+    ></div>
   </div>
 </template>
 
 <script>
-export default {
+  import VueGallery from 'vue-gallery';
+  import { getImages } from '../services/api';
+  
+  export default {
+    data: function () {
+      return {
+        images: null,
+        index: null
+      };
+    },
+    created() {
+      getImages(this.$route.params.id)
+        .then(result => {
+          this.images = result;
+        });
+    },
 
-}
-</script>
-
-<style>
-
-</style>
+    computed: {
+      urlList() {
+        return this.images.map(image => image.url);
+      }
+    },
+    components: {
+      'gallery': VueGallery
+    }
+  }
+</script> 
