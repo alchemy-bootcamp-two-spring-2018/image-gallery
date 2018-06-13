@@ -16,15 +16,15 @@
 
     <router-view 
       :cars="decade.images"
-      :decadeId="decade.id"
+      :onAdd="handleAdd"
     >
     </router-view>
   </div>
 </template>
 
 <script>
-import { getDecade } from '../services/api';
-import { getImages } from '../services/api';
+import { getDecade, addCar } from '../services/api';
+
 
 export default {
   data() {
@@ -38,6 +38,18 @@ export default {
       .then(decade => {
         this.decade = decade;
       });
+  },
+
+  methods: {
+    handleAdd(newCar) {
+      newCar.decadeId = this.decade.id;
+      return addCar(newCar)
+        .then(saved => {
+          this.decade.images.push(saved);
+          this.$router.push(`/albums/${this.decadeId}`);
+
+        });
+    }
   }
 
 };
