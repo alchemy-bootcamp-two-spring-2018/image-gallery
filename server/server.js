@@ -84,8 +84,9 @@ app.post('/api/albums', (req, res) => {
   });
 });
 
-app.post('api/images', (req, res) => {
+app.post('/api/images', (req, res) => {
   const body = req.body;
+
   client.query(`
     INSERT INTO images (title, album_id, description, url)
     VALUES ($1, $2, $3, $4)
