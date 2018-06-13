@@ -1,32 +1,107 @@
 [
   {
+    "id": 1,
     "title": "The Ocean",
-    "album_id": "1",
+    "album_id": 1,
     "description": "Image of the water",
     "url": "https://t3.ftcdn.net/jpg/00/71/36/90/240_F_71369027_DilJUqwC7GGbwz7k1CAxiKDM0D7CATbD.jpg"
   },
   {
+    "id": 2,
     "title": "The sand",
-    "album_id": "1",
+    "album_id": 1,
     "description": "Boy I love sand!",
     "url": "https://www.publicdomainpictures.net/pictures/60000/velka/footprint-in-sand.jpg"
   },
   {
+    "id": 3,
     "title": "First and only sighting",
-    "album_id": "3",
+    "album_id": 3,
     "description": "Got our first view of this little guy",
     "url": "https://avecdn.akamaized.net/Assets/Images_Upload/Actu24/2013/01/12/PID_$96966$_fbae75ec-5979-11e2-9870-3eca43a00cc5_original.jpg?maxheight=662&maxwidth=925&scale=both"
   },
   {
+    "id": 4,
     "title": "Craters",
-    "album_id": "2",
+    "album_id": 2,
     "description": "Dont fall in!",
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Aristarchus_and_Herodotus_craters_Apollo_15.jpg/666px-Aristarchus_and_Herodotus_craters_Apollo_15.jpg"
   },
   {
+    "id": 5,
     "title": "More Craters",
-    "album_id": "2",
+    "album_id": 2,
     "description": "Look kids, theres Big Ben",
     "url": "https://24.p3k.hu/app/uploads/2016/12/big-ben-1024x576.jpg"
+  },
+  {
+    "id": 6,
+    "title": "house",
+    "album_id": 1,
+    "description": "Check out my crib",
+    "url": "https://www.publicdomainpictures.net/pictures/140000/velka/house-on-the-beach.jpg;"
+  },
+  {
+    "id": 11,
+    "title": "Disco night",
+    "album_id": 4,
+    "description": "Dancing the night away",
+    "url": "https://r.hswstatic.com/w_907/gif/podcasts/stuffyoushouldknow-podcasts-wp-content-uploads-sites-16-2014-03-disco600x350.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Gotta dace",
+    "album_id": 4,
+    "description": "I just gotta dace!\n",
+    "url": "https://www.dga.org/-/media/Images/DGAQ-Article-Images/1303-Summer-2013/SaturdayNightFever13Revised.ashx?la=en&hash=583DDE5EBBACF745F0E20327417E4AF0AF1D22B8"
+  },
+  {
+    "id": 13,
+    "title": "Dance sweat",
+    "album_id": 4,
+    "description": "Sweatin' to the oldies",
+    "url": "http://media.gettyimages.com/photos/dancers-sweat-through-choreographed-routines-in-cftos-downright-disco-picture-id502840469?s=594x594"
+  },
+  {
+    "id": 14,
+    "title": "Spotted in the night",
+    "album_id": 3,
+    "description": "What a sighting ! What a rare treat!!!",
+    "url": "https://i2.wp.com/midnitereviews.com/wp-content/uploads/2017/10/The-Mole-People-1956-4.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Dancing with em'",
+    "album_id": 3,
+    "description": "They sure know how to boogie",
+    "url": "https://78.media.tumblr.com/tumblr_lisejjYank1qcay1ao1_500.gif"
+  },
+  {
+    "id": 16,
+    "title": "Billy got taken",
+    "album_id": 3,
+    "description": "Couldnt stopem'!",
+    "url": "https://4.bp.blogspot.com/-1gzSXbWT2bU/WXfQh5rl23I/AAAAAAAA_oI/t0G8Cyduc2YvKvdwYiG_RiBZCrsbZIO9gCLcBGAs/s1600/the%2BMole%2BPeople%2B1956.gif"
+  },
+  {
+    "id": 17,
+    "title": "Moon Walk",
+    "album_id": 2,
+    "description": "Running away with our stuff",
+    "url": "https://news.nationalgeographic.com/content/dam/news/photos/legacy-new/more-water-on-moon-apatite_21599_990x742.ngsversion.1424659806529.adapt.1900.1.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Half way",
+    "album_id": 2,
+    "description": "Lazy bumm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Moon_Crescent_-_False_Color_Mosaic.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Moonset",
+    "album_id": 2,
+    "description": "Look at that!",
+    "url": "http://cdn2.theeventchronicle.com/wp-content/uploads/2017/09/sturgeon-moon.jpg"
   }
 ]
