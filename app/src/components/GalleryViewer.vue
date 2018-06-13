@@ -1,6 +1,6 @@
  <template>
   <div class="gallery">
-    <h2>This is the Gallery Viewer component</h2>
+    <h2>Gallery View</h2>
     <gallery :images="urlList" :index="index" @close="index = null"></gallery>
     <div
       class="image"
@@ -32,7 +32,7 @@
 
     computed: {
       urlList() {
-        return this.images.map(image => image.url);
+        return this.images ? this.images.map(image => image.url) : null;
       }
     },
     components: {

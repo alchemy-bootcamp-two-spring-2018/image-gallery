@@ -8,14 +8,11 @@
       >
         <img v-bind:src="image.url" :title="image.title"/> 
         <p><strong>{{ image.title }}</strong><br>
-        {{ image.description }}
-      </p>
-        </div>  
-        
-        
-      </div>
-    </div> 
-  </div>
+          {{ image.description }}
+        </p>
+      </div>  
+    </div>
+  </div> 
 </template>
 
 <script>
@@ -33,7 +30,6 @@ export default {
           this.images = result;
         });
     }
-
 }
 </script>
 
@@ -63,7 +59,6 @@ p {
   margin-top: 5px;
   font-size: 18px;
   font-weight: 300;
-
 }
 
 </style>

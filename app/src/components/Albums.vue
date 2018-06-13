@@ -11,7 +11,7 @@
         :key="album.id"
       >
         <router-link :to="`/albums/${album.id}`">
-          <strong>{{ album.title }}</strong><br>
+          <strong>{{ album.title }}</strong> ({{ album.count }} images)<br>
         </router-link>
         {{ album.description }}<br>&nbsp;
       </li>
