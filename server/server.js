@@ -15,10 +15,14 @@ client.connect();
 app.get('/api/albums', (req, res) => {
 
   client.query(`
-    SELECT id,
-      title,
-      description
-    FROM albums;
+    SELECT 
+      a.id, a.title, a.description,
+      count(i.id) as "imageCount"
+    FROM albums a
+    LEFT JOIN images i
+    ON a.id = i.album_id
+    GROUP BY a.id
+    ORDER BY a.title;
   `)
     .then(result => {
       res.send(result.rows);
