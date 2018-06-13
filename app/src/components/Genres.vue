@@ -19,7 +19,7 @@
 <script>
 import {
   getGenres
-  } from '../services/api.js'
+} from '../services/api.js';
 
 export default {
   data() {

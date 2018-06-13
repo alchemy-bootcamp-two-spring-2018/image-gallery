@@ -13,7 +13,7 @@
 export default {
   props: ['records']
 
-}
+};
 </script>
 
 <style>
