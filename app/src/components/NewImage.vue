@@ -5,28 +5,35 @@
     <form @submit.prevent="handleAdd">
       <label> 
         Make:
-        <input type="text" placeholder="Car Make" required>
+        <input type="text" placeholder="Car Make" required v-model="cars.make">
       </label>
 
       <label>
         Model:
-        <input type="text" placeholder="Model" required>
+        <input type="text" placeholder="Model" required v-model="cars.model">
       </label>
 
       <label>
         Image:
-        <input type="text" placeholder="Image URL">
+        <input type="text" placeholder="Image URL" v-model="cars.imageUrl">
       </label>
+      <button type="submit">Submit</button>
 
     </form>
   </section>
 </template>
 
 <script>
-// import { addCar } from '../services/api';
+import { addCar } from '../services/api';
 
 export default {
-  props: ['cars', 'decadeId'],
+  data() {
+    return {
+      decadeId:'',
+      
+    }
+  },
+  props: ['decadeId'],
 
   methods: {
     handleAdd(car) {
@@ -39,6 +46,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <style>
