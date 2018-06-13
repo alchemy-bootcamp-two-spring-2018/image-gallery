@@ -55,6 +55,7 @@ app.get('/api/decades/:id', (req, res) => {
 
   const imagesPromise = client.query(`
     SELECT id,
+    decade_id as "decadeId",
     make,
     model,
     description,
@@ -81,6 +82,20 @@ app.get('/api/decades/:id', (req, res) => {
 
       res.send(decade);
     });
+});
+
+app.post('/api/images', (req, res) => {
+  const body = req.body;
+
+  client.query(`
+    INSERT INTO car_images (decade_id, make, model, image_url)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *, image_url as "imageUrl", decade_id as "decadeId";
+  `,
+  [body.decadeId, body.make, body.model, body.imageUrl]
+).then(result => {
+    res.send(result.rows[0]);
+  });
 });
 
 app.listen(3000, () => console.log('server running...'));

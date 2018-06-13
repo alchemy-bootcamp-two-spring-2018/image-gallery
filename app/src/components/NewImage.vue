@@ -1,23 +1,33 @@
 <template>
   <section>
-    <CarForm
-    label="Add"
-    :on-edit="handleAdd"/>
-    <div>
-      <h1>New Image Component</h1>
-    </div>
+    <h1>New Image Component</h1>
+
+    <form @submit.prevent="handleAdd">
+      <label> 
+        Make:
+        <input type="text" placeholder="Car Make" required>
+      </label>
+
+      <label>
+        Model:
+        <input type="text" placeholder="Model" required>
+      </label>
+
+      <label>
+        Image:
+        <input type="text" placeholder="Image URL">
+      </label>
+
+    </form>
   </section>
 </template>
 
 <script>
-import CarForm from './CarForm.vue';
-import { addCar } from '../services/api';
+// import { addCar } from '../services/api';
 
 export default {
   props: ['cars', 'decadeId'],
-  components: {
-    CarForm
-  },
+
   methods: {
     handleAdd(car) {
       car.decadeId = this.decadeId;
