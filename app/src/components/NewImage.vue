@@ -7,17 +7,17 @@
     <form @submit.prevent="handleSubmit">
       <label>
         Title:
-        <input type="text" placeholder="Title" required v-model="image.title">
+        <input name="title" type="text" placeholder="Title" required v-model="image.title">
       </label>
 
       <label>
         Description:
-        <input type="text" placeholder="Description" required v-model="image.description">
+        <textarea name="description" placeholder="Description" required v-model="image.description"></textarea>
       </label>
 
       <label>
         Image URL:
-        <input type="text" placeholder="Image URL" required v-model="image.url">
+        <input name="url" type="text" placeholder="Image URL" required v-model="image.url">
       </label>
       <button type="submit">Add Image</button>
     </form>
@@ -43,13 +43,15 @@ export default {
     };
   },
 
+  created() {
+    this.image.albumId = this.$route.params.id;
+  },
+
   methods: {
-    handleSubmit(image) {
-      image.albumId = this.albumId;
-      return addImage(image)
-        .then(saved => {
-          this.images.push(saved);
-          this.$router.push('/albums/${this.albumId}');
+    handleSubmit() {
+      return addImage(this.image)
+        .then(() => {
+          this.$router.push('/albums/${this.image.albumId}');
         });
     }
   }
