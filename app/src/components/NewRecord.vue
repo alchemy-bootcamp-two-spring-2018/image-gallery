@@ -2,7 +2,9 @@
   <section>
     <RecordForm 
       label="Add"
-      :on-add="onAdd"/>
+      :on-add="onAdd"
+      :genre="genre"
+      />
   </section>
 </template>
 
@@ -10,7 +12,7 @@
 import RecordForm from './RecordForm';
 
 export default {
-  props: ['onAdd'],
+  props: ['onAdd', 'genre'],
   components: {
     RecordForm
   }

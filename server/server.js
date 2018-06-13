@@ -30,9 +30,9 @@ app.post('/api/records', (req, res) => {
       cover
     ) 
     values ($1, $2, $3, $4, $5)
-    returning *, genre_id as "genreId";
+    returning *;
   `,
-  [body.title, body.genreId, body.artist, body.description, body.cover]
+  [body.title, body.genre_id, body.artist, body.description, body.cover]
   ).then(result => {
     res.send(result.rows[0]);
   });
@@ -79,9 +79,9 @@ app.get('/api/genres/:id', (req, res) => {
     });
 });
 
-app.delete('/api/album_info/:id', (req, res) => {
+app.delete('/api/records/:id', (req, res) => {
   client.query(`
-    delete from album_info where id=$1;
+    delete from records where id=$1;
   `,
   [req.params.id]
   ).then(() => {

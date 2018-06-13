@@ -16,7 +16,7 @@ export function getGenre(id) {
 }
 
 export function addRecord(record) {
-  return fetch('http://localhost:3000/api/genres', {
+  return fetch('http://localhost:3000/api/records', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(record)
@@ -25,10 +25,10 @@ export function addRecord(record) {
 
 }
 
-// export function deleteAlbum(id) {
-//   return fetch('http://localhost:3000/api/album_info' + id, {
-//     method: 'DELETE',
-//     headers: { 'Content-Type': 'application.json' },
-//   })
-//     .then(response => response.json());
-// }
+export function deleteAlbum(id) {
+  return fetch('http://localhost:3000/api/records' + id, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application.json' },
+  })
+    .then(response => response.json());
+}
