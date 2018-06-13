@@ -11,13 +11,14 @@
     <router-view
       :images="album.images"
       :albumId="album.id"
+      :on-add="handleAdd"
     ></router-view>
 
   </div>
 </template>
 
 <script>
-import { getAlbum } from '../services/api';
+import { getAlbum, addImage } from '../services/api';
 
 export default {
   
@@ -31,8 +32,18 @@ export default {
       .then(album => {
         this.album = album;
       });
-  }
+  },
 
+  methods: {
+    handleAdd(image) {
+      image.albumId = this.album.id;
+      return addImage(image)
+        .then(saved => {
+          this.album.images.push(saved);
+          this.$router.push('/albums/${this.image.albumId}');
+        });
+    }
+  }
 };
 </script>
 

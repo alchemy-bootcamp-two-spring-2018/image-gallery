@@ -11,7 +11,7 @@ const client = new Client(databaseUrl);
 
 client.connect();
 
-app.get('/api/images',(req, res) => {
+app.get('/api/images', (req, res) => {
 
     client.query(`
     SELECT id,
@@ -23,6 +23,20 @@ app.get('/api/images',(req, res) => {
     `)
     .then(result => {
         res.send(result.rows);
+    });
+});
+
+app.post('/api/images', (req, res) => {
+    const body = req.body;
+
+    client.query(`
+    INSERT into images (album_id, title, description, url)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *, album_id as "albumId";
+    `,
+    [body.albumId, body.title, body.description, body.url]
+    ).then(result => {
+        res.send(result.rows[0]);
     });
 });
 
