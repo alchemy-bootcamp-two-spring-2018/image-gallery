@@ -1,6 +1,6 @@
 <template>
   <div id="list-viewer">
-    <h2>This is the List Viewer component</h2>
+    <h2>List View</h2>
     <div v-if="images !== null">
       <div class ="list-image"
         v-for="image in images"
@@ -44,15 +44,22 @@ img {
   margin: 5px;
   width: 50px;
   height: 50px;
+  border: 1px solid #000;
   display: inline;
 }
 .list-image {
   background-color: rgb(182, 247, 211);
   text-align: left;
+  height: 60px;
+}
+strong {
+  font-size: 22px;
+
 }
 p {
+  margin-top: 5px;
   font-size: 18px;
-  
+
 }
 
 </style>
