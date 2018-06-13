@@ -34,7 +34,6 @@ app.get('/api/images', (req, res) => {
     });
 });
 
-
 app.get('/api/albums/:id', (req, res) => {
   const albumPromise = client.query(`
 
@@ -64,7 +63,7 @@ app.get('/api/albums/:id', (req, res) => {
       const album = albumResult.rows[0];
       const images = imagesResult.rows;
       album.images = images;
-      
+
       res.send(album);
     });
 });

@@ -26,19 +26,17 @@ export function addAlbum(album) {
     .then(response => response.json());
 }
 
-//updateAlbum
+//updateAlbum - stretch goal to be added
 export function updateAlbum() {
 
 }
 
-//removeAlbum
 export function deleteAlbum(id) {
   return fetch(`${ALBUMS_URL}/${id}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
     .then(res =>res.json());
-
 }
 
 export function getImages() {
@@ -48,7 +46,6 @@ export function getImages() {
     .then(response => response.json());
 }
 
-//newImage
 export function addImage(image) {
   return fetch(IMAGES_URL, {
     method: 'POST',
