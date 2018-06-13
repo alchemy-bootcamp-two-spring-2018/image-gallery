@@ -15,6 +15,13 @@ export function getGenre(id) {
     .then(response => response.json());
 }
 
+export function getStats() {
+  return fetch('http://localhost:3000/api/genres/stats', {
+    headers: { 'content-Type': 'application/json' }
+  })
+    .then(response => response.json());
+}
+
 export function addRecord(record) {
   return fetch('http://localhost:3000/api/records', {
     method: 'POST',

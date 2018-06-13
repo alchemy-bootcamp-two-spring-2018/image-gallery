@@ -39,8 +39,34 @@ app.get('/api/genres', (req, res, next) => {
     left join records
     on genres.id = records.genre_id
     group by genres.id
-    order by genres.id;
-  `)
+    order by genres.title;
+  `) 
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(next);
+
+});
+
+//Get information for Home.vue
+app.get('/api/genres/stats', (req, res, next) => {
+
+  client.query(`
+    select
+      avg("recordsCount"),
+      min("recordsCount"),
+      max("recordsCount")
+      from
+    (select
+      genres.id, genres.title, genres.description,
+      count(records.id) as "recordsCount"
+    from genres
+    left join records
+    on genres.id = records.genre_id
+    group by genres.id
+    order by genres.title)
+    p;
+  `) 
     .then(result => {
       res.send(result.rows);
     })

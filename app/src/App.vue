@@ -29,7 +29,7 @@ import {
 export default {
   data() {
     return {
-      genres: null
+      genres: ''
     };
   },
   created() {
