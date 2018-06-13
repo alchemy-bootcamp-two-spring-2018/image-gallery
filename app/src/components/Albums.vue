@@ -7,7 +7,7 @@
         :albumId="album.id"
       >
       <router-link :to="`/albums/${album.id}`">
-        {{ album.title }} ({{ album.imagecount }})
+        {{ album.title }} {{ album.imagecount }}
       </router-link>
       </li>
       <li>
@@ -47,7 +47,8 @@ export default {
     };
   },
   created() {
-    getAlbums().then(res => this.albums = res)
+    getAlbums()
+      .then(res => this.albums = res)
       .then(() => {
         this.albums.forEach(a => a.imageCount = getImageCount(a.id).then(res => res));
       });
