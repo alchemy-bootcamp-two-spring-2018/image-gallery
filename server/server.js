@@ -79,9 +79,9 @@ app.get('/api/genres/:id', (req, res) => {
     });
 });
 
-app.delete('/api/album_info/:id', (req, res) => {
+app.delete('/api/records/:id', (req, res) => {
   client.query(`
-    delete from album_info where id=$1;
+    delete from records where id=$1;
   `,
   [req.params.id]
   ).then(() => {
