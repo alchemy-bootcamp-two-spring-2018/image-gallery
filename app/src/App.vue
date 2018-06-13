@@ -7,7 +7,7 @@
       &nbsp;
       <router-link to ="/about">ABOUT</router-link>
       &nbsp;
-      <router-link to ="/genres">ALBUM ART</router-link>
+      <router-link to ="/genres">MUSIC GENRES</router-link>
     </nav>
 
     <router-view></router-view>
@@ -29,6 +29,7 @@ export default {
 
 h1 {
   font-family: 'Comfortaa', sans-serif;
+  font-weight: bold;
   font-size: 3em;
   letter-spacing: .1em;
   color: #fff;
@@ -86,7 +87,7 @@ a:hover {
 
 a:-webkit-any-link {
   text-decoration: none;
-  color: grey;
+  color: rgba(77, 24, 75, 0.817);
 }
 
 a:-webkit-any-link:hover{

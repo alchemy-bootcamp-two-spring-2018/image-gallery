@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>The list component!</h2>
+    <h3>Album List</h3>
     <ul>
       <li
       v-for="record in records"
@@ -18,5 +18,17 @@ export default {
 </script>
 
 <style>
+
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: lightslategray;
+}
+
+li {
+    float: left;
+    margin-left: 10%;
+    margin-top: 6%;
+    list-style-type: none;
+  }
 
 </style>

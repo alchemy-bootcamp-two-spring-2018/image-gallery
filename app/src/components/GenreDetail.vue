@@ -1,13 +1,18 @@
 <template>
   <div v-if="genre !== null">
     <nav>
+      <article class="addnew">
+      <router-link :to="`/genres/${genre.id}/new`">add a new record</router-link>
+      </article>
+      <span class="navbar">
       <router-link :to="`/genres/${genre.id}/list`">list</router-link>
       &nbsp;
       <router-link :to="`/genres/${genre.id}/thumbnail`">thumbnail</router-link>
       &nbsp;
       <router-link :to="`/genres/${genre.id}/gallery`">gallery</router-link>
       &nbsp;
-      <router-link :to="`/genres/${genre.id}/new`">add a new record</router-link>
+      </span>
+      
     </nav>
     <router-view
     :records="genre.records"
@@ -45,6 +50,19 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+
+.addnew {
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: bolder;
+  font-size: 1.5em;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: #FFF;
+  background-color: rgba(101, 4, 97, 0.331); 
+}
+
 
 </style>

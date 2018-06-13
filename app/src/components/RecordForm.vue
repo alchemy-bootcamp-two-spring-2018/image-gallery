@@ -6,13 +6,7 @@
       <input type= "text" name="title" required
         v-model="record.title">
       </label>
-
-      <!-- <label> Record Genre:</label>
-      <select v-model="record.genre_id">
-        <option :value="genre.id">{{ genre.title }}</option>
-      </select> -->
-     
-
+      
       <label> Artist:
       <input type= "text" name="artist" required
         v-model="record.artist">
