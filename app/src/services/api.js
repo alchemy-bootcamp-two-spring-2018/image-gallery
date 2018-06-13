@@ -1,6 +1,7 @@
 const URL = 'http://localhost:3000/api';
 const ALBUMS_URL = `${URL}/albums`;
-//images url?
+const IMAGES_URL = `${URL}/images`;
+
 
 export function getAlbums() {
   return fetch(ALBUMS_URL, {
@@ -25,22 +26,31 @@ export function addAlbum(album) {
     .then(response => response.json());
 }
 
-//updateAlbum
+//updateAlbum - stretch goal to be added
 export function updateAlbum() {
 
 }
 
-//removeAlbum
-export function removeAlbum() {
-
+export function deleteAlbum(id) {
+  return fetch(`${ALBUMS_URL}/${id}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(res =>res.json());
 }
 
-//getImage
-export function getImage() {
-
+export function getImages() {
+  return fetch(IMAGES_URL, {
+    headers: { 'Content-Type': 'applications/json' }
+  })
+    .then(response => response.json());
 }
 
-//newImage
-export function newImage() {
-  
+export function addImage(image) {
+  return fetch(IMAGES_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(image)
+  })
+    .then(response => response.json());
 }

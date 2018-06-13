@@ -1,6 +1,6 @@
 <template>
   <section class="album-form">
-    <form @submit.prevent="handleSubmit">
+    <form @submit.prevent="handleSubmit" class="album-form">
       <label>
         Title: 
         <input type="text"  placeholder="Title" required
@@ -20,30 +20,34 @@
 </template>
 
 <script>
-const initAlbum = () => {
-  return {
-    title: '',
-    description: ''
-  };
-};
 export default {
   data() {
     return {
-      change: this.album ? Object.assign({}, this.album) : initAlbum()
+      change: {
+        title: '', 
+        description: '' }
     };
   },
+
   props: ['album', 'onChange'],
   methods: {
     handleSubmit(){
-      return this.onChange(this.change)
-        .then(() => {
-          this.change = initAlbum;
-        });
+      this.onChange(this.change);
     }
   }
 };
 </script>
 
 <style>
+label {
+  display: block;
+  margin: 4px;
+}
 
+.album-form {
+  width: 300px;
+  text-align: left;
+  margin: auto;
+  margin-top: 100px;
+}
 </style>

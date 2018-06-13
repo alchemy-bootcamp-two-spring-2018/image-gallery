@@ -25,6 +25,15 @@ app.get('/api/albums', (req, res) => {
     });
 });
 
+app.get('/api/images', (req, res) => {
+  client.query(`
+    SELECT * FROM images;
+  `)
+    .then(result => {
+      res.send(result.rows);
+    });
+});
+
 app.get('/api/albums/:id', (req, res) => {
   const albumPromise = client.query(`
 
@@ -33,27 +42,40 @@ app.get('/api/albums/:id', (req, res) => {
   WHERE albums.id = $1;
   `,
   [req.params.id]);
+
+  const imagesPromise = client.query(`
+
+  SELECT id, title, album_id, description, url
+  FROM images
+  WHERE album_id = $1;
+  `,
+  [req.params.id]);
   
-  Promise.all([albumPromise])
+  Promise.all([albumPromise, imagesPromise])
     .then(results => {
       const albumResult = results[0];
+      const imagesResult = results[1];
 
       if(albumResult.rows.length === 0) {
         res.sendStatus(404);
         return;
       }
       const album = albumResult.rows[0];
+      const images = imagesResult.rows;
+      album.images = images;
+
       res.send(album);
     });
 });
 
-app.post('/api/albums', (req, res) =>{
+
+app.post('/api/albums', (req, res) => {
   const body = req.body;
 
   client.query(`
     INSERT INTO albums (title, description)
     VALUES ($1, $2)
-    RETURNING *
+    RETURNING *;
   `,
   [body.title, body.description]
   ).then(result => {
@@ -61,14 +83,39 @@ app.post('/api/albums', (req, res) =>{
   });
 });
 
-// app.put('/api/galleries', (req, res) => {
+app.post('/api/images', (req, res) => {
+  const body = req.body;
 
-// });
+  client.query(`
+    INSERT INTO images (title, album_id, description, url)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *, album_id as "albumId";
+  `, 
+  [body.title, body.albumId, body.description, body.url]
+  ).then(result =>{
+    res.send(result.rows[0]);
+  });
+});
 
 app.delete('/api/albums/:id', (req, res) =>{
+  client.query(`
+    DELETE FROM images WHERE album_id=$1;
+  `,
+  [req.params.id]
+  )
+    .then(client.query(`
+      DELETE FROM albums WHERE id=$1;
+  `,
+    [req.params.id]
+    )).then(() => {
+      res.send({ removed: true });
+    });
+});
+
+app.delete('/api/images/:id', (req, res) =>{
   
   client.query(`
-    DELETE FROM galleries 
+    DELETE FROM images 
     WHERE id = $1;
   `,
   [req.params.id]
@@ -76,9 +123,5 @@ app.delete('/api/albums/:id', (req, res) =>{
     res.send({ removed: true });
   });
 });
-
-//Promise all placeholder
-
-//additional gets?
 
 app.listen(3000, () => console.log('server running...'));
