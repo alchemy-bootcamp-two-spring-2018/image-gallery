@@ -4,6 +4,7 @@ import About from './components/About.vue';
 import Albums from './components/Albums.vue';
 import AlbumDetail from './components/AlbumDetail.vue';
 import ListViewer from './components/ListViewer.vue';
+import ThumbnailViewer from './components/ThumbnailViewer.vue';
 import GalleryViewer from './components/GalleryViewer.vue';
 import NewImage from './components/NewImage.vue';
 
@@ -17,9 +18,10 @@ export default new VueRouter({
       component: AlbumDetail,
       children: [
         { path: 'list', component: ListViewer },
-        // { path: 'gallery', component: GalleryViewer },
-        // { path: 'new', component: NewImage },
-        { path: '', redirect: 'list'}
+        { path: 'thumbnail', component: ThumbnailViewer },
+        { path: 'gallery', component: GalleryViewer },
+        { path: 'new', component: NewImage },
+        { path: '', redirect: 'list' }
       ]
     },
     { path: '*', redirect: '/' }
