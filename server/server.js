@@ -109,5 +109,16 @@ app.delete('/api/albums/:id', (req, res) =>{
     res.send({ removed: true });
   });
 });
+app.delete('/api/images/:id', (req, res) =>{
+  
+  client.query(`
+    DELETE FROM galleries 
+    WHERE id = $1;
+  `,
+  [req.params.id]
+  ).then(() => {
+    res.send({ removed: true });
+  });
+});
 
 app.listen(3000, () => console.log('server running...'));

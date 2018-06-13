@@ -25,26 +25,21 @@
 </template>
 
 <script>
-const initImage = () => {
-  return {
-    title: '',
-    description: '', 
-    url: ''
-  };
-};
 export default {
   data() {
     return {
-      change: this.image ? Object.assign({}, this.image) : initImage()
+      change: {
+        title: '',
+        description: '',
+        url: ''
+      }
     };
   },
   props: ['image', 'onChange'],
   methods: {
     handleSubmit() {
-      return this.onChange(this.change)
-        .then(() => {
-          this.change = initImage;
-        });
+      this.onChange(this.change);
+
     }
   }
 };

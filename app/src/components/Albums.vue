@@ -40,7 +40,6 @@ export default {
     handleAdd(album) {
       return addAlbum(album)
         .then(saved => {
-          this.albums.push(saved);
           this.$router.push(`/albums/${saved.id}`);
         });
     }

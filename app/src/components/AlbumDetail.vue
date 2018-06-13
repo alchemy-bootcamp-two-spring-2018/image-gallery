@@ -41,7 +41,6 @@ export default {
       image.album_id = this.album.id;
       return addImage(image)
         .then(saved => {
-          this.images.push(saved);
           this.$router.push(`/images/${saved.id}`);
         });
     }

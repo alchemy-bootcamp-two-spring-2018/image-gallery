@@ -33,7 +33,7 @@ export function updateAlbum() {
 
 //removeAlbum
 export function removeAlbum() {
-
+  
 }
 
 export function getImages() {
