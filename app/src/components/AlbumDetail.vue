@@ -1,6 +1,6 @@
 <template>
   <div v-if="decade">
-    <h1>AlbumDetail Component</h1>
+    <h1>Album Detail</h1>
     <h2>{{ decade.description }}</h2>
 
     <nav>
@@ -56,5 +56,10 @@ export default {
 </script>
 
 <style>
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
 
 </style>

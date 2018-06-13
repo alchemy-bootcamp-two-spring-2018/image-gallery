@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>GalleryViewer Component</h1>
+    <h1>Gallery Viewer</h1>
 
   </div>
 </template>
