@@ -28,6 +28,7 @@
           Cancel
         </button>
       </label>
+
     </form>
   </section>
 </template>
@@ -68,12 +69,30 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+
 .image-form {
   width: 300px;
   text-align: left;
+  margin-top: 50px;
+  margin-left: 100px;
+  font-size: 18px;
+}
+button {
+  font-size: 18px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+input {
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
 }
 label {
   display: block;
+ 
 }
+
 </style>

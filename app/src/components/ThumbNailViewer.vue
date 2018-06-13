@@ -28,10 +28,12 @@ export default {
 <style scoped>
 ul {
   list-style-type: none;
+  text-decoration: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 0;
+  margin: 0;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -44,9 +46,11 @@ ul {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  cursor: pointer;
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-color: salmon;
 }
 .container {
   padding: 2px 16px;

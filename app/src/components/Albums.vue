@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="albumz">
     <h2>This is the Album page yo</h2>
     <ul v-if="albums">
       <li v-for="album in albums"
@@ -32,6 +32,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+ul {
+  list-style: none;
+}
 
 </style>
