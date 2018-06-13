@@ -4,6 +4,7 @@
       <ul>
         <li><router-link :to="`/albums/${album.id}/list`">List View</router-link></li>
         <li><router-link :to="`/albums/${album.id}/thumbnail`">Thumbnail View</router-link></li>
+        <li><router-link :to="`/albums/${album.id}/new`">Add Image</router-link></li>
       </ul>
     </nav>
 
