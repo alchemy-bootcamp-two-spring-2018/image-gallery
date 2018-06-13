@@ -8,10 +8,12 @@
             >
                 <strong>{{ image.name }}</strong>
                 &nbsp;
-                {{ image.description  }}
-                &nbsp;
-                {{ image.url }}
+                <a
+                :href="image.url"
+                > {{ image.description }} 
+                </a>
             </li>
+            
         </ul>
     </div>
 </template>
