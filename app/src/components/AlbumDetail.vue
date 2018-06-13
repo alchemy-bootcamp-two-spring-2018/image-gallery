@@ -8,9 +8,6 @@
         <router-link :to="`/albums/${album.id}/thumbnail`">thumbnail</router-link>
         &nbsp;
         <router-link :to="`/albums/${album.id}/new`">add a new image</router-link>
-        &nbsp;
-        <router-link :to="`/albums/${album.id}/gallery`">gallery</router-link>
-      
     </nav>
 
     <router-view 

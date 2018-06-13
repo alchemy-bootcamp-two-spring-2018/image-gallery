@@ -28,8 +28,8 @@
           Cancel
         </button>
       </label>
-
     </form>
+    <pre>{{ error }}</pre>
   </section>
 </template>
 
@@ -54,15 +54,20 @@ export default {
   },
   data() {
     return {
+      error: null,
       edit: this.image ? Object.assign({}, this.image) : initImage()
     };
   },
   methods: {
     handleSubmit() {
+      this.error = null;
       return this.onEdit(this.edit)
         // this fires when save is complete and data added to nieghborhoods array
         .then(() => {
           this.edit = initImage();
+        })
+        .catch(err => {
+          this.error = err;
         });
     }
   }
@@ -70,7 +75,9 @@ export default {
 </script>
 
 <style scoped>
-
+pre {
+  color: red;
+}
 
 .image-form {
   width: 300px;

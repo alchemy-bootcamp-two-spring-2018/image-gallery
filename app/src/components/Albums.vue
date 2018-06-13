@@ -1,6 +1,7 @@
 <template>
   <div class="albumz">
     <h2>This is the Album page yo</h2>
+    <pre v-if="error">{{ error }}</pre>
     <ul v-if="albums">
       <li v-for="album in albums"
         :key="album.id"
@@ -19,13 +20,17 @@ import { getAlbums } from '../services/api';
 export default {
   data() {
     return {
-      albums: null
+      albums: null,
+      error: null
     };
   },
   created() {
     getAlbums()
       .then(albums => {
         this.albums = albums;
+      })
+      .catch(err => {
+        this.error = err;
       });
   }
 
@@ -35,6 +40,9 @@ export default {
 <style scoped>
 ul {
   list-style: none;
+}
+pre {
+  color: red;
 }
 
 </style>
