@@ -18,6 +18,15 @@ export function addImage(image) {
     .then(response => response.json());
 }
 
+export function addAlbum(album) {
+  return fetch(ALBUMS_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(album)
+  })
+    .then(response => response.json());
+}
+
 export function getAlbums() {
   return fetch(ALBUMS_URL, {
     headers: { 'Content-Type': 'application/json' }
