@@ -8,7 +8,7 @@ app.use(express.json());
 const pg = require('pg');
 const client = require('./db-client');
 
-//routes
+// ROUTE:  Get all albums
 app.get('/api/albums', (req, res) => {
   client.query(`
     SELECT id,
@@ -21,6 +21,7 @@ app.get('/api/albums', (req, res) => {
   });
 });
 
+// ROUTE:  Get the images for a specific album
 app.get('/api/images/:id', (req, res) => {
   client.query(`
     SELECT id,
@@ -38,7 +39,7 @@ app.get('/api/images/:id', (req, res) => {
     });
 });
 
-// ROUTE:  Post to programs
+// ROUTE:  Post to images
 app.post('/api/images', (req, res) => {
   const body = req.body;
   client.query(`
@@ -47,6 +48,21 @@ app.post('/api/images', (req, res) => {
     RETURNING *;
   `,
   [body.title, body.url, body.description, body.albumId]
+  ).then(result => {
+      // send back object
+      res.send(result.rows[0]);
+    });
+});
+
+// ROUTE:  Post to albums
+app.post('/api/albums', (req, res) => {
+  const body = req.body;
+  client.query(`
+    INSERT INTO albums (title, description)
+    VALUES ($1, $2)
+    RETURNING *;
+  `,
+  [body.title, body.description]
   ).then(result => {
       // send back object
       res.send(result.rows[0]);

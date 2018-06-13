@@ -1,6 +1,6 @@
 <template>
   <div id="add-image">
-    <h2>This is the Add Image component</h2>
+    <h2>Add a New Image</h2>
     <section>
     <form @submit.prevent="handleSubmit">
       <label>
@@ -59,7 +59,7 @@ export default {
         });
     },
     handleCancel() {
-      // go somewhere
+      this.$router.push(`/albums/${this.image.albumId}`);
     }
   }
 };
