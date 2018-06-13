@@ -1,0 +1,44 @@
+<template>
+  <div>
+    <h1>Add Album</h1>
+    <form @submit.prevent="handleAdd">
+      <label>
+        Title:
+        <input type="text" required v-model="newAlbum.title">
+      </label>
+      <label>
+        Description:
+        <textarea rows="4" cols="40" required v-model="newAlbum.description"></textarea>
+      </label>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+</template>
+
+<script>
+import { addAlbum } from '../services/api';
+export default {
+  data() {
+    return {
+      newAlbum: {
+        title: '',
+        description: ''
+      }
+    };
+  },
+  props: ['album'],
+  methods: {
+    handleAdd() {
+      return addAlbum(this.newAlbum)
+        .then(saved => {
+          this.$router.push(`/albums/${saved.id}`);
+        });
+    }
+  }
+};
+</script>
+
+<style>
+
+</style>
+

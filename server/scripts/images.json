@@ -1,26 +1,81 @@
 [
   {
     "album_id": 1,
-    "title": "Bonzai",
-    "description": "A lovable butler cat",
+    "title": "Bonzai Posing",
+    "description": "Bonzai looking majestic",
     "url": "https://i.imgur.com/Nzg44ix.jpg"
   },
   {
-    "album_id": 1,
-    "title": "Lola",
-    "description": "Devil's minion",
+    "album_id": 2,
+    "title": "Lola Rolling",
+    "description": "Spring 2016",
     "url": "https://i.imgur.com/F3rJ4IM.jpg"
   },
   {
     "album_id": 2,
-    "title": "Puchungo",
-    "description": "Portland's cutest",
-    "url": "https://i.imgur.com/nJFrJf1.jpg"
+    "title": "Lola doll",
+    "description": "Girls night out",
+    "url": "https://i.imgur.com/bl4ca21.jpg"
   },
   {
     "album_id": 2,
-    "title": "Seymour",
-    "description": "A cool corgi from Vancouver BC",
+    "title": "The high ground",
+    "description": "I'm safe to plan my next attack",
+    "url": "https://i.imgur.com/8dyl01n.jpg"
+  },
+  {
+    "album_id": 2,
+    "title": "Game on?",
+    "description": "Forgot to plug the controller...",
+    "url": "https://i.imgur.com/89eOXUl.jpg"
+  },
+  {
+    "album_id": 2,
+    "title": "Potted Lola",
+    "description": "They'll never find me here",
+    "url": "https://i.imgur.com/rSzQJJm.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "Puchungo to the Max",
+    "description": "What a cutie!",
+    "url": "https://i.imgur.com/nJFrJf1.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "The rare fur",
+    "description": "What's that I hear?",
+    "url": "https://i.imgur.com/iQ596y8.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "My bone",
+    "description": "Get me a bigger one!",
+    "url": "https://i.imgur.com/TBBirH5.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "Quid pro quo",
+    "description": "I ate the vet with a nice Chianti",
+    "url": "https://i.imgur.com/PUhsmQa.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "Yums",
+    "description": "Just give it already",
+    "url": "https://i.imgur.com/gugcuwd.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "The style",
+    "description": "Too sexy for my sweatshirt",
+    "url": "https://i.imgur.com/BMcDKmJ.jpg"
+  },
+  
+  {
+    "album_id": 4,
+    "title": "Too Handsome",
+    "description": "What an angel!",
     "url": "https://i.imgur.com/FEGaX1S.jpg"
   }
 
