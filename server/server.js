@@ -28,6 +28,7 @@ app.post('/api/records', (req, res) => {
   });
 });
 
+//Get information for Genres.vue
 app.get('/api/genres', (req, res, next) => {
 
   client.query(`
@@ -47,6 +48,7 @@ app.get('/api/genres', (req, res, next) => {
 
 });
 
+//get for specific genres and their records
 app.get('/api/genres/:id', (req, res) => {
 
   const genrePromise = client.query(`

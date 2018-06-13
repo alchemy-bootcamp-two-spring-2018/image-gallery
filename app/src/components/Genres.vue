@@ -19,22 +19,10 @@
 </template>
 
 <script>
-import {
-  getGenres
-} from '../services/api.js';
 
 export default {
-  data() {
-    return {
-      genres: null
-    };
-  },
-  created() {
-    getGenres()
-      .then(genres => {
-        this.genres = genres;
-      });
-  }
+  
+  props:['genres']
 
 };
 </script>
