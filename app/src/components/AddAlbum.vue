@@ -18,8 +18,8 @@
       <label>
         <button type="submit">Add</button>
       </label>
-
     </form>
+    <pre>{{ error }}</pre>
   </section>
 </template>
 
@@ -29,6 +29,7 @@ import { addAlbum } from '../services/api';
 export default {
   data() {
     return {
+      error: null,
       album: {
         title: '',
         description: ''
@@ -37,9 +38,13 @@ export default {
   },
   methods: {
     handleSubmit() {
+      this.error = null;
       return addAlbum(this.album)
         .then(saved => {
           this.$router.push(`/albums/${saved.id}`);
+        })
+        .catch(err => {
+          this.error = err;
         });
     }
   }

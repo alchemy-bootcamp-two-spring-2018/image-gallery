@@ -14,17 +14,18 @@ const client = new Client(databaseUrl);
 client.connect();
 
 
-app.get('/api/albums', (req, res) => {
+app.get('/api/albums', (req, res, next) => {
 
   client.query(`
     select * from albums;
   `)
     .then(result => {
       res.send(result.rows);
-    });
+    })
+      .catch(next);
 });
 
-app.get('/api/images', (req, res) => {
+app.get('/api/images', (req, res, next) => {
 
   client.query(`
     select id,
@@ -36,12 +37,13 @@ app.get('/api/images', (req, res) => {
       `)
     .then(result => {
       res.send(result.rows);
-    });
+    })
+    .catch(next);
 });
 
-app.post('/api/images', (req, res) => {
+app.post('/api/images', (req, res, next) => {
   const body = req.body;
-
+  if(body.name === 'error') return next('bad name');
   client.query(`
     insert into images (name, album_id, description, url)
     values ($1, $2, $3, $4)
@@ -50,12 +52,14 @@ app.post('/api/images', (req, res) => {
   [body.name, body.albumId, body.description, body.url]
   ).then(result => {
     res.send(result.rows[0]);
-  });
+  })
+  .catch(next);
 });
 
-app.post('/api/albums', (req, res) => {
+app.post('/api/albums', (req, res, next) => {
   const body = req.body;
-
+  if(body.title === 'error') return next('bad title');
+  
   client.query(`
     insert into albums (title, description)
     values ($1, $2)
@@ -64,11 +68,12 @@ app.post('/api/albums', (req, res) => {
   [body.title, body.description]
   ).then(result => {
     res.send(result.rows[0]);
-  });
+  })
+  .catch(next);
 });
 
 
-app.get('/api/albums/:id', (req, res) => {
+app.get('/api/albums/:id', (req, res, next) => {
 
   const albumPromise = client.query(`
     select id, title, description
@@ -99,7 +104,16 @@ app.get('/api/albums/:id', (req, res) => {
       album.images = images;
 
       res.send(album);
-    });
+    })
+    .catch(next);
+});
+
+app.use((err, req, res, next) => {
+  console.log('***SERVER ERROR**\n', err);
+  let message = 'internal server error';
+  if(err.message) message = err.message;
+  else if(typeof err === 'string') message = err;
+  res.status(500).send({ message });
 });
 
 app.listen(3000, () => console.log('app is running...'));
