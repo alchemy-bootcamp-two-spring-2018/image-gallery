@@ -1,19 +1,18 @@
 <template>
   <div id="thumbnail-viewer">
-    <h2>This is the Thumbnail Viewer component</h2>
-  <div v-if="images !== null">
-    <div class="container">
-      <div class ="thumbnail-image"
-        v-for="image in images"
-        :key="image.id">
-        <img v-bind:src="image.url" :title="image.title"/> 
-        <p><strong>{{ image.title }}</strong></p>
-      </div>  
+    <h2>Thumbnail View</h2>
+    <pre v-if="error">{{ error }}</pre>
+    <div v-if="images !== null">
+      <div class="container">
+        <div class ="thumbnail-image"
+          v-for="image in images"
+          :key="image.id">
+          <img v-bind:src="image.url" :title="image.title"/> 
+          <p><strong>{{ image.title }}</strong></p>
+        </div>  
+      </div>
     </div>
   </div>
-  </div>
-      
-    
 </template>
 
 <script>
@@ -22,13 +21,17 @@ import { getImages } from '../services/api';
 export default {
     data() {
       return {
-        images: null
+        images: null,
+        error: null
       };
     },
     created() {
       getImages(this.$route.params.id)
         .then(result => {
           this.images = result;
+        })
+        .catch(err => {
+          this.error = err;
         });
     }
 

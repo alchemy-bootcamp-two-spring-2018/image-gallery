@@ -1,6 +1,7 @@
 <template>
   <div id="list-viewer">
     <h2>List View</h2>
+    <pre v-if="error">{{ error }}</pre>
     <div v-if="images !== null">
       <div class ="list-image"
         v-for="image in images"
@@ -21,13 +22,17 @@ import { getImages } from '../services/api';
 export default {
     data() {
       return {
-        images: null
+        images: null,
+        error: null
       };
     },
     created() {
       getImages(this.$route.params.id)
         .then(result => {
           this.images = result;
+        })
+        .catch(err => {
+          this.error = err;
         });
     }
 }

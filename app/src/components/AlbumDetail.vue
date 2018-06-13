@@ -1,6 +1,7 @@
 <template>
   <div id="album-detail">
-    <h2>Album: {{ album.title }}</h2>
+    <pre v-if="error">{{ error }}</pre>
+    <h2 v-else>Album: {{ album.title }}</h2>
     <nav>
       <span class = "nav-link">
         <router-link to="list">List View</router-link>
@@ -25,13 +26,17 @@ export default {
       album: {
         title: '',
         description: ''
-      }
+      },
+      error: null
     }
   },
   created() {
     getAlbum(this.$route.params.id)
       .then(album => {
         this.album = album;
+      })
+      .catch(err => {
+        this.error = err;
       });
   }
 };

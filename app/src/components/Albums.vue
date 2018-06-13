@@ -5,6 +5,7 @@
       <router-link to="add-album">Add Album</router-link>
       <router-view/>
     </nav>
+    <pre v-if="error">{{ error }}</pre>
     <ul v-if="albums !== null">
       <li
         v-for="album in albums"
@@ -25,13 +26,17 @@ import { getAlbums } from '../services/api';
 export default {
   data() {
     return {
-      albums: null
+      albums: null,
+      error:null
     }
   },
   created() {
     getAlbums()
       .then(albums => {
         this.albums = albums;
+      })
+      .catch(err => {
+        this.error = err;
       });
   }
 };

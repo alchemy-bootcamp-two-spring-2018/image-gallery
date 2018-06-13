@@ -28,6 +28,7 @@
         >cancel</button>
       </label>
     </form>
+    <pre> {{ error }}</pre>
   </section>
 
 
@@ -45,7 +46,8 @@ export default {
         description: '',
         url: '',
         albumId: null
-      }
+      },
+      error: null
     };
   },
   created() {
@@ -56,6 +58,9 @@ export default {
         return addImage(this.image)
         .then(() => {
           this.$router.push(`/albums/${this.image.albumId}`);
+        })
+        .catch(err => {
+            this.error = err;
         });
     },
     handleCancel() {
