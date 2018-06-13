@@ -13,6 +13,7 @@ export default new VueRouter({
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/genres', component: Genres },
+    { path: '/new', component: NewRecord },
     {
       path: '/genres/:id',
       component: GenreDetail,

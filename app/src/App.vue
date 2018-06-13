@@ -8,6 +8,8 @@
       <router-link to ="/about">ABOUT</router-link>
       &nbsp;
       <router-link to ="/genres">MUSIC GENRES</router-link>
+      &nbsp;
+      <router-link to ="/new">ADD A GENRE</router-link>
     </nav>
 
     <router-view></router-view>

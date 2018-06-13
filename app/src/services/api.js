@@ -25,8 +25,8 @@ export function addRecord(record) {
 
 }
 
-export function deleteAlbum(id) {
-  return fetch('http://localhost:3000/api/records' + id, {
+export function deleteRecord(record) {
+  return fetch('http://localhost:3000/api/records' + record.id, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application.json' },
   })
