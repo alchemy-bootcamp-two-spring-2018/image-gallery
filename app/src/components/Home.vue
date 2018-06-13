@@ -1,9 +1,8 @@
 <template>
-<div id="bgcolor">
-  <h1>HOME</h1>
-  
+  <section id="home">
+    <img src="/assets/vinyl.png" />
   </section>
-</div>
+ 
 </template>
 
 <script>
@@ -14,7 +13,11 @@ export default {
 
 <style>
 
-body {
+h2 {
+  font-family: 'Knewave', cursive;
+}
+
+#homebg {
   background: linear-gradient(212deg, #d4625f, #e99a57);
   background-size: 1000% 1000%;
 
