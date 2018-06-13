@@ -9,7 +9,7 @@
       <router-link to="/about">About</router-link>
     </nav>
 
-    <div id="container-view">
+    <div id="container-albums">
       <router-view></router-view>
     </div>
   </div>
@@ -62,7 +62,7 @@ a:focus {
   background: black;
 }
 
-#container-view {
+#container-albums {
   border-top-left-radius: 33px;
   border-top-right-radius: 33px;
   background-color: rgba(0, 0, 0, .69);

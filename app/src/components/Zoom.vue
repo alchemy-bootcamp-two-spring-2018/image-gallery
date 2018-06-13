@@ -7,7 +7,6 @@
             <gallery
               :images="zimages"
               :selectedImage="selectedImage"
-              
             />
         </div>
       </div>
