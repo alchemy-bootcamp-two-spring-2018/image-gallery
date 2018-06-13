@@ -49,10 +49,24 @@ app.post('/api/images', (req, res) => {
   `,
   [body.name, body.albumId, body.description, body.url]
   ).then(result => {
-    
     res.send(result.rows[0]);
   });
 });
+
+app.post('/api/albums', (req, res) => {
+  const body = req.body;
+
+  client.query(`
+    insert into albums (title, description)
+    values ($1, $2)
+    returning *;
+  `,
+  [body.title, body.description]
+  ).then(result => {
+    res.send(result.rows[0]);
+  });
+});
+
 
 app.get('/api/albums/:id', (req, res) => {
 
