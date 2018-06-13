@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>New Image Component</h1>
+    <h1>New Image</h1>
 
     <form @submit.prevent="handleSubmit">
       <label> 

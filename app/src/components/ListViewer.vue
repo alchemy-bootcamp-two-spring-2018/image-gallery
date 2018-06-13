@@ -1,13 +1,12 @@
 <template>
   <div>
-    <h1>ListViewer Component</h1>
+    <h1>List Viewer</h1>
     <ul v-if="cars">
       <li v-for="car in cars" :key="car.id">
-        <p>{{ car.make }}</p>
-        <p>{{ car.model }}</p>
+        <p><b>Make:</b> {{ car.make }}</p>
+        <p><b>Model:</b> {{ car.model }}</p>
       </li>
     </ul>
-
   </div>
 </template>
 
@@ -20,9 +19,5 @@ export default {
 </script>
 
 <style>
-
-img {
-  width: 300px;
-}
 
 </style>
