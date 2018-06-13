@@ -11,7 +11,7 @@
     </nav>
     <router-view
     :records="genre.records"
-    :genre-id="genre.id"
+    :genre="genre"
     :on-add="handleAdd"
     ></router-view>
   </div>
@@ -33,8 +33,8 @@ export default {
       })
   },
   methods: {
-    handleAdd(record) {
-      record.genre_id = this.genre.id;
+    handleAdd(record, genre) {
+      record.genre_id = genre.id;
       return addRecord(record)
         .then(saved => {
           this.genre.records.push(saved);

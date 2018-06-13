@@ -1,18 +1,16 @@
 <template>
   <section class="record-form">
+    <h2>Add a {{ genre.title }} record!</h2>
     <form @submit.prevent="handleSubmit">
       <label> Record Title:
       <input type= "text" name="title" required
         v-model="record.title">
       </label>
 
-      <label> Record Genre:</label>
+      <!-- <label> Record Genre:</label>
       <select v-model="record.genre_id">
-        <option dispabled value="">Please select a genre</option>
-        <option value="1">Rock and Roll</option>
-        <option value="2">Country</option>
-        <option value="3">Hiphop</option>
-      </select>
+        <option :value="genre.id">{{ genre.title }}</option>
+      </select> -->
      
 
       <label> Artist:
@@ -53,10 +51,13 @@ export default {
       record: initRecord()
     };
   },
-  props: ['onAdd'],
+  props: {
+    onAdd: Function,
+    genre: Object
+  },
   methods: {
     handleSubmit() {
-      this.onAdd(this.record)
+      this.onAdd(this.record, this.genre)
       .then(() => {
         this.record = initRecord();
       });
