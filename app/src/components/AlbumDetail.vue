@@ -1,5 +1,5 @@
 <template>
-  <div v-if="album !== null">
+  <div v-if="album !== null" class="album-detail">
     <h2>{{ album.title }}</h2>
     <h3>{{ album.description }}</h3>
     <button @click="handleDeleteAlbum">Delete Album</button>
@@ -60,6 +60,8 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
+.album-detail {
+  text-align: center;
+}
 </style>

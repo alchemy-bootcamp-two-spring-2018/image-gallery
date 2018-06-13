@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="gallery">
     <gallery :images="urlList" :index="index" @close="index = null"></gallery>
     <div
       class="image"
@@ -9,7 +9,7 @@
       :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '200px' }"
     ></div>
   </div>
-</template>
+</template>m
 
 <script>
 import VueGallery from 'vue-gallery';
@@ -33,9 +33,15 @@ export default {
 </script>
 
 <style>
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .image {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  margin-left: 15px;
 }
 </style>
