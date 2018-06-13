@@ -20,7 +20,7 @@
 
       <label>
         Description:
-        <input type="text" placeholder="Description" v-model="newCar.description">
+        <input type="textarea" placeholder="Description" v-model="newCar.description">
       </label>
 
       <button type="submit">Submit</button>
@@ -56,5 +56,10 @@ export default {
 </script>
 
 <style>
+
+form {
+  display: flex;
+  justify-content: center;
+}
 
 </style>

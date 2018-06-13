@@ -57,4 +57,9 @@ export default {
 
 <style>
 
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
 </style>
