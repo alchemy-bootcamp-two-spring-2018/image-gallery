@@ -1,9 +1,9 @@
 <template>
   <div class="albums">
     <h2>Albums</h2>
-    <ul v-if="albums">
+    <ul v-if="album">
       <li
-        v-for="album in albums"
+        v-for="album in album"
         :key="album.id"
       >
         <router-link :to="`/albums/${album.id}`">
@@ -19,20 +19,10 @@
 
 <script>
 import AlbumForm from './AlbumForm';
-import { getAlbums, addAlbum } from '../services/api';
+import { addAlbum } from '../services/api';
 
 export default {
-  data() {
-    return {
-      albums: null
-    };
-  },
-  created() {
-    getAlbums()
-      .then(albumlist => {
-        this.albums = albumlist;
-      });
-  },
+  props: ['album', 'albumstats'],
   components: {
     AlbumForm
   },
