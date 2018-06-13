@@ -6,16 +6,11 @@
         :key="album.id"
         :albumId="album.id"
       >
-      <router-link :to="`/${album.id}`">
+      <router-link :to="`/albums/${album.id}`">
         {{ album.title }}
       </router-link>
       </li>
     </ul>
-    <!-- Here's where the album deets will go? -->
-    <div id="container-details">
-      <router-view></router-view>
-    </div>
-    Still here?
   </div>
 </template>
 
@@ -25,8 +20,7 @@ import { getAlbums } from '../services/api.js';
 export default {
   data() {
     return {
-      albums: null,
-      id: this.$route.params.id
+      albums: null
     };
   },
   created() {

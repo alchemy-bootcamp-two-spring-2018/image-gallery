@@ -2,7 +2,7 @@ const URL = 'http://localhost:3000/api';
 const ALBUMS_URL = `${URL}/albums`;
 const IMAGES_URL = `${URL}/images`;
 
-export { getAlbums, getImages, addImage, deleteImage, deleteAlbums };
+export { getAlbums, getImages, addImage, deleteImage, deleteAlbums, updateImage };
 
 function getAlbums() {
   return fetch(ALBUMS_URL, {
@@ -14,6 +14,15 @@ function getAlbums() {
 function getImages(id) {
   return fetch(`${IMAGES_URL}/${id}`, {
     headers: { 'Content-Type': 'application/json' }
+  })
+    .then(res => res.json());
+}
+
+function updateImage(image) {
+  return fetch(`${IMAGES_URL}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(image)
   })
     .then(res => res.json());
 }

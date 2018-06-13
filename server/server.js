@@ -35,25 +35,24 @@ app.get('/api/albums', (req, res) => {
 //   });
 // });
 
-// app.put('/api/neighborhoods/:id', (req, res) => {
-//   const body = req.body;
 
-//   client.query(`
-//     update neighborhoods
-//     set
-//       name = $1,
-//       quadrant_id = $2,
-//       population = $3,
-//       founded = $4,
-//       description = $5
-//     where id = $6
-//     returning *, quadrant_id as "quadrantId";
-//   `,
-//   [body.name, body.quadrantId, body.population, body.founded, body.description, req.params.id]
-//   ).then(result => {
-//     res.send(result.rows[0]);
-//   });
-// });
+// Update image info
+app.put('/api/images', (req, res) => {
+  const body = req.body;
+
+  client.query(`
+    UPDATE images
+    SET
+      albumid = $1,
+      title = $2,
+      url = $3,
+      description = $4
+    WHERE id = $5
+    returning *;
+  `,
+  [body.albumid, body.title, body.url, body.description, body.id]
+  ).then(() => res.send({ updated: true }));
+});
 
 // DELETE FROM images WHERE albumid=$1;
 app.delete('/api/albums/:id', (req, res) => {

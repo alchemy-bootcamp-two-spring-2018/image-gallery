@@ -13,7 +13,7 @@ export default new VueRouter({
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/albums', component: Albums },
-    {z
+    {
       path: '/albums/:id',
       component: AlbumDetail,
       children: [

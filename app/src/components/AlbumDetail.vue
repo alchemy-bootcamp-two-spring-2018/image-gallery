@@ -1,5 +1,5 @@
 <template>
-  <div slot="details">
+  <div>
     <transition name="fade">
       <zoom
         v-if="zoomed"
@@ -10,19 +10,19 @@
       />
     </transition>
     <nav>
-      <router-link :to="`/${this.$route.params.id}/`">
+      <router-link :to="`/albums/${this.$route.params.id}/`">
         Thumbnail View
       </router-link>
 
-      <router-link :to="`/${this.$route.params.id}/list`">
+      <router-link :to="`/albums/${this.$route.params.id}/list`">
         List View
       </router-link>
 
-      <router-link :to="`/${this.$route.params.id}/gallery`">
+      <router-link :to="`/albums/${this.$route.params.id}/gallery`">
         Gallery View
       </router-link>
 
-      <router-link :to="`/${this.$route.params.id}/new`">
+      <router-link :to="`/albums/${this.$route.params.id}/new`">
         Add New Image
       </router-link>
 
@@ -38,7 +38,6 @@
         :handleZoom="handleZoom"
       />
     </transition>
-    {{ id }}
   </div>
 </template>
 
@@ -74,10 +73,10 @@ export default {
     }
   },
   created() {
-    // getImages(this.$route.params.id)
-    //   .then(image => {
-    //     this.images = image;
-    //   });
+    getImages(this.$route.params.id)
+      .then(image => {
+        this.images = image;
+      });
   }
 };
 </script>
