@@ -18,3 +18,12 @@ export function getDecade(id) {
   })
     .then(response => response.json());
 }
+
+export function addCars(image) {
+  return fetch('http://localhost:3000/api/images', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(image)
+  })
+    .then(response => response.json());
+}

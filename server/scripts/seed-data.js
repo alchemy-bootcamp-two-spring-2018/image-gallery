@@ -28,7 +28,7 @@ Promise.all(
           )
           VALUES ($1, $2, $3, $4, $5);
         `,
-        [image.decade_id, image.make, image.model, image.description, image.imageUrl]
+        [image.decadeId, image.make, image.model, image.description, image.imageUrl]
         ).then(result => result.rows[0]);
       })
     );
