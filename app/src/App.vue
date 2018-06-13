@@ -11,7 +11,9 @@
     </nav>
 
     <router-view></router-view>
-
+    <section id="home">
+    <img src="./assets/vinyl.png" />
+  </section>
   </div>
 </template>
 
