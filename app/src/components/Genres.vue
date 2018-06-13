@@ -9,7 +9,9 @@
         <router-link :to="`/genres/${genre.id}`"
         :genres="genres"
         >
-          {{ genre.title }} ({{ genre.description }})
+          {{ genre.title }} | {{ genre.description }} |
+          {{ genre.recordsCount }}
+          record{{ genre.recordsCount !== 1 ? 's' : '' }}
           </router-link>
       </li>
     </ul>
