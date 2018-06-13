@@ -1,14 +1,20 @@
 <template>
-    <div>
-        <h3>I am New Image.</h3>
-    </div>
+  <section>
+    <ImageForm 
+      label="Add"
+      :on-edit="onAdd"/>
+  </section>
 </template>
 
 <script>
+import ImageForm from './ImageForm.vue';
 export default {
-  props: ['albums']
-
+  props: ['onAdd'],
+  components: { 
+    ImageForm
+  }
 };
+
 </script>
 
 <style>
