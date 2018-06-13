@@ -46,7 +46,7 @@ a {
   text-decoration: none;
 }
 .router-link-active {
-  color: gray;
+  color: #2c3e50;
 }
 
 hr {

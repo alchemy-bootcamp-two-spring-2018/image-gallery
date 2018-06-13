@@ -7,7 +7,6 @@ A single page app created to learn about using Vue routes. This app allows the u
 
 ### Installing
 * Fork repository, clone locally, navigate to repository directory,
-* In the app folder, run `npm install --save vue-gallery`,
 * Download all the files with `npm i` in both folders,
 * Launch app in Vue,
 * Start server with npm on local host.
