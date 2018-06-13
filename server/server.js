@@ -84,8 +84,9 @@ app.post('/api/albums', (req, res) => {
   });
 });
 
-app.post('api/images', (req, res) => {
+app.post('/api/images', (req, res) => {
   const body = req.body;
+
   client.query(`
     INSERT INTO images (title, album_id, description, url)
     VALUES ($1, $2, $3, $4)
@@ -98,9 +99,24 @@ app.post('api/images', (req, res) => {
 });
 
 app.delete('/api/albums/:id', (req, res) =>{
+  client.query(`
+    DELETE FROM images WHERE album_id=$1;
+  `,
+  [req.params.id]
+  )
+    .then(client.query(`
+      DELETE FROM images WHERE id=$1;
+  `,
+    [req.params.id]
+    )).then(() => {
+      res.send({ removed: true });
+    });
+});
+
+app.delete('/api/images/:id', (req, res) =>{
   
   client.query(`
-    DELETE FROM galleries 
+    DELETE FROM images 
     WHERE id = $1;
   `,
   [req.params.id]

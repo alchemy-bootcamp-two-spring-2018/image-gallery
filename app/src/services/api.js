@@ -32,7 +32,12 @@ export function updateAlbum() {
 }
 
 //removeAlbum
-export function removeAlbum() {
+export function deleteAlbum(id) {
+  return fetch(`${ALBUMS_URL}/${id}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(res =>res.json());
 
 }
 
@@ -44,6 +49,11 @@ export function getImages() {
 }
 
 //newImage
-export function newImage() {
-  
+export function addImage(image) {
+  return fetch(IMAGES_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(image)
+  })
+    .then(response => response.json());
 }
