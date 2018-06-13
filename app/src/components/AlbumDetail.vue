@@ -8,12 +8,15 @@
       <router-link :to="`/albums/${id}/list`">List</router-link> |
       <router-link :to="`/albums/${id}/new`">New</router-link>
     </nav>
-    <router-view />
+    <router-view 
+      :images="album.images"
+      :onAdd="handleAdd"
+    />
   </div>
 </template>
 
 <script>
-import { getAlbum } from '../services/api';
+import { getAlbum, addImage } from '../services/api';
 export default {
   data() {
     return {
@@ -26,7 +29,18 @@ export default {
         this.album = album;
       });
   },
-  props: ['id']
+  props: ['id'],
+
+  methods: {
+    handleAdd(newImage) {
+      newImage.albumID = this.id;
+      return addImage(newImage)
+        .then(saved => {
+          this.album.images.push(saved);
+          this.$router.push(`/albums/${this.albumID}`);
+        });
+    }
+  }
 };
 </script>
 

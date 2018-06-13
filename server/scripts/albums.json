@@ -1,14 +1,18 @@
 [
   {
-    "title": "Cats",
-    "description": "Some cute kitties"
+    "title": "Bonzai",
+    "description": "The lovable butler cat"
   },
   {
-    "title": "Dogs",
-    "description": "Some cute doogies"
+    "title": "Lola",
+    "description": "Devil's Minion"
   },
   {
-    "title": "Birds",
-    "description": "Some cute birdies"
+    "title": "Puchungo",
+    "description": "Portland's Most Handsome Dog"
+  },
+  {
+    "title": "Seymour",
+    "description": "I miss Seymour"
   } 
 ]
