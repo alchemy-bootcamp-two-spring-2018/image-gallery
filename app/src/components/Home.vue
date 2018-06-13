@@ -1,7 +1,4 @@
 <template>
-  <section id="home">
-    <img src="/assets/vinyl.png" />
-  </section>
  
 </template>
 
