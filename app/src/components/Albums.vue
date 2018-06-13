@@ -24,7 +24,6 @@ export default {
     };
   },
   created() {
-    console.log('getette', getAlbums());
     getAlbums().then(res => this.albums = res);
   }
 };
