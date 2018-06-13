@@ -1,8 +1,8 @@
 const client = require('../db-client');
 
 client.query(`
-    DROP TABLE IF EXISTS albums;
     DROP TABLE IF EXISTS images;
+    DROP TABLE IF EXISTS albums;
     
 `)
 .then(
