@@ -1,0 +1,6 @@
+[
+ { "genre": "Country", "album_name": "Fancy", "artist": "Reba", "date": 1990, "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
+ { "genre": "Country", "album_name": "Fancy", "artist": "Reba", "date": 1990, "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
+ { "genre": "Country", "album_name": "Fancy", "artist": "Reba", "date": 1990, "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" },
+ { "genre": "Rock", "album_name": "Metallica", "artist": "Reba", "date": 1990, "cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Rebarumorhasit.jpg/220px-Rebarumorhasit.jpg" } 
+]
