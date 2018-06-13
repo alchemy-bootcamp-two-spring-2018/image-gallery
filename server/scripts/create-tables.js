@@ -1,7 +1,5 @@
 const client = require('../db-client');
 
-//URL = varchar or another data type?
-//images query
 client.query(`
   CREATE TABLE IF NOT EXISTS albums (
     id SERIAL PRIMARY KEY,

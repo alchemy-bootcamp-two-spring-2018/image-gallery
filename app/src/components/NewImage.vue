@@ -1,6 +1,6 @@
 <template>
   <section class="image-form">
-    <form @submit.prevent="handleSubmit">
+    <form @submit.prevent="handleSubmit" class="add-form">
       <label>
         Title: 
         <input type="text"  placeholder="Title" required
@@ -46,5 +46,15 @@ export default {
 </script>
 
 <style>
+label {
+  display: block;
+  margin: 4px;
+}
 
+.add-form {
+  width: 300px;
+  text-align: left;
+  margin: auto;
+  margin-top: 100px;
+}
 </style>

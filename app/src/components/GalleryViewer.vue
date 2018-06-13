@@ -32,7 +32,6 @@ export default {
 };
 </script>
 
-
 <style>
 .image {
   background-size: cover;

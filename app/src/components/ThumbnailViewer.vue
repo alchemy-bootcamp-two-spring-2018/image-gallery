@@ -19,10 +19,12 @@ export default {
     margin: 15px;
     margin-top: 2px
   }
+
   h5 {
     margin: 0px;
     margin-top: 5px;
   }
+
   .thumb-nail {
     text-align: center;
     display: flex;
