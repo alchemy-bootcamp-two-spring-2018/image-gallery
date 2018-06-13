@@ -39,9 +39,6 @@ export default {
 
 <style>
 
-ul {
-  list-style-type: none;
-  text-align: left;
-}
+
 
 </style>

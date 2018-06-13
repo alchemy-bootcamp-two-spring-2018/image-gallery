@@ -48,17 +48,21 @@ img {
   display: inline;
 }
 .list-image {
+  margin-left: 10%;
+  margin-right: 10%;
   background-color: rgb(182, 247, 211);
   text-align: left;
   height: 60px;
 }
 strong {
   font-size: 22px;
+  font-weight: 700;
 
 }
 p {
   margin-top: 5px;
   font-size: 18px;
+  font-weight: 300;
 
 }
 
