@@ -2,21 +2,27 @@
   <section>
     <h1>New Image Component</h1>
 
-    <form @submit.prevent="handleAdd">
+    <form @submit.prevent="handleSubmit">
       <label> 
         Make:
-        <input type="text" placeholder="Car Make" required v-model="cars.make">
+        <input type="text" placeholder="Car Make" required v-model="newCar.make">
       </label>
 
       <label>
         Model:
-        <input type="text" placeholder="Model" required v-model="cars.model">
+        <input type="text" placeholder="Model" required v-model="newCar.model">
       </label>
 
       <label>
         Image:
-        <input type="text" placeholder="Image URL" v-model="cars.imageUrl">
+        <input type="text" placeholder="Image URL" v-model="newCar.imageUrl">
       </label>
+
+      <label>
+        Description:
+        <input type="text" placeholder="Description" v-model="newCar.description">
+      </label>
+
       <button type="submit">Submit</button>
 
     </form>
@@ -24,27 +30,27 @@
 </template>
 
 <script>
-import { addCar } from '../services/api';
 
 export default {
   data() {
     return {
-      decadeId:'',
-      
-    }
+      newCar: {
+        make: '',
+        model: '',
+        imageUrl: '',
+        description: ''
+      }
+    };
   },
-  props: ['decadeId'],
 
   methods: {
-    handleAdd(car) {
-      car.decadeId = this.decadeId;
-      return addCar(car)
-        .then(saved => {
-          this.cars.push(saved);
-          this.$router.push(`/decades/${this.decadeId}`);
-        });
+    handleSubmit() {
+      this.onAdd(this.newCar);
     }
-  }
+  },
+
+  props: ['onAdd']
+
 };
 
 </script>
