@@ -8,3 +8,10 @@ export function getAlbums() {
   })
     .then(response => response.json());
 }
+
+export function getAlbum(id) {
+  return fetch(`${URL}/albums/${id}`, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => response.json());
+}

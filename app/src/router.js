@@ -1,14 +1,27 @@
 import VueRouter from 'vue-router';
 import Home from './components/Home.vue';
-import Albums from './components/Albums.vue';
 import About from './components/About.vue';
+import Albums from './components/Albums.vue';
 import AlbumDetail from './components/AlbumDetail.vue';
+import ListViewer from './components/ListViewer.vue';
+import GalleryViewer from './components/GalleryViewer.vue';
+import NewImage from './components/NewImage.vue';
 
 export default new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/albums', component: Albums },
+    {
+      path: '/albums/:id',
+      component: AlbumDetail,
+      children: [
+        { path: 'list', component: ListViewer },
+        // { path: 'gallery', component: GalleryViewer },
+        // { path: 'new', component: NewImage },
+        { path: '', redirect: 'list'}
+      ]
+    },
     { path: '*', redirect: '/' }
   ]
 });
