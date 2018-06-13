@@ -105,7 +105,7 @@ app.delete('/api/albums/:id', (req, res) =>{
   [req.params.id]
   )
     .then(client.query(`
-      DELETE FROM images WHERE id=$1;
+      DELETE FROM albums WHERE id=$1;
   `,
     [req.params.id]
     )).then(() => {
