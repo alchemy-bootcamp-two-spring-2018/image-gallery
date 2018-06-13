@@ -5,17 +5,15 @@
     <div class="container">
       <div class ="thumbnail-image"
         v-for="image in images"
-        :key="image.id"
-      >
+        :key="image.id">
         <img v-bind:src="image.url" :title="image.title"/> 
         <p><strong>{{ image.title }}</strong></p>
-        </div>  
-        
-        
-      </div>
-      </div>
-    </div> 
- 
+      </div>  
+    </div>
+  </div>
+  </div>
+      
+    
 </template>
 
 <script>
@@ -38,13 +36,17 @@ export default {
 </script>
 
 <style scoped>
+p {
+  display: inline-block;
+  width: 300px;
+}
+
 img {
   
   margin: 5px;
   width: 150px;
   height: 150px;
   border: 1px solid #000;
-  
   
 }
 
@@ -53,12 +55,14 @@ strong {
 
 }
 .container {
-  background-color: #333;
+  background-color: rgb(177, 171, 171);
+  border: 1px solid red;
   font-size: 18px;
-  max-width: 200px;
-  display: inline;
+  max-width: 300px;
+  display: inline-block;
+  padding: 15px;
+  min-width: 200px;
   margin: 15px;
-  
 
 }
 

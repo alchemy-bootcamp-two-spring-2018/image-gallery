@@ -38,10 +38,13 @@ export default {
 </script>
 
 <style>
-
 ul {
   list-style-type: none;
-  text-align: left;
 }
+li {
+  display: inline-block;
+  margin: 10px;
+}
+
 
 </style>
