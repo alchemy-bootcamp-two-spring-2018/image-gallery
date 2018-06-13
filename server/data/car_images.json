@@ -1,0 +1,31 @@
+[
+  {
+    "decadeId": 1,
+    "make": "1952 Hudson",
+    "model": "Wasp",
+    "description": "description here",
+    "imageUrl": "https://retrowaste-jockpost.netdna-ssl.com/wp-content/gallery/1950s-family-cars/1952-hudson-wasp.jpg"
+  },
+  {
+    "decadeId": 1,
+    "make": "1954 Fiat",
+    "model": "8v Turbina",
+    "description": "description here",
+    "imageUrl": "https://retrowaste-jockpost.netdna-ssl.com/wp-content/gallery/1950s-sports-cars/1954-fiat-8v-turbina.jpg"
+  },
+  {
+    "decadeId": 1,
+    "make": "1955 Alfa Romeo",
+    "model": "Bat",
+    "description": "description here",
+    "imageUrl": "https://retrowaste-jockpost.netdna-ssl.com/wp-content/gallery/1950s-sports-cars/1955-alfa-romeo-bat-9.jpg"
+  },
+  {
+    "decadeId": 1,
+    "make": "955 Buick",
+    "model": "Skylark convertible",
+    "description": "description here",
+    "imageUrl": "https://retrowaste-jockpost.netdna-ssl.com/wp-content/gallery/1950s-luxury-cars/1955-buick-skylark-convertible.jpg"
+
+  }
+]
