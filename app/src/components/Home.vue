@@ -1,13 +1,29 @@
 <template>
  <div>
    <h2>Welcome! Your collection contains {{ genres.length }} different genres!</h2>
+
  </div>
 </template>
 
 <script>
-export default {
+import {
+  getStats
+} from '../services/api.js';
 
-    props:['genres']
+export default {
+  data() {
+    return {
+      stats: ''
+    };
+  },
+  created() {
+    getStats()
+      .then(stats => {
+        this.stats = stats;
+      });
+  },
+
+  props:['genres']
 
 };
 </script>
