@@ -33,10 +33,16 @@ app.get('/api/images', (req, res) => {
 app.get('/api/decades', (req, res) => {
 
   client.query(`
-    SELECT id,
+    SELECT car_decades.id,
       decade,
-      description
-    FROM car_decades;
+      car_decades.description,
+      count(images.decade_id) as "imagesCount",
+      avg(images.decade_id) as "imagesAvg"
+    FROM car_decades
+    left join car_images images
+    on car_decades.id = images.decade_id  
+    group by car_decades.id
+    order by car_decades.decade;   
   `).then(result => {
     res.send(result.rows);
   });
