@@ -32,8 +32,13 @@ export function updateAlbum() {
 }
 
 //removeAlbum
-export function removeAlbum() {
-  
+export function deleteAlbum(id) {
+  return fetch(`${ALBUMS_URL}/${id}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(res =>res.json());
+
 }
 
 export function getImages() {

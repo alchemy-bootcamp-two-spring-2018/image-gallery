@@ -2,6 +2,7 @@
   <div v-if="album !== null">
     <h2>{{ album.title }}</h2>
     <h3>{{ album.description }}</h3>
+    <button @click="handleDeleteAlbum">Delete Album</button>
     <nav>
       <router-link to="list">View as List</router-link>
       &nbsp;
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import { getAlbum, addImage } from '../services/api';
+import { getAlbum, addImage, deleteAlbum } from '../services/api';
 
 export default {
   data() {
@@ -44,6 +45,16 @@ export default {
           this.images.push(saved);
           this.$router.push(`/albums/${saved.albumId}/gallery`);
         });
+    },
+    handleDeleteAlbum() {
+      if(confirm('Are you sure you want to delete?')) {
+        deleteAlbum(this.$route.params.id)
+          .then(res => {
+            if(res.removed) {
+              this.$router.push('albums');
+            }
+          });
+      }
     }
   }
 };
