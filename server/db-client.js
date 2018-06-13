@@ -1,17 +1,17 @@
 // Erik
-require('dotenv').config();
-const loginString = process.env.POSTGRES_LOGIN;
+// require('dotenv').config();
+// const loginString = process.env.POSTGRES_LOGIN;
 
-const DATABASE_URL = `postgres://${loginString}localhost:5432/viewer`;
-const pg = require('pg');
-const Client = pg.Client;
+// const DATABASE_URL = `postgres://${loginString}localhost:5432/viewer`;
+// const pg = require('pg');
+// const Client = pg.Client;
 
 //////////////////////////////////////////////////////////////////////
 
 // Injoong
-// const DATABASE_URL = 'postgres://localhost:5432/viewer';
-// const pg = require('pg');
-// const Client = pg.Client;
+const DATABASE_URL = 'postgres://localhost:5432/viewer';
+const pg = require('pg');
+const Client = pg.Client;
 
 const client = new Client(DATABASE_URL);
 client.connect()
