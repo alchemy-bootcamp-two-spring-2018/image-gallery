@@ -1,19 +1,17 @@
 <template>
   <div>
-      <h2>
-        ALBUMS Component
-      </h2>
-      <ul v-if="albums">
-        <li v-for="album in albums"
-        :key="album.id"
-        >
-        <router-link :to="`/albums/${album.id}`">
-        {{ album.title }}
-        </router-link>
-        <br>
-        {{ album.description}}
-        </li>
-      </ul>
+    <ul v-if="albums">
+      <li v-for="album in albums"
+      :key="album.id"
+      >
+      <router-link :to="`/albums/${album.id}`">
+      {{ album.title }}
+      </router-link>
+      <p>
+      {{ album.description}}
+      </p>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -42,10 +40,10 @@ ul {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  margin-left: -45px;
+  margin-left: 5px;
 }
-li {
-  margin: 5px;
+p {
+  margin: 10px;
 }
 
 </style>

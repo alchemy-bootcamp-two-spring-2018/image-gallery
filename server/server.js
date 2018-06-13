@@ -11,17 +11,6 @@ const client = new Client(databaseUrl);
 
 client.connect();
 
-app.get('/api/albums', (req, res) => {
-
-    client.query(`
-    SELECT * FROM albums;
-    `)
-    .then(result => {
-        res.send(result.rows);
-    });
-});
-
-
 app.get('/api/images',(req, res) => {
 
     client.query(`
@@ -30,7 +19,18 @@ app.get('/api/images',(req, res) => {
     title,
     description,
     url
-    FROM images,
+    FROM images;
+    `)
+    .then(result => {
+        res.send(result.rows);
+    });
+});
+
+
+app.get('/api/albums', (req, res) => {
+
+    client.query(`
+    SELECT * FROM albums;
     `)
     .then(result => {
         res.send(result.rows);

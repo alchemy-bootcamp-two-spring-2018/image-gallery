@@ -1,8 +1,5 @@
 <template>
   <div v-if="album !== null">
-    <h2>
-       ALBUM DETAIL component
-    </h2>
     <nav>
       <ul>
         <li><router-link :to="`/albums/${album.id}/list`">List View</router-link></li>
@@ -10,7 +7,10 @@
       </ul>
     </nav>
 
-    <router-view></router-view>
+    <router-view
+      :images="album.images"
+      :albumId="album.id"
+    ></router-view>
 
   </div>
 </template>
@@ -23,7 +23,6 @@ export default {
   data() {
     return {
       album: null,
-      image: null
     };
   },
   created() {
@@ -42,7 +41,7 @@ ul {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  margin-left: -45px;
+  margin-left: -40px;
 }
 li {
   margin: 5px;
