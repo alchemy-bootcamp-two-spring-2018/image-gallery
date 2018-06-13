@@ -1,11 +1,13 @@
 <template>
  <div>
-
+   <h2>Welcome! Your collection contains {{ genres.length }} different genres!</h2>
  </div>
 </template>
 
 <script>
 export default {
+
+    props:['genres']
 
 };
 </script>
