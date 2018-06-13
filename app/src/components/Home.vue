@@ -1,14 +1,13 @@
 <template>
-  <section id="home">
-    <img src="/assets/vinyl.png" />
-  </section>
- 
+ <div>
+
+ </div>
 </template>
 
 <script>
 export default {
 
-}
+};
 </script>
 
 <style>

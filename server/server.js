@@ -9,16 +9,6 @@ app.use(cors());
 app.use(morgan());
 app.use(express.json());
 
-app.get('/api/genres', (req, res) => {
-
-  client.query(`
-    select *
-    from genres;
-  `).then(result => {
-    res.send(result.rows);
-  });
-});
-
 app.post('/api/records', (req, res) => {
   const body = req.body;
   client.query(`
@@ -36,6 +26,25 @@ app.post('/api/records', (req, res) => {
   ).then(result => {
     res.send(result.rows[0]);
   });
+});
+
+app.get('/api/genres', (req, res, next) => {
+
+  client.query(`
+    select
+      genres.id, genres.title, genres.description,
+      count(records.id) as "recordsCount"
+    from genres
+    left join records
+    on genres.id = records.genre_id
+    group by genres.id
+    order by genres.id;
+  `)
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(next);
+
 });
 
 app.get('/api/genres/:id', (req, res) => {

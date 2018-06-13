@@ -9,7 +9,9 @@
         <router-link :to="`/genres/${genre.id}`"
         :genres="genres"
         >
-          {{ genre.title }} ({{ genre.description }})
+          {{ genre.title }} | {{ genre.description }} |
+          {{ genre.recordsCount }}
+          record{{ genre.recordsCount !== 1 ? 's' : '' }}
           </router-link>
       </li>
     </ul>
@@ -19,7 +21,7 @@
 <script>
 import {
   getGenres
-  } from '../services/api.js'
+} from '../services/api.js';
 
 export default {
   data() {

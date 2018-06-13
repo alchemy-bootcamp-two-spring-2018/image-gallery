@@ -35,7 +35,7 @@ export default {
     getGenre(this.$route.params.id)
       .then(genre => {
         this.genre = genre;
-      })
+      });
   },
   methods: {
     handleAdd(record, genre) {
