@@ -51,5 +51,11 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
 
 </style>
