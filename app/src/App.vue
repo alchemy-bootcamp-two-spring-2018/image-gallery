@@ -36,6 +36,7 @@ export default {
   margin-top: 60px;
   border: 2px solid black;
 }
+
 .nav {
   margin: 10px;
 }
