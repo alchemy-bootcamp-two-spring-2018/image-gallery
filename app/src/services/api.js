@@ -5,7 +5,6 @@ const IMAGES_URL = `${URL}/images`;
 export {
   getAlbums,
   getImages,
-  getImageCount,
   addAlbum,
   addImage,
   updateImage,
@@ -22,13 +21,6 @@ function getAlbums() {
 
 function getImages(id) {
   return fetch(`${IMAGES_URL}/${id}`, {
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then(res => res.json());
-}
-
-function getImageCount(albumid) {
-  return fetch(`${IMAGES_URL}/${albumid}`, {
     headers: { 'Content-Type': 'application/json' }
   })
     .then(res => res.json());
