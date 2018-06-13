@@ -1,0 +1,50 @@
+<template>
+  <div id="albums">
+    <h2>This is the Albums component</h2>
+    <nav>
+      <router-link to="add-album">Add Album</router-link>
+      <router-view/>
+    </nav>
+    <ul v-if="albums !== null">
+      <li
+        v-for="album in albums"
+        :key="album.id"
+      >
+        <router-link :to="`/albums/${album.id}`">
+          <strong>{{ album.title }}</strong><br>
+        </router-link>
+        {{ album.description }}<br>&nbsp;
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import { getAlbums } from '../services/api';
+
+export default {
+  data() {
+    return {
+      albums: null
+    }
+  },
+  created() {
+    getAlbums()
+      .then(albums => {
+        this.albums = albums;
+      });
+  }
+};
+</script>
+
+<style>
+ul {
+  list-style-type: none;
+}
+li {
+  display: inline-block;
+  margin: 10px;
+}
+
+
+</style>
