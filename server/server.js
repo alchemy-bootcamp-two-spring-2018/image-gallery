@@ -99,21 +99,20 @@ app.post('/api/images', (req, res) => {
 });
 
 app.delete('/api/albums/:id', (req, res) =>{
-  const promiseAlbum = client.query(`
-    DELETE FROM albums 
-    WHERE id=$1;
+  client.query(`
+    DELETE FROM images WHERE album_id=$1;
   `,
   [req.params.id]
-  ).then(() => true);
-  const promiseImages = client.query(`
-    DELETE FROM images where albumId=$1;
+  )
+    .then(client.query(`
+      DELETE FROM images WHERE id=$1;
   `,
-  [req.params.id]
-  ).then(() => true);
-  if(promiseAlbum && promiseImages) {
-    res.send({ removed: true });
-  }
+    [req.params.id]
+    )).then(() => {
+      res.send({ removed: true });
+    });
 });
+
 app.delete('/api/images/:id', (req, res) =>{
   
   client.query(`
