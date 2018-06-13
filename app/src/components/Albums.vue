@@ -48,11 +48,11 @@ export default {
   },
   created() {
     getAlbums().then(res => this.albums = res)
-    .then(() => {
-      this.albums.forEach(a => a.imageCount = getImageCount(a.id).then(res => res));
-    });
+      .then(() => {
+        this.albums.forEach(a => a.imageCount = getImageCount(a.id).then(res => res));
+      });
   },
-    methods: {
+  methods: {
     handleAdd(album) {
       return addAlbum(album)
         .then((result) => {
