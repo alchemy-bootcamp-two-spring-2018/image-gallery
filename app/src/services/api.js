@@ -11,20 +11,28 @@ export {
   updateImage,
   deleteAlbums,
   deleteImage,
+  responseHandler
 };
+
+function responseHandler(response) {
+  if(response.ok) return response.json();
+  return response.json().then(err => {
+    throw err.message;
+  });
+}
 
 function getAlbums() {
   return fetch(ALBUMS_URL, {
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(res => res.json());
+    .then(responseHandler);
 }
 
 function getImages(id) {
   return fetch(`${IMAGES_URL}/${id}`, {
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(res => res.json());
+    .then(responseHandler);
 }
 
 function getImageCount(albumid) {
@@ -40,7 +48,7 @@ function updateImage(image) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image)
   })
-    .then(res => res.json());
+    .then(responseHandler);
 }
 
 function addAlbum(Album) {
@@ -49,7 +57,7 @@ function addAlbum(Album) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(Album)
   })
-    .then(res => res.json());
+    .then(responseHandler);
 }
 
 function addImage(image) {
@@ -58,7 +66,7 @@ function addImage(image) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image)
   })
-    .then(res => res.json());
+    .then(responseHandler);
 }
 
 function deleteImage(id) {
@@ -66,7 +74,7 @@ function deleteImage(id) {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(res => res.json());
+    .then(responseHandler);
 }
 
 function deleteAlbums(id) {
@@ -74,5 +82,5 @@ function deleteAlbums(id) {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(res => res.json());
+    .then(responseHandler);
 }

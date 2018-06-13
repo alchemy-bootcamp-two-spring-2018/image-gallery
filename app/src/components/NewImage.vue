@@ -51,6 +51,9 @@ export default {
           this.images.push(result);
           this.newImage = {};
           document.getElementById('message').textContent = 'Image sucessfully added!';
+        })
+        .catch(err => {
+          this.error = err;
         });
     }
   }
