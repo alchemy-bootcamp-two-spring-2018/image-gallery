@@ -1,6 +1,7 @@
  <template>
   <div class="gallery">
-    <h2>This is the Gallery Viewer component</h2>
+    <h2>Gallery View</h2>
+    <pre v-if="error">{{ error }}</pre>
     <gallery :images="urlList" :index="index" @close="index = null"></gallery>
     <div
       class="image"
@@ -20,19 +21,23 @@
     data: function () {
       return {
         images: null,
-        index: null
+        index: null,
+        error: null
       };
     },
     created() {
       getImages(this.$route.params.id)
         .then(result => {
           this.images = result;
+        })
+        .catch(err => {
+          this.error = err;
         });
     },
 
     computed: {
       urlList() {
-        return this.images.map(image => image.url);
+        return this.images ? this.images.map(image => image.url) : null;
       }
     },
     components: {
