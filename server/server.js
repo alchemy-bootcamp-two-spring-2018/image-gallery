@@ -27,11 +27,31 @@ app.get('/api/albums', (req, res) => {
 app.get('/api/images', (req, res) => {
 
   client.query(`
-    select * from images;
-  `)
+    select id,
+    name,
+    album_id as "albumId",
+    description,
+    url
+    FROM images;
+      `)
     .then(result => {
       res.send(result.rows);
     });
+});
+
+app.post('/api/images', (req, res) => {
+  const body = req.body;
+
+  client.query(`
+    insert into images (name, album_id, description, url)
+    values ($1, $2, $3, $4)
+    returning *, album_id as "albumId";
+  `,
+  [body.name, body.albumId, body.description, body.url]
+  ).then(result => {
+    
+    res.send(result.rows[0]);
+  });
 });
 
 app.get('/api/albums/:id', (req, res) => {

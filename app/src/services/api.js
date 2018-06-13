@@ -9,6 +9,15 @@ export function getImages() {
     .then(response => response.json());
 }
 
+export function addImage(image) {
+  return fetch(IMAGES_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(image)
+  })
+    .then(response => response.json());
+}
+
 export function getAlbums() {
   return fetch(ALBUMS_URL, {
     headers: { 'Content-Type': 'application/json' }
