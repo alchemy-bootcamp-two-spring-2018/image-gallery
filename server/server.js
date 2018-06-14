@@ -19,18 +19,18 @@ app.get('/api/albums/stats', (req, res, next) => {
     avg("imgTotal"),
     min("imgTotal"),
     max("imgTotal")
-  FROM (
-    SELECT
-    a.id,
-    a.title,
-    a.description,
-    count(i.id) as "imgTotal"
-  FROM albums a
-  LEFT JOIN images i
-  ON a.id = i.album_id
-  GROUP BY a.id
-) subquery;
- `).then(result => {
+    FROM (
+      SELECT
+      a.id,
+      a.title,
+      a.description,
+      count(i.id) as "imgTotal"
+    FROM albums a
+    LEFT JOIN images i
+    ON a.id = i.album_id
+    GROUP BY a.id
+    ) subquery;
+    `).then(result => {
    res.send(result.rows[0]);
  })
   .catch(next);
