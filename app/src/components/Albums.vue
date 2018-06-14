@@ -12,6 +12,7 @@
       </p>
       </li>
     </ul>
+    <router-link :to="`/albums/new`">Create Album</router-link>
   </div>
 </template>
 
