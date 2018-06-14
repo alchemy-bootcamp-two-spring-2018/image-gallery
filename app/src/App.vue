@@ -7,8 +7,9 @@
       <router-link to="/albums">Albums</router-link>
       &nbsp;
       <router-link to="/about">About</router-link>
+      &nbsp;
+      <router-link to="/auth">Sign In</router-link>
     </nav>
-
     <div id="container-albums">
       <router-view></router-view>
     </div>
@@ -21,14 +22,13 @@ export default {
   data() {
     return {
       albumstats: null
-    }
+    };
   },
   created() {
     getAlbumStats().then(res => this.albumstats = res);
   }
 };
 </script>
-
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
