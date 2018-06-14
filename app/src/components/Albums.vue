@@ -2,9 +2,10 @@
   <div>
     <h1>Albums</h1>
     <nav>
-      <router-link :to="`/albums/new_album`">New Album</router-link>  
-      <router-view>
-
+      <router-link :to="`/albums/new`">New Album</router-link>  
+      <router-view
+      :onPost="handlePost"
+      >
       </router-view>
     </nav>
     <pre v-if="error">{{ error }}</pre>
@@ -27,7 +28,7 @@
 </template>
 
 <script>
-import { getDecades, getStats } from '../services/api';
+import { getDecades, getStats, addAlbum } from '../services/api';
 
 export default {
   data() {
@@ -45,6 +46,21 @@ export default {
       .catch(err => {
         this.error = err;
       });
+  },
+
+   methods: {
+    handlePost(newAlbum) {
+      // newCar.decadeId = this.decade.id;
+      return addAlbum(newAlbum)
+        .then(saved => {
+          this.decades.push(saved);
+          this.$router.push(`/albums`);
+
+        })
+        .catch(err => {
+          this.error = err;
+        });
+    }
   }
 };
 
