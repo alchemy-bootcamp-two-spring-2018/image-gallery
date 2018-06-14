@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 
@@ -81,7 +82,7 @@ app.get('/api/images/:id', (req, res, next) => {
 });
 
 // ROUTE:  Post to images
-app.post('/api/images', (req, res, next) => {
+app.post('/api/images/new', (req, res, next) => {
   const body = req.body;
   client.query(`
     INSERT INTO images (title, url, description, album_id)
@@ -97,7 +98,7 @@ app.post('/api/images', (req, res, next) => {
 });
 
 // ROUTE:  Post to albums
-app.post('/api/albums', (req, res, next) => {
+app.post('/api/albums/new', (req, res, next) => {
   const body = req.body;
   client.query(`
     INSERT INTO albums (title, description)

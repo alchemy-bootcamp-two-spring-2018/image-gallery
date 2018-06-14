@@ -39,7 +39,7 @@ export function getImages(albumId){
 }
 
 export function addImage(image){
-  return fetch(IMAGES_URL, {
+  return fetch(`${IMAGES_URL}/new`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image)    
@@ -48,7 +48,7 @@ export function addImage(image){
 }
 
 export function addAlbum(album){
-  return fetch(ALBUMS_URL, {
+  return fetch(`${ALBUMS_URL}/new`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(album)    

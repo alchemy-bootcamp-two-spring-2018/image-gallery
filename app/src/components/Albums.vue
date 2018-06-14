@@ -2,7 +2,7 @@
   <div id="albums">
     <h2>List of Albums</h2>
     <nav>
-      <router-link to="new">Add Album</router-link>
+      <router-link to="albums/new">Add Album</router-link>
       <router-view/>
     </nav>
     <pre v-if="error">{{ error }}</pre>
