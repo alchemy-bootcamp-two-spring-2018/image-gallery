@@ -1,14 +1,37 @@
 <template>
   <div id="home">
-    <br/><h2>Our image gallery contains XX albums, with an average of YY images each!</h2>
-    <h3>Our smallest album contains ZZ images, our largest has AA!</h3><br/>
+    <pre v-if="error">{{ error }}</pre>
+    <br/><h2>Our image gallery contains {{ stats.count }} albums, with an average of {{ stats.average }} images each!</h2>
+    <h3>Our smallest album contains {{ stats.min }} images, our largest has {{ stats.max }}!</h3><br/>
     <p>Click <router-link to="/Albums">here</router-link> to start browsing and add your own!</p>
   </div>
 </template>
 
 <script>
-export default {
+import { getStats } from '../services/api';
 
+export default {
+  data() {
+    return {
+      stats: {
+        "max": '',
+        "round": '',
+        "min": '',
+        "average": ''
+      },
+      error: null
+    }
+  },
+  created() {
+    this.error = '';
+    getStats()
+      .then(statResult => {
+        this.stats = statResult;
+      })
+      .catch(err => {
+        this.error = err;
+      });
+  }
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div id="albums">
-    <h2>This is the Albums component</h2>
+    <h2>List of Albums</h2>
     <nav>
       <router-link to="add-album">Add Album</router-link>
       <router-view/>
@@ -27,10 +27,11 @@ export default {
   data() {
     return {
       albums: null,
-      error:null
+      error: null
     }
   },
   created() {
+    this.error = '';
     getAlbums()
       .then(albums => {
         this.albums = albums;
