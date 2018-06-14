@@ -13,7 +13,7 @@ export function getImages() {
   return fetch(IMAGES_URL, {
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(responseHandler);
+    .then(response => response.json());
 }
 
 export function addImage(image) {
@@ -38,14 +38,14 @@ export function getAlbums() {
   return fetch(ALBUMS_URL, {
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(responseHandler);
+    .then(response => response.json());
 }
 
 export function getAlbum(id) {
   return fetch(`${ALBUMS_URL}/${id}`, {
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(responseHandler);
+    .then(response => response.json());
 }
 
 export function getStats() {

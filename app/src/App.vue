@@ -31,9 +31,6 @@ export default {
     getAlbums()
       .then(albums => {
         this.albums = albums;
-      })
-      .catch(err => {
-        this.error = err;
       });
   }
 

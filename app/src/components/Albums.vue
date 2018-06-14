@@ -22,6 +22,7 @@
 import { getAlbums } from '../services/api';
 
 export default {
+  
   data() {
     return {
       albums: null,

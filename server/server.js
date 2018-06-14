@@ -1,17 +1,14 @@
+// basic express app
 const express = require('express');
 const app = express();
 
-
+// middleware (cors and read json body)
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-
-const pg = require('pg');
-const Client = pg.Client;
-const databaseUrl = 'postgres://localhost:5432/gallery';
-const client = new Client(databaseUrl);
-client.connect();
+// connect to the database
+const client = require('./db-client');
 
 app.get('/api/albums/stats', (req, res, next) => {
   client.query(`
