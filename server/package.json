@@ -12,6 +12,7 @@
     "start:watch": "nodemon server.js",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.5",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "superagent": "^3.8.3"
   }
 }
