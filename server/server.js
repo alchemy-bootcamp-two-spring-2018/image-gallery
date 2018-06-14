@@ -9,6 +9,25 @@ app.use(express.json());
 
 const client = require('./db-client');
 
+app.get('/api/albums/stats', (req, res) => {
+  client.query(`
+    SELECT
+      AVG("imageCount"),
+      MIN("imageCount"),
+      MAX("imageCount")
+    FROM (SELECT
+      a.id,
+      a.title,
+      a.description,
+      COUNT(i.albumid) as "imageCount"
+    FROM albums a
+    LEFT JOIN images i
+    ON i.albumid = a.id
+    GROUP BY a.id) stats;
+  `).then(result => res.send(result.rows[0]));
+});
+
+
 // GET albums
 app.get('/api/albums', (req, res) => {
   client.query(`
