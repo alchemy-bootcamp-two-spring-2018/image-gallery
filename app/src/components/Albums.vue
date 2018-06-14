@@ -20,6 +20,7 @@
         {{ decade.description }}
       </router-link>
       
+      <p>{{ decade.imageCount }} images</p>
       
       </li>
     </ul>
