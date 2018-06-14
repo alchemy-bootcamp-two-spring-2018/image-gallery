@@ -9,7 +9,7 @@ app.use(cors());
 app.use(morgan());
 app.use(express.json());
 
-app.post('/api/records', (req, res) => {
+app.post('/api/records', (req, res, next) => {
   const body = req.body;
   client.query(`
     insert into records (
@@ -25,7 +25,8 @@ app.post('/api/records', (req, res) => {
   [body.title, body.genre_id, body.artist, body.description, body.cover]
   ).then(result => {
     res.send(result.rows[0]);
-  });
+  })
+    .catch(next);
 });
 
 //Get information for Genres.vue
@@ -75,7 +76,7 @@ app.get('/api/genres/stats', (req, res, next) => {
 });
 
 //get for specific genres and their records
-app.get('/api/genres/:id', (req, res) => {
+app.get('/api/genres/:id', (req, res, next) => {
 
   const genrePromise = client.query(`
     select id,
@@ -113,17 +114,28 @@ app.get('/api/genres/:id', (req, res) => {
       genre.records = records;
 
       res.send(genre);
-    });
+    })
+    .catch(next);
 });
 
-app.delete('/api/records/:id', (req, res) => {
+app.delete('/api/records/:id', (req, res, next) => {
   client.query(`
     delete from records where id=$1;
   `,
   [req.params.id]
   ).then(() => {
     res.send({ removed: true });
-  });
+  })
+    .catch(next);
+});
+
+//eslint-disabled-next-line
+app.use((err, req, res, next) => {
+  console.log('***SERVER ERROR***\n', err);
+  let message = 'internal server error';
+  if(err.message) message = err.message;
+  else if(typeof err === 'string') message = err;
+  res.status(500).send({ message });
 });
 
 app.listen(3000, () => console.log('server is running..'));
