@@ -1,18 +1,25 @@
 
 const URL = 'http://localhost:3000/api';
 
+function responseHandler(response) {
+  if(response.ok) return response.json();
+  return response.json().then(err => {
+    throw err.message;
+  });
+}
+
 export function getAlbums() {
   return fetch(`${URL}/albums`, {
     headers: { 'Content-Type': 'application/json' },
   })
-    .then(response => response.json());
+    .then(responseHandler);
 }
 
 export function getAlbum(id) {
   return fetch(`${URL}/albums/${id}`, {
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(response => response.json());
+    .then(responseHandler);
 }
 
 
@@ -20,7 +27,7 @@ export function getImages() {
   return fetch(`${URL}/images`, {
     headers: { 'Content-Type': 'application/json' },
   })
-    .then(response => response.json());
+    .then(responseHandler);
 }
 
 export function addAlbum(album) {
@@ -29,7 +36,14 @@ export function addAlbum(album) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(album)
   })
-    .then(response => response.json());   
+    .then(responseHandler);   
+}
+
+export function getStats() {
+  return fetch(`${URL}/albums/stats`, {
+    headers: { 'Content-Type': 'application/json' },
+  })
+    .then(responseHandler);
 }
 
 export function addImage(image) {
@@ -38,5 +52,5 @@ export function addImage(image) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image)
   })
-    .then(response => response.json());
+    .then(responseHandler);
 }
