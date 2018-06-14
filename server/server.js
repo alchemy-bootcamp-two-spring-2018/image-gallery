@@ -40,6 +40,19 @@ app.post('/api/images', (req, res) => {
     });
 });
 
+app.post('/api/albums', (req, res) => {
+    const body = req.body;
+
+    client.query(`
+    INSERT into albums (title, description)
+    VALUES ($1, $2)
+    RETURNING *;
+    `,
+    [body.title, body.description]
+    ).then(result => {
+        res.send(result.rows[0]);
+    });    
+});
 
 app.get('/api/albums', (req, res) => {
 
