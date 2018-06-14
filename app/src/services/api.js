@@ -1,5 +1,7 @@
-const URL = 'http://localhost:3000/api';
-const GENRES_URL = `${URL}/album_info`;
+const URL = '/api';
+const GENRES_URL = `${URL}/genres`;
+const RECORDS_URL = `${URL}/records`;
+
 
 function responseHandler(response) {
   if(response.ok) return response.json();
@@ -9,28 +11,28 @@ function responseHandler(response) {
 }
 
 export function getGenres() {
-  return fetch('http://localhost:3000/api/genres', {
+  return fetch(GENRES_URL, {
     headers: { 'Content-Type': 'application/json' }
   })
     .then(responseHandler);
 }
 
 export function getGenre(id) {
-  return fetch('http://localhost:3000/api/genres/' + id, {
+  return fetch(`${GENRES_URL}/${id}`, {
     headers: { 'Content-Type': 'application/json' }
   })
     .then(responseHandler);
 }
 
 export function getStats() {
-  return fetch('http://localhost:3000/api/genres/stats', {
+  return fetch(`${GENRES_URL}/stats`, {
     headers: { 'content-Type': 'application/json' }
   })
     .then(responseHandler);
 }
 
 export function addRecord(record) {
-  return fetch('http://localhost:3000/api/records', {
+  return fetch(RECORDS_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(record)
@@ -40,7 +42,7 @@ export function addRecord(record) {
 }
 
 export function deleteRecord(record) {
-  return fetch('http://localhost:3000/api/records' + record.id, {
+  return fetch(RECORDS_URL + record.id, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application.json' },
   })
