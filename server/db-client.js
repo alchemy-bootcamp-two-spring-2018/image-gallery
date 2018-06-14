@@ -1,5 +1,4 @@
-// const DATABASE_URL = 'postgres://localhost:5432/music';
-const DATABASE_URL = 'postgres://postgres:1234@localhost:5432/music';
+const DATABASE_URL = process.env.DATABASE_URL;
 const pg = require('pg');
 const Client = pg.Client;
 

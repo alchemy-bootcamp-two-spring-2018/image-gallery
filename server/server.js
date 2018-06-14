@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 
@@ -138,4 +140,5 @@ app.use((err, req, res, next) => {
   res.status(500).send({ message });
 });
 
-app.listen(3000, () => console.log('server is running..'));
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log('server is running..'));
