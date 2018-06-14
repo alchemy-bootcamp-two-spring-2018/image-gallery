@@ -5,9 +5,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "copy": "rm -rf ../server/public && cp -R ./dist ../server/public",
+    "build:server": "npm run build && npm run copy"
   },
   "dependencies": {
+    "dotenv": "^6.0.0",
     "eslint-plugin-html": "^4.0.3",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
