@@ -13,11 +13,15 @@
       </li>
     </ul>
     <router-link :to="`/albums/new`">Create Album</router-link>
+
+    <router-view
+    :on-add="handleAdd"
+    ></router-view>
   </div>
 </template>
 
 <script>
-import { getAlbums } from '../services/api';
+import { getAlbums, addAlbum } from '../services/api';
 
 export default {
   data() {
@@ -33,16 +37,16 @@ export default {
   },
 
   methods: {
-    handleAdd(image) {
-      album.albumId = this.album-id;
+    handleAdd(album) {
+      album.albumId = this.album;
       return addAlbum(album)
         .then(saved => {
-          this.album.push(saved);
-          this.$router.push('/albums/${saved.albumId}');
+          this.albums.push(saved);
+          this.$router.push(`/albums/${saved.id}`);
         });
-      }
     }
-  };
+  }
+};
 
 </script>
 

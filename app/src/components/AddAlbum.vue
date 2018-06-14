@@ -1,8 +1,5 @@
 <template>
   <div>
-    <h2>
-      This is the NEW ALBUM component
-    </h2>
     <section>
     <form @submit.prevent="handleSubmit">
       <label>
@@ -38,7 +35,7 @@ export default {
 
   methods: {
     handleSubmit() {
-      this.onAdd(this.image);
+      this.onAdd(this.album);
     }
   }
 
