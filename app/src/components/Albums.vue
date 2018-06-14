@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { getDecades } from '../services/api';
+import { getDecades, getStats } from '../services/api';
 
 export default {
   data() {
