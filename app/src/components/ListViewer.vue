@@ -1,16 +1,34 @@
 <template>
     <div>
-        <h3>I am listviewer.</h3>
+        <h3>List of Pokemon</h3>
+        <ul v-if="images">
+            <li
+                v-for="image in images"
+                :key="image.id"
+            >
+                <strong>{{ image.name }}</strong>
+                &nbsp;
+                <a
+                :href="image.url"
+                > {{ image.description }} 
+                </a>
+            </li>
+            
+        </ul>
     </div>
 </template>
 
 <script>
 export default {
-  props: ['albums']
-
+  props: ['images']
 };
 </script>
 
-<style>
-
+<style scoped>
+ul {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
 </style>
