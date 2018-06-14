@@ -42,7 +42,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+nav {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 0px solid black;
+  border-bottom: 0px solid black;
+}
 ul {
   list-style-type: none;
 }
