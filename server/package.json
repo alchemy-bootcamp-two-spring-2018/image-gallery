@@ -12,7 +12,6 @@
     "start:watch": "nodemon server.js",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "repository": {
     "type": "git",
@@ -26,6 +25,9 @@
   "homepage": "https://github.com/rbtprograms/image-gallery#readme",
   "dependencies": {
     "cors": "^2.8.4",
+    "dot-env": "0.0.1",
+    "dotenv": "^6.0.0",
+    "env": "0.0.2",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
