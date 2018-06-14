@@ -13,7 +13,7 @@
 
     <router-view
       :album="albums"
-      :albumstats="albumstats"
+      :albumStats="albumStats"
     ></router-view>
 
   </div>
@@ -26,17 +26,23 @@ export default {
   data() {
     return {
       albums: null,
-      albumstats: null
+      albumStats: null
     };
   },
   created() {
     getAlbums()
       .then(albumlist => {
         this.albums = albumlist;
+      })
+      .catch(err => {
+        this.error = err;
       }),
     getAlbumStats()
       .then(albumlist => {
-        this.albumstats = albumlist;
+        this.albumStats = albumlist;
+      })
+      .catch(err => {
+        this.error = err;
       });
   },
 };
