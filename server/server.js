@@ -4,6 +4,8 @@ const app = express();
 
 // middleware (cors and read json body)
 const cors = require('cors');
+const morgan = require('morgan');
+app.use(morgan('dev')); 
 app.use(cors());
 app.use(express.json());
 
@@ -15,7 +17,7 @@ const client = new Client (databaseUrl);
 client.connect();
 
 // routes
-app.get('/api/images', (req, res) => {
+app.get('/api/images', (req, res, next) => {
 
   client.query(`
     SELECT id,
@@ -27,10 +29,11 @@ app.get('/api/images', (req, res) => {
     FROM car_images;
   `).then(result => {
     res.send(result.rows);
-  });
+  })
+    .catch(next);
 });
 
-app.get('/api/decades', (req, res) => {
+app.get('/api/decades', (req, res, next) => {
 
   client.query(`
     SELECT car_decades.id,
@@ -44,9 +47,10 @@ app.get('/api/decades', (req, res) => {
     ORDER BY car_decades.decade;   
   `).then(result => {
     res.send(result.rows);
-  });
+  })
+    .catch(next);
 });
-app.get('/api/decades/stats', (req, res) => {
+app.get('/api/decades/stats', (req, res, next) => {
 
   client.query(`
 
@@ -68,10 +72,11 @@ app.get('/api/decades/stats', (req, res) => {
   
   `).then(result => {
     res.send(result.rows[0]);
-  });
+  })
+    .catch(next);
 });
 
-app.get('/api/decades/:id', (req, res) => {
+app.get('/api/decades/:id', (req, res, next) => {
 
   const decadePromise = client.query(`
     SELECT id,
@@ -110,10 +115,11 @@ app.get('/api/decades/:id', (req, res) => {
       decade.images = images; 
 
       res.send(decade);
-    });
+    })
+    .catch(next);
 });
 
-app.post('/api/images', (req, res) => {
+app.post('/api/images', (req, res, next) => {
   const body = req.body;
 
   client.query(`
@@ -124,7 +130,17 @@ app.post('/api/images', (req, res) => {
   [body.decadeId, body.make, body.model, body.imageUrl]
 ).then(result => {
     res.send(result.rows[0]);
-  });
+  })
+  .catch(next);
+});
+
+// eslint-disable-next-line
+app.use((err, req, res, next) => {
+  console.log('******SERVER ERROR******\n', err);
+  let message = 'internal server error';
+  if(err.message) message = err.message;
+  else if(typeof err === 'string') message = err;
+  res.status(500).send({ message });
 });
 
 app.listen(3000, () => console.log('server running...'));
