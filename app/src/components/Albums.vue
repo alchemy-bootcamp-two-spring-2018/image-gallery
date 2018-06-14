@@ -8,9 +8,9 @@
       {{ album.title }}
       </router-link>
       <p>
-      {{ album.description}}
-      {{ album.imagesCount}}
+      {{ album.description }}
       </p>
+      ({{ album.imagesCount }} images)
       </li>
     </ul>
     <router-link :to="`/albums/new`">Create Album</router-link>
@@ -36,8 +36,6 @@ export default {
         this.albums = albums;
       });
   },
-
-  props: ['images'],
 
   methods: {
     handleAdd(album) {

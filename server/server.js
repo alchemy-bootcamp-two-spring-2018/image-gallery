@@ -57,7 +57,14 @@ app.post('/api/albums', (req, res) => {
 app.get('/api/albums', (req, res) => {
 
     client.query(`
-    SELECT * FROM albums;
+    SELECT
+        albums.id, albums.title, albums.description,
+        count(images.id) as "imagesCount"
+        FROM albums
+        LEFT JOIN images
+        ON albums.id = images.album_id
+        GROUP BY albums.id
+        ORDER BY albums.title;
     `)
     .then(result => {
         res.send(result.rows);
@@ -71,8 +78,8 @@ app.get('/api/albums/stats', (req, res) => {
             avg("imagesCount"),
             min("imagesCount"),
             max("imagesCount")
-            from
-        (SELECT
+            FROM (
+            SELECT
                 albums.id, albums.title, albums.description,
                 count(images.id) as "imagesCount"
             FROM albums

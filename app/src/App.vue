@@ -9,17 +9,19 @@
     <hr>
     <router-view
     :albums="albums"
+    :stats="stats"
     ></router-view>
   </div>
 </template>
 
 <script>
-import { getAlbums } from './services/api.js';
+import { getAlbums, getStats } from './services/api.js';
 
 export default {
   data() {
     return {
-      albums: ''
+      albums: null,
+      stats: ''
     };
   },
 
@@ -31,7 +33,17 @@ export default {
       .catch(err => {
         this.error = err;
       });
+
+    getStats()
+      .then(stats => {
+        this.stats = stats;
+      })
+      .catch(err => {
+        this.error = err;
+      });    
   }
+
+
 };
 </script>
 
