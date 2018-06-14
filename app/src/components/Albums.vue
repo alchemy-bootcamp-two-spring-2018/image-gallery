@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Albums</h1>
+    <pre v-if="error">{{ error }}</pre>
 
     <ul v-if="decades">
       <li 
@@ -22,7 +23,8 @@ import { getDecades } from '../services/api';
 export default {
   data() {
     return {
-      decades: null
+      decades: null,
+      error: null
     };
   },
 
@@ -30,6 +32,9 @@ export default {
     getDecades()
       .then(decades => {
         this.decades = decades;
+      })
+      .catch(err => {
+        this.error = err;
       });
   }
 };
