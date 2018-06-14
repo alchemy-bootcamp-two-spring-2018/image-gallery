@@ -1,5 +1,8 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
+
 
 const client = require('./db-client');
 
@@ -8,6 +11,7 @@ const morgan = require('morgan');
 app.use(cors());
 app.use(morgan());
 app.use(express.json());
+app.use(express.static('public'));
 
 app.post('/api/records', (req, res, next) => {
   const body = req.body;
