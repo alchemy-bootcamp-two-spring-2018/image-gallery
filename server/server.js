@@ -1,3 +1,5 @@
+require('dotenv').config();
+const PORT = process.env.PORT;
 // basic express app
 const express = require('express');
 const app = express();
@@ -6,6 +8,7 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public'));
 
 const client = require('./db-client');
 
@@ -162,4 +165,4 @@ app.use((err, req, res, next) => {
   res.status(500).send({ message });
 });
 
-app.listen(3000, () => console.log('server running...'));
+app.listen(PORT, () => console.log('server running...'));
