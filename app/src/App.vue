@@ -33,8 +33,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
-  border: 2px solid black;
   text-align: center;
+  margin-bottom: 60px;
 }
 
 .nav {
