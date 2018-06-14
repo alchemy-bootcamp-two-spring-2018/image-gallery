@@ -8,9 +8,6 @@
     <br>
     There are a maximum of {{ stats.max }} images, and a minimum of {{ stats.min }} images per album.
 
-
-
-
   </div>
 </template>
 
@@ -21,16 +18,16 @@ export default {
   props: ['albums'],
   data() {
     return {
-      albums: null,
+      album: null,
       stats: null
     };
   },
-created() {
-  getStats()
-  .then(stats => {
-    this.stats = stats;  
-  });
-}
+  created() {
+    getStats()
+      .then(stats => {
+        this.stats = stats;  
+      });
+  }
 
 };
 </script>
