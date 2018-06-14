@@ -6,9 +6,7 @@
       v-for="image in images"
       :key="image.id"
       >
-     <router-link :to="`/gallery/${image.id}`">
-      {{ image.title }}</router-link>:
-      {{ image.description }}
+      <strong>{{ image.title }}:</strong> {{ image.description }}
       </li>
       </span>
     </ul>
