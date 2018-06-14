@@ -12,10 +12,20 @@
     <div id="container-albums">
       <router-view></router-view>
     </div>
+    {{ albumstats }}
   </div>
 </template>
 <script>
+import { getAlbumStats } from './services/api.js';
 export default {
+  data() {
+    return {
+      albumstats: null
+    }
+  },
+  created() {
+    getAlbumStats().then(res => this.albumstats = res);
+  }
 };
 </script>
 

@@ -9,6 +9,7 @@
       <router-link :to="`/albums/${album.id}`">
         <strong>{{ album.title }}</strong> ({{ album.imageCount }})
       </router-link>
+      {{ album.imageAverage }}
       </li>
       <li>
         <a

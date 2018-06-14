@@ -4,6 +4,7 @@ const IMAGES_URL = `${URL}/images`;
 
 export {
   getAlbums,
+  getAlbumStats,
   getImages,
   addAlbum,
   addImage,
@@ -22,6 +23,13 @@ function responseHandler(response) {
 
 function getAlbums() {
   return fetch(ALBUMS_URL, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(responseHandler);
+}
+
+function getAlbumStats() {
+  return fetch(`${ALBUMS_URL}/stats`, {
     headers: { 'Content-Type': 'application/json' }
   })
     .then(responseHandler);
