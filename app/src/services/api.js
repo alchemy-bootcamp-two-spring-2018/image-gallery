@@ -1,12 +1,20 @@
 const URL = 'http://localhost:3000/api';
 const ALBUMS_URL = `${URL}/albums`;
 const IMAGES_URL = `${URL}/images`;
+const STATS_URL = `${URL}/stats`;
 
 function responseHandler(response) {
   if(response.ok) return response.json();
   return response.json().then(err => { 
     throw err.message; 
   });
+}
+
+export function getStats() {
+  return fetch(STATS_URL, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(responseHandler);
 }
 
 export function getAlbums() {
