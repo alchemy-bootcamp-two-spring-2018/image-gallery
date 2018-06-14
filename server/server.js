@@ -8,14 +8,36 @@ app.use(express.json());
 const pg = require('pg');
 const client = require('./db-client');
 
+//ROUTE: Get summary data
+app.get('/api/stats', (req, res, next) => {
+  client.query(`
+  SELECT 
+    MAX (count),
+    ROUND (AVG (count), 2) as average,
+    MIN (count),
+    COUNT (count)
+  FROM 
+  (
+    SELECT albums.id, albums.title, albums.description, COUNT(images.id) as count
+    FROM images
+    LEFT JOIN albums on albums.id = images.album_id
+    GROUP BY albums.id
+    ORDER BY albums.title
+  ) as count_query; 
+`).then(result => {
+    res.send(result.rows[0]);
+  })
+    .catch(next);
+});
+
 // ROUTE:  Get all albums
 app.get('/api/albums', (req, res, next) => {
   client.query(`
     SELECT COUNT(*) count, albums.id, albums.title, albums.description
     FROM images
-    left join albums on albums.id = images.album_id
-    group by albums.id, albums.title, albums.description
-    order by albums.title;
+    LEFT JOIN albums on albums.id = images.album_id
+    GROUP BY albums.id, albums.title, albums.description
+    ORDER BY albums.title;
   `).then(result => {
     res.send(result.rows);
   })

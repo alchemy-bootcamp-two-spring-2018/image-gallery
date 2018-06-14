@@ -26,6 +26,7 @@
       };
     },
     created() {
+      this.error = '';
       getImages(this.$route.params.id)
         .then(result => {
           this.images = result;

@@ -55,13 +55,14 @@ export default {
   },
   methods: {
     handleSubmit() {
-        return addImage(this.image)
-        .then(() => {
-          this.$router.push(`/albums/${this.image.albumId}`);
-        })
-        .catch(err => {
-            this.error = err;
-        });
+      this.error = '';
+      return addImage(this.image)
+      .then(() => {
+        this.$router.push(`/albums/${this.image.albumId}`);
+      })
+      .catch(err => {
+          this.error = err;
+      });
     },
     handleCancel() {
       this.$router.push(`/albums/${this.image.albumId}`);

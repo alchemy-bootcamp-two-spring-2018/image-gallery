@@ -42,13 +42,14 @@ export default {
   },
   methods: {
     handleSubmit() {
-        return addAlbum(this.album)
-        .then(result => {
-          this.$router.push(`/albums/${result.id}`);
-        })
-        .catch(err => {
-            this.error = err;
-        });
+      this.error = '';
+      return addAlbum(this.album)
+      .then(result => {
+        this.$router.push(`/albums/${result.id}`);
+      })
+      .catch(err => {
+          this.error = err;
+      });
     },
     handleCancel() {
       this.$router.push(`/albums`);

@@ -31,6 +31,7 @@ export default {
     }
   },
   created() {
+    this.error = '';
     getAlbum(this.$route.params.id)
       .then(album => {
         this.album = album;
