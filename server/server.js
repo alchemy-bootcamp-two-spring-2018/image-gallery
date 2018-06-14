@@ -80,7 +80,7 @@ app.get('/api/albums/stats', (req, res) => {
             ON albums.id = images.album_id
             GROUP BY albums.id
             ORDER BY albums.title)
-            p;
+            banana;
     `)
         .then(result => {
             res.send(result.rows);

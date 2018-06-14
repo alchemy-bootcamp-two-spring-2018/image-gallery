@@ -9,6 +9,7 @@
       </router-link>
       <p>
       {{ album.description}}
+      {{ album.imagesCount}}
       </p>
       </li>
     </ul>
@@ -35,6 +36,8 @@ export default {
         this.albums = albums;
       });
   },
+
+  props: ['images'],
 
   methods: {
     handleAdd(album) {
