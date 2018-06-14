@@ -11,18 +11,47 @@
     </nav>
     <hr />
 
-    <router-view></router-view>
+    <router-view
+      :album="albums"
+      :albumStats="albumStats"
+    ></router-view>
 
   </div>
 </template>
 
 <script>
-export default {
+import { getAlbums, getAlbumStats } from './services/api';
 
+export default {
+  data() {
+    return {
+      albums: null,
+      albumStats: null
+    };
+  },
+  created() {
+    getAlbums()
+      .then(albumlist => {
+        this.albums = albumlist;
+      })
+      .catch(err => {
+        this.error = err;
+      }),
+    getAlbumStats()
+      .then(albumlist => {
+        this.albumStats = albumlist;
+      })
+      .catch(err => {
+        this.error = err;
+      });
+  },
 };
 </script>
 
 <style>
+h1 {
+  font-family: fantasy;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,7 +75,7 @@ a {
   text-decoration: none;
 }
 .router-link-active {
-  color: gray;
+  color: #2c3e50;
 }
 
 hr {

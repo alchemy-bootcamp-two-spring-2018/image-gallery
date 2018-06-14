@@ -35,6 +35,9 @@ export default {
       .then(album => {
         this.album = album;
         this.images = album.images;
+      })
+      .catch(err => {
+        this.error = err;
       });
   },
   methods: {
@@ -44,6 +47,9 @@ export default {
         .then(saved => {
           this.images.push(saved);
           this.$router.push(`/albums/${saved.albumId}/gallery`);
+        })
+        .catch(err => {
+          this.error = err;
         });
     },
     handleDeleteAlbum() {
@@ -53,6 +59,9 @@ export default {
             if(res.removed) {
               this.$router.push('albums');
             }
+          })
+          .catch(err => {
+            this.error = err;
           });
       }
     }

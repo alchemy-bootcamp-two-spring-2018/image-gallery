@@ -1,6 +1,6 @@
 <template>
   <section class="album-form">
-    <form @submit.prevent="handleSubmit">
+    <form @submit.prevent="handleSubmit" class="album-form">
       <label>
         Title: 
         <input type="text"  placeholder="Title" required
@@ -39,5 +39,15 @@ export default {
 </script>
 
 <style>
+label {
+  display: block;
+  margin: 4px;
+}
 
+.album-form {
+  width: 300px;
+  text-align: left;
+  margin: auto;
+  margin-top: 100px;
+}
 </style>
