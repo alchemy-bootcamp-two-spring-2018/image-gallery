@@ -30,8 +30,19 @@ export default {
       .then(albums => {
         this.albums = albums;
       });
-  }
-};
+  },
+
+  methods: {
+    handleAdd(image) {
+      album.albumId = this.album-id;
+      return addAlbum(album)
+        .then(saved => {
+          this.album.push(saved);
+          this.$router.push('/albums/${saved.albumId}');
+        });
+      }
+    }
+  };
 
 </script>
 

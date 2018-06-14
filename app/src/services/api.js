@@ -15,11 +15,21 @@ export function getAlbum(id) {
     .then(response => response.json());
 }
 
+
 export function getImages() {
   return fetch(`${URL}/images`, {
     headers: { 'Content-Type': 'application/json' },
   })
     .then(response => response.json());
+}
+
+export function addAlbum(album) {
+  return fetch(`${URL}/albums`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(album)
+  })
+    .then(response => response.json());   
 }
 
 export function addImage(image) {
