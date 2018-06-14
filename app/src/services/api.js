@@ -42,8 +42,15 @@ export function getAlbums() {
 }
 
 export function getAlbum(id) {
-  return fetch(`${URL}/albums/${id}`, {
+  return fetch(`${ALBUMS_URL}/${id}`, {
     headers: { 'Content-Type': 'application/json' }
   })
     .then(responseHandler);
+}
+
+export function getStats(id) {
+  return fetch(`${ALBUMS_URL}/${id}/stats`, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => response.json());
 }

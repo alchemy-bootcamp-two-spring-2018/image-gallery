@@ -13,11 +13,43 @@ const databaseUrl = 'postgres://localhost:5432/gallery';
 const client = new Client(databaseUrl);
 client.connect();
 
+app.get('/api/albums/stats', (req, res, next) => {
+  client.query(`
+  SELECT
+    avg("imgTotal"),
+    min("imgTotal"),
+    max("imgTotal")
+  FROM (
+    SELECT
+    a.id,
+    a.title,
+    a.description,
+    count(i.id) as "imgTotal"
+  FROM albums a
+  LEFT JOIN images i
+  ON a.id = i.album_id
+  GROUP BY a.id
+) subquery;
+ `).then(result => {
+   res.send(result.rows[0]);
+ })
+  .catch(next);
+
+})
 
 app.get('/api/albums', (req, res, next) => {
 
   client.query(`
-    select * from albums;
+  SELECT
+    a.id,
+    a.title,
+    a.description,
+    count(i.id) as "imgTotal"
+  FROM albums a
+  LEFT JOIN images i
+  ON a.id = i.album_id
+  GROUP BY a.id
+  ORDER BY a.id;
   `)
     .then(result => {
       res.send(result.rows);
