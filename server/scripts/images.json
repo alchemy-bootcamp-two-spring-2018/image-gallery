@@ -1,0 +1,123 @@
+[
+  {
+    "album_id": 1,
+    "title": "Bonzai Posing",
+    "description": "Bonzai looking majestic",
+    "url": "https://i.imgur.com/Nzg44ix.jpg"
+  },
+  {
+    "album_id": 1,
+    "title": "Sous Chef",
+    "description": "Bonzai helping out in the kitchen...",
+    "url": "https://i.imgur.com/Msg4Aso.jpg"
+  },
+  {
+    "album_id": 1,
+    "title": "Bonzai plz",
+    "description": "Get off the table.",
+    "url": "https://i.imgur.com/fFlULPH.jpg"
+  },
+  {
+    "album_id": 2,
+    "title": "Lola Rolling",
+    "description": "Spring 2016",
+    "url": "https://i.imgur.com/F3rJ4IM.jpg"
+  },
+  {
+    "album_id": 2,
+    "title": "Lola doll",
+    "description": "Girls night out",
+    "url": "https://i.imgur.com/bl4ca21.jpg"
+  },
+  {
+    "album_id": 2,
+    "title": "The high ground",
+    "description": "I'm safe to plan my next attack",
+    "url": "https://i.imgur.com/8dyl01n.jpg"
+  },
+  {
+    "album_id": 2,
+    "title": "Game on?",
+    "description": "Forgot to plug the controller...",
+    "url": "https://i.imgur.com/89eOXUl.jpg"
+  },
+  {
+    "album_id": 2,
+    "title": "Potted Lola",
+    "description": "They'll never find me here",
+    "url": "https://i.imgur.com/rSzQJJm.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "Puchungo to the Max",
+    "description": "What a cutie!",
+    "url": "https://i.imgur.com/nJFrJf1.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "The rare fur",
+    "description": "What's that I hear?",
+    "url": "https://i.imgur.com/iQ596y8.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "My bone",
+    "description": "Get me a bigger one!",
+    "url": "https://i.imgur.com/TBBirH5.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "Quid pro quo",
+    "description": "I ate the vet with a nice Chianti",
+    "url": "https://i.imgur.com/PUhsmQa.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "Yums",
+    "description": "Just give it already",
+    "url": "https://i.imgur.com/gugcuwd.jpg"
+  },
+  {
+    "album_id": 3,
+    "title": "The style",
+    "description": "Too sexy for my sweatshirt",
+    "url": "https://i.imgur.com/BMcDKmJ.jpg"
+  },
+  
+  {
+    "album_id": 4,
+    "title": "Too Handsome",
+    "description": "What an angel!",
+    "url": "https://i.imgur.com/FEGaX1S.jpg"
+  },
+  {
+    "album_id": 4,
+    "title": "Pawesome",
+    "description": "I think he wants me to take his paw",
+    "url": "https://i.imgur.com/FApE2AV.jpg"
+  },
+  {
+    "album_id": 4,
+    "title": "Sunday Walk Time",
+    "description": "Nothing gets those ears more perked than a walk.",
+    "url": "https://i.imgur.com/kux0vra.jpg"
+  },
+  {
+    "album_id": 4,
+    "title": "Towel Seymour",
+    "description": "Gotta dry off.",
+    "url": "https://i.imgur.com/fTwBVbo.jpg"
+  },
+  {
+    "album_id": 4,
+    "title": "Sad Seymour",
+    "description": "He wishes he had treats.",
+    "url": "https://i.imgur.com/LaSvcFU.jpg"
+  },
+  {
+    "album_id": 4,
+    "title": "Rabbit Seymour",
+    "description": "Ears look the same length.",
+    "url": "https://i.imgur.com/J9bH6df.jpg"
+  }
+]
