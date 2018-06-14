@@ -64,6 +64,29 @@ app.get('/api/albums', (req, res) => {
     });
 });
 
+app.get('/api/albums/stats', (req, res) => {
+    
+    client.query(`
+        SELECT
+            avg("imagesCount"),
+            min("imagesCount"),
+            max("imagesCount")
+            from
+        (SELECT
+                albums.id, albums.title, albums.description,
+                count(images.id) as "imagesCount"
+            FROM albums
+            LEFT JOIN images
+            ON albums.id = images.album_id
+            GROUP BY albums.id
+            ORDER BY albums.title)
+            p;
+    `)
+        .then(result => {
+            res.send(result.rows);
+        })
+})
+
 
 app.get('/api/albums/:id', (req, res) => {
 
@@ -98,5 +121,7 @@ app.get('/api/albums/:id', (req, res) => {
         res.send(album);
     });
 });
+
+
     
 app.listen(3000, () => console.log('APPLICATION IS RUNNING...'));
