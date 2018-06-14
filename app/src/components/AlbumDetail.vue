@@ -1,24 +1,27 @@
 <template>
-  <div v-if="decade">
-    <h1>AlbumDetail Component</h1>
-    <h2>{{ decade.description }}</h2>
+  <div>
+    <h1>Album Detail</h1>
+    <pre v-if="error">{{ error }}</pre>
 
-    <nav>
-      <router-link :to="`/albums/${decade.id}/list`">List</router-link>
-      &nbsp;
-      <router-link :to="`/albums/${decade.id}/gallery`">Gallery</router-link>
-      &nbsp;
-      <router-link :to="`/albums/${decade.id}/thumbnail`">Thumbnail</router-link>
-      &nbsp;
-      <router-link :to="`/albums/${decade.id}/new`">New Image</router-link>
-      
-    </nav>
+    <section v-if="decade">
+      <h2>{{ decade.description }}</h2>
 
-    <router-view 
+      <nav>
+        <router-link :to="`/albums/${decade.id}/list`">List</router-link>
+        &nbsp;
+        <router-link :to="`/albums/${decade.id}/gallery`">Gallery</router-link>
+        &nbsp;
+        <router-link :to="`/albums/${decade.id}/thumbnail`">Thumbnail</router-link>
+        &nbsp;
+        <router-link :to="`/albums/${decade.id}/new`">New Image</router-link>
+      </nav>
+
+      <router-view 
       :cars="decade.images"
       :onAdd="handleAdd"
-    >
-    </router-view>
+       >
+      </router-view>
+    </section>
   </div>
 </template>
 
@@ -29,7 +32,8 @@ import { getDecade, addCar } from '../services/api';
 export default {
   data() {
     return {
-      decade: null
+      decade: null,
+      error: null
     };
   },
 
@@ -37,6 +41,9 @@ export default {
     getDecade(this.$route.params.id)
       .then(decade => {
         this.decade = decade;
+      })
+      .catch(err => {
+        this.error = err;
       });
   },
 
@@ -48,6 +55,9 @@ export default {
           this.decade.images.push(saved);
           this.$router.push(`/albums/${this.decadeId}`);
 
+        })
+        .catch(err => {
+          this.error = err;
         });
     }
   }
@@ -56,5 +66,10 @@ export default {
 </script>
 
 <style>
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
 
 </style>

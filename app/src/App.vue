@@ -9,6 +9,8 @@
       &nbsp;
 
       <router-link to="/albums">Albums</router-link>
+
+      
       
     </nav>
     <router-view></router-view>
