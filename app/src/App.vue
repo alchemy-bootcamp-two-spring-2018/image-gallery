@@ -30,6 +30,7 @@
   
   font-size: 3.5em;
   font-family: 'Kreon', serif;
+  letter-spacing: -2px;
   font-weight: 700;
 }
 </style>
