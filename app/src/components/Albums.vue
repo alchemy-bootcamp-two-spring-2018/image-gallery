@@ -43,5 +43,22 @@ export default {
 </script>
 
 <style scoped>
-
+.albums {
+  text-align: center;
+}
+li {
+  border: rgb(179, 179, 179);
+  border-style: solid;
+  border-width: .5px;
+  border-radius: 3px;
+  text-align: left;
+  margin: 5px;
+  margin-left: 37%;
+  width: 300px;
+  list-style: none;
+}
+li:hover {
+  cursor: pointer;
+  background-color: rgba(176, 196, 222, 0.795);
+}
 </style>
