@@ -67,7 +67,7 @@ app.get('/api/decades/stats', (req, res) => {
   ) decades;
   
   `).then(result => {
-    res.send(result.rows);
+    res.send(result.rows[0]);
   });
 });
 
