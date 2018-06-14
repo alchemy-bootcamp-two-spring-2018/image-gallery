@@ -13,7 +13,7 @@
 
     <router-view
       :album="albums"
-      :albumstats="albumstats"
+      :albumStats="albumStats"
     ></router-view>
 
   </div>
@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       albums: null,
-      albumstats: null
+      albumStats: null
     };
   },
   created() {
@@ -36,7 +36,7 @@ export default {
       }),
     getAlbumStats()
       .then(albumlist => {
-        this.albumstats = albumlist;
+        this.albumStats = albumlist;
       });
   },
 };
