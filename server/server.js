@@ -36,13 +36,36 @@ app.get('/api/decades', (req, res) => {
     SELECT car_decades.id,
       decade,
       car_decades.description,
-      count(images.decade_id) as "imagesCount",
-      avg(images.decade_id) as "imagesAvg"
+      count(images.decade_id) as "imageCount"
     FROM car_decades
-    left join car_images images
-    on car_decades.id = images.decade_id  
-    group by car_decades.id
-    order by car_decades.decade;   
+    LEFT JOIN car_images images
+    ON car_decades.id = images.decade_id  
+    GROUP BY car_decades.id
+    ORDER BY car_decades.decade;   
+  `).then(result => {
+    res.send(result.rows);
+  });
+});
+app.get('/api/decades/stats', (req, res) => {
+
+  client.query(`
+
+  SELECT 
+    count(*),
+    avg("imageCount"),
+    min("imageCount"),
+    max("imageCount")
+  FROM (
+    SELECT car_decades.id,
+      decade,
+      car_decades.description,
+      count(images.decade_id) as "imageCount"
+    FROM car_decades
+    LEFT JOIN car_images images
+    ON car_decades.id = images.decade_id  
+    GROUP BY car_decades.id
+  ) decades;
+  
   `).then(result => {
     res.send(result.rows);
   });
