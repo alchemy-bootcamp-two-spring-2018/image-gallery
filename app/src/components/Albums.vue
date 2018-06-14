@@ -1,6 +1,12 @@
 <template>
   <div>
     <h1>Albums</h1>
+    <nav>
+      <router-link :to="`/albums/new_album`">New Album</router-link>  
+      <router-view>
+
+      </router-view>
+    </nav>
     <pre v-if="error">{{ error }}</pre>
 
     <ul v-if="decades">
@@ -8,9 +14,12 @@
         v-for="decade in decades"
         :key="decade.id"
       >
-        <router-link :to="`/albums/${decade.id}`">
-          {{ decade.description }}
-        </router-link>
+     
+      <router-link :to="`/albums/${decade.id}`">
+        {{ decade.description }}
+      </router-link>
+      
+      
       </li>
     </ul>
 
