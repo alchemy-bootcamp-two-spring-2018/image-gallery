@@ -36,6 +36,9 @@ export default {
     getGenres()
       .then(genres => {
         this.genres = genres;
+      })
+      .catch(err => {
+        this.error = err;
       });
   }
 

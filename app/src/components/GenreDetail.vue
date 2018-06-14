@@ -35,6 +35,9 @@ export default {
     getGenre(this.$route.params.id)
       .then(genre => {
         this.genre = genre;
+      })
+      .catch(err => {
+        this.error = err;
       });
   },
   methods: {
@@ -44,7 +47,10 @@ export default {
         .then(saved => {
           this.genre.records.push(saved);
           this.$router.push(`/genres/${this.genreID}`);
-        });
+        })
+        .catch(err => {
+        this.error = err;
+      });
     }
   }
 };
