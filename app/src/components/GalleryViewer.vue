@@ -8,7 +8,7 @@
       v-for="(image, imageIndex) in urlList"
       :key="imageIndex"
       @click="index = imageIndex"
-      :style="{ backgroundImage: 'url(' + image + ')', width: '300px', height: '200px' }"
+      :style="{ backgroundImage: 'url(' + image + ')', width: '150px', height: '100px', display: 'inline-block', margin: '10px' }"
     ></div>
   </div>
 </template>
@@ -46,3 +46,9 @@
     }
   }
 </script> 
+<style>
+.image {
+  display: inline;
+  margin: 10px;
+}
+</style>

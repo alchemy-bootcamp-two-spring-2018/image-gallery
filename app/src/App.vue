@@ -36,7 +36,7 @@ nav {
   padding-bottom: 10px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-  background-color: #ccc;
+  background-color: rgba(178, 231, 240, .5);
 }
 .page-title {
   

@@ -8,7 +8,7 @@
           v-for="image in images"
           :key="image.id">
           <img class="thumbnail-image" v-bind:src="image.url" :title="image.title"/> 
-          <p><strong>{{ image.title }}</strong></p>
+          <p>{{ image.title }}</p>
         </div>  
       
     </div>
@@ -40,10 +40,7 @@ export default {
 </script>
 
 <style scoped>
-p {
-  display: inline-block;
-  width: 300px;
-}
+
 
 img {
   
@@ -53,21 +50,20 @@ img {
   border: 1px solid #000;
   
 }
-
-strong {
-  font-size: 22px;
-
-}
 .container {
-  background-color: rgb(177, 171, 171);
-  border: 1px solid red;
+  background-color: rgb(216, 214, 214);
+  border: 1px solid rgba(0, 0, 0, .3);
   font-size: 18px;
-  max-width: 300px;
+  max-width: 230px;
   display: inline-block;
-  padding: 15px;
-  min-width: 200px;
+  padding: 10px;
   margin: 15px;
-
+  -webkit-box-shadow: 10px 10px 29px -8px rgba(0,0,0,0.38);
+  -moz-box-shadow: 10px 10px 29px -8px rgba(0,0,0,0.38);
+  box-shadow: 10px 10px 29px -8px rgba(0,0,0,0.38);
+}
+.container p {
+  margin-top: 0px;
 }
 
 </style>
