@@ -134,6 +134,21 @@ app.post('/api/images', (req, res, next) => {
   .catch(next);
 });
 
+app.post('/api/decades', (req, res, next) => {
+  const body = req.body;
+
+  client.query(`
+    INSERT INTO car_decades (decade, description)
+    VALUES ($1, $2)
+    RETURNING *;
+  `,
+  [body.decade, body.description]
+).then(result => {
+    res.send(result.rows[0]);
+  })
+  .catch(next);
+});
+
 // eslint-disable-next-line
 app.use((err, req, res, next) => {
   console.log('******SERVER ERROR******\n', err);

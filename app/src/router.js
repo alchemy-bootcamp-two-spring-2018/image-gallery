@@ -7,13 +7,16 @@ import ListViewer from './components/ListViewer.vue';
 import NewImage from './components/NewImage.vue';
 import GalleryViewer from './components/GalleryViewer';
 import ThumbnailViewer from './components/ThumbnailViewer';
+import AddAlbum from './components/AddAlbum';
 
 
 export default new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/about', component: About },
-    { path: '/albums', component: Albums },
+    { path: '/albums', component: Albums,
+      children: [{ path: 'new_album', component: AddAlbum }],
+    },
     {
       path: '/albums/:id',
       component: AlbumDetail,

@@ -35,6 +35,15 @@ export function addCar(image) {
     .then(responseHandler);
 }
 
+export function addAlbum(album) {
+  return fetch('http://localhost:3000/api/decades', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(album)
+  })
+    .then(responseHandler);
+}
+
 export function getStats() {
   return fetch('http://localhost:3000/api/decades/stats', {
     headers: { 'Content-Type' : 'application/json' }
