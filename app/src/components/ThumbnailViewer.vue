@@ -3,14 +3,14 @@
     <h2>Thumbnail View</h2>
     <pre v-if="error">{{ error }}</pre>
     <div v-if="images !== null">
-      <div class="container">
-        <div class ="thumbnail-image"
+      
+        <div class ="container"
           v-for="image in images"
           :key="image.id">
-          <img v-bind:src="image.url" :title="image.title"/> 
+          <img class="thumbnail-image" v-bind:src="image.url" :title="image.title"/> 
           <p><strong>{{ image.title }}</strong></p>
         </div>  
-      </div>
+      
     </div>
   </div>
 </template>

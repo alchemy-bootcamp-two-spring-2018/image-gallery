@@ -17,6 +17,9 @@
 </script>
 
 <style>
+html {
+  background-color: #fff;
+}
 
 #app {
   font-family: 'Kreon', serif;
@@ -26,12 +29,14 @@
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  
 }
 nav {
   padding-top: 10px;
   padding-bottom: 10px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  background-color: #ccc;
 }
 .page-title {
   
