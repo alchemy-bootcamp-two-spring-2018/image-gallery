@@ -1,6 +1,7 @@
 <template>
-  <div>
+<div>
     <h2>Welcome to the Album Home Page</h2>
+  <div v-if="stats !== null">
     In this database there are: 
     {{ albums.length }} albums.
     <br>
@@ -8,6 +9,7 @@
     <br>
     There are a maximum of {{ stats.max }} images, and a minimum of {{ stats.min }} images per album.
 
+  </div>
   </div>
 </template>
 
