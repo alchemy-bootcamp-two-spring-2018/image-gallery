@@ -32,6 +32,9 @@ export default {
         .then(saved => {
           this.albums.push(saved);
           this.$router.push(`/albums/${saved.id}`);
+        })
+        .catch(err => {
+          this.error = err;
         });
     }
   }

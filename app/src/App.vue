@@ -33,10 +33,16 @@ export default {
     getAlbums()
       .then(albumlist => {
         this.albums = albumlist;
+      })
+      .catch(err => {
+        this.error = err;
       }),
     getAlbumStats()
       .then(albumlist => {
         this.albumStats = albumlist;
+      })
+      .catch(err => {
+        this.error = err;
       });
   },
 };
