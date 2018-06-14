@@ -129,6 +129,29 @@ app.delete('/api/images/:id', (req, res, next) => {
     .catch(next);
 });
 
+app.post('/api/auth/signup', (req, res, next) => {
+  const body = req.body;
+  client.query(`
+    GET username
+    FROM users
+    WHERE name=$1;
+  `, [body.username])
+    .then(result => {
+      if(result.length > 0) {
+        res.send({ error: 'username already exists!' });
+      }
+    });
+
+  client.query(`
+    INSERT INTO users (name, password)
+    VALUES ($1, $2)
+    RETURNING *;
+  `, [body.username, body.password])
+    .then(result => res.send(result.rows[0]))
+    .catch(next);
+});
+
+
 // Must add all 4 params so express "knows" this is custom error handler!
 // eslint-disable-next-line
 app.use((err, req, res, next) => {

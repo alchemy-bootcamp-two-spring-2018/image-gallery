@@ -1,6 +1,7 @@
 const URL = 'http://localhost:3000/api';
 const ALBUMS_URL = `${URL}/albums`;
 const IMAGES_URL = `${URL}/images`;
+const AUTH_URL = `${URL}/auth`;
 
 export {
   getAlbums,
@@ -11,7 +12,9 @@ export {
   updateImage,
   deleteAlbums,
   deleteImage,
-  responseHandler
+  responseHandler,
+  signIn,
+  signUp
 };
 
 function responseHandler(response) {
@@ -81,6 +84,25 @@ function deleteAlbums(id) {
   return fetch(`${ALBUMS_URL}/${id}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
+  })
+    .then(responseHandler);
+}
+
+function signIn(creds) {
+  console.log('signing in...');
+  return fetch(`${AUTH_URL}/signin`, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(creds)
+  })
+    .then(responseHandler);
+}
+
+function signUp(creds) {
+  return fetch(`${AUTH_URL}/signup`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(creds)
   })
     .then(responseHandler);
 }

@@ -4,7 +4,8 @@ client.query(`
   CREATE TABLE IF NOT EXISTS albums (
     id SERIAL PRIMARY KEY,
     title VARCHAR(256) NOT NULL,
-    description VARCHAR(256)
+    description VARCHAR(256),
+    userid INTEGER
   );
 
   CREATE TABLE IF NOT EXISTS images (
@@ -13,6 +14,12 @@ client.query(`
     title VARCHAR(256),
     description VARCHAR(256),
     url VARCHAR(256)
+  );
+
+  CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(256),
+    password VARCHAR(256)
   );
 `)
   .then(
