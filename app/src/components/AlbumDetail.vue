@@ -28,7 +28,7 @@ export default {
         description: ''
       },
       error: null
-    }
+    };
   },
   created() {
     this.error = '';

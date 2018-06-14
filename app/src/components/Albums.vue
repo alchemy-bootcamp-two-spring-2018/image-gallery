@@ -28,7 +28,7 @@ export default {
     return {
       albums: null,
       error: null
-    }
+    };
   },
   created() {
     this.error = '';
