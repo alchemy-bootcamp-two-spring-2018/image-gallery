@@ -1,20 +1,35 @@
 const URL = 'http://localhost:3000/api';
 const ALBUMS_URL = `${URL}/albums`;
+const ALBUMSTATS_URL = `${URL}/albums/stats`;
 const IMAGES_URL = `${URL}/images`;
 
+
+function responseHandler(response) {
+  if(response.ok) return response.json();
+  return response.json().then(err => { 
+    throw err.message; 
+  });
+}
 
 export function getAlbums() {
   return fetch(ALBUMS_URL, {
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(response => response.json());
+    .then(responseHandler);
+}
+
+export function getAlbumStats() {
+  return fetch(ALBUMSTATS_URL, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(responseHandler);
 }
 
 export function getAlbum(id) {
   return fetch(`${URL}/albums/${id}`, {
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(response => response.json());
+    .then(responseHandler);
 }
 
 export function addAlbum(album) {
@@ -23,7 +38,7 @@ export function addAlbum(album) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(album)
   })
-    .then(response => response.json());
+    .then(responseHandler);
 }
 
 //updateAlbum - stretch goal to be added
@@ -36,14 +51,14 @@ export function deleteAlbum(id) {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' }
   })
-    .then(res =>res.json());
+    .then(responseHandler);
 }
 
 export function getImages() {
   return fetch(IMAGES_URL, {
     headers: { 'Content-Type': 'applications/json' }
   })
-    .then(response => response.json());
+    .then(responseHandler);
 }
 
 export function addImage(image) {
@@ -52,5 +67,5 @@ export function addImage(image) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image)
   })
-    .then(response => response.json());
+    .then(responseHandler);
 }

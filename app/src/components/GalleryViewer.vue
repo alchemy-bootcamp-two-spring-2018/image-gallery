@@ -43,5 +43,9 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
   margin-left: 15px;
+  margin-top: 10px;
+}
+.image:hover {
+  cursor: pointer;
 }
 </style>
