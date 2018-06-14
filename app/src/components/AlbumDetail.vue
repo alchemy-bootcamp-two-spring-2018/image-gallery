@@ -10,7 +10,7 @@
         &nbsp;
         <router-link to="gallery">Gallery View</router-link>
         &nbsp;
-        <router-link to="add-image">Add Image</router-link>
+        <router-link to="new">Add Image</router-link>
       </span>
     </nav>
     <router-view></router-view>
