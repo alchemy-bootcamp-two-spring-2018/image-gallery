@@ -11,14 +11,32 @@
       <router-link to="/Addalbum">Add an Album</router-link>
     </nav>
 
-    <router-view></router-view>
+    <router-view
+    :albums="albums">
+    </router-view>
 
   </div>
 </template>
 
 <script>
+import { getAlbums } from './services/api';
 
 export default {
+  data() {
+    return {
+      albums: null,
+    };
+  },
+  created() {
+    getAlbums()
+      .then(albums => {
+        this.albums = albums;
+      })
+      .catch(err => {
+        this.error = err;
+      });
+  }
+
 };
 </script>
 
