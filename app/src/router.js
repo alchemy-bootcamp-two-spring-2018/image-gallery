@@ -7,10 +7,12 @@ import RecordList from './components/RecordList';
 import RecordGallery from './components/RecordGallery';
 import RecordThumbnail from './components/RecordThumbnail';
 import NewRecord from './components/NewRecord';
+import Login from './components/Login';
 
 export default new VueRouter({
   routes: [
-    { path: '/', component: Home },
+    { path: '/', component: Login },
+    { path: '/home', name: 'home', component: Home },
     { path: '/about', component: About },
     { path: '/genres', component: Genres },
     { path: '/new', component: NewRecord },

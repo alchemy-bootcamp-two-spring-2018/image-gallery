@@ -3,7 +3,9 @@
   <div class="hello">
     <h1>ALBUM ART AFFINITY</h1>
     <nav>
-      <router-link to ="/">HOME</router-link>
+      <router-link v-if="authenticated" to="/" v-on:click="logout()" replace>Logout</router-link>
+      &nbsp;
+      <router-link to ="/home">HOME</router-link>
       &nbsp;
       <router-link to ="/about">ABOUT</router-link>
       &nbsp;
@@ -29,8 +31,13 @@ import {
 export default {
   data() {
     return {
-      genres: ''
-    };
+      genres: '',
+      authenticated: false,
+      mockAccount: {
+        username: "alchemy",
+        password: "codelab"
+      }
+    }
   },
   created() {
     getGenres()
@@ -40,6 +47,19 @@ export default {
       .catch(err => {
         this.error = err;
       });
+  },
+  mounted() {
+    if(!this.authenticated) {
+      this.$routed.replace({ name: "login" });
+    }
+  },
+  methods: {
+    setAuthenticated(status) {
+      this.authenticated = status;
+    },
+    logout() {
+      this.authenticated = false;
+    }
   }
 
 };
