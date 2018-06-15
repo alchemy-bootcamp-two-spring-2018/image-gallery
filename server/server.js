@@ -1,10 +1,11 @@
-require('dotenv').config()
-
-
+require('dotenv').config();
 
 // basic express app
 const express = require('express');
 const app = express();
+
+// superagent client AJAX library for calling 3rd party APIs
+const request = require('superagent');
 
 // middleware (cors and read json body)
 const cors = require('cors');
