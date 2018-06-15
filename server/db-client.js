@@ -1,6 +1,11 @@
-const DATABASE_URL = 'postgres://localhost:5432/albums';
+const DATABASE_URL = process.env.DATABASE_URL;
 const pg = require('pg');
 const Client = pg.Client;
+
+// send back db int as javascript int
+types.setTypeParser(20, parseFloat);
+// send back db float as javascript float
+types.setTypeParser(1700, parseFloat);
 
 const client = new Client(DATABASE_URL);
 client.connect()

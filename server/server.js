@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -12,7 +14,7 @@ const client = new Client(databaseUrl);
 
 client.connect();
 
-app.get('/api/images', (req, res) => {
+app.get('/api/images', (req, res, next) => {
 
     client.query(`
     SELECT id,
@@ -24,10 +26,11 @@ app.get('/api/images', (req, res) => {
     `)
     .then(result => {
         res.send(result.rows);
-    });
+    })
+    .catch(next);
 });
 
-app.post('/api/images', (req, res) => {
+app.post('/api/images', (req, res, next) => {
     const body = req.body;
 
     client.query(`
@@ -38,10 +41,11 @@ app.post('/api/images', (req, res) => {
     [body.albumId, body.title, body.description, body.url]
     ).then(result => {
         res.send(result.rows[0]);
-    });
+    })
+    .catch(next);
 });
 
-app.post('/api/albums', (req, res) => {
+app.post('/api/albums', (req, res, next) => {
     const body = req.body;
 
     client.query(`
@@ -52,10 +56,11 @@ app.post('/api/albums', (req, res) => {
     [body.title, body.description]
     ).then(result => {
         res.send(result.rows[0]);
-    });    
+    })
+    .catch(next);    
 });
 
-app.get('/api/albums', (req, res) => {
+app.get('/api/albums', (req, res, next) => {
 
     client.query(`
     SELECT
@@ -69,7 +74,8 @@ app.get('/api/albums', (req, res) => {
     `)
     .then(result => {
         res.send(result.rows);
-    });
+    })
+    .catch(next);
 });
 
 app.get('/api/albums/stats', (req, res) => {
@@ -130,6 +136,14 @@ app.get('/api/albums/:id', (req, res) => {
     });
 });
 
+// must use all 4 parameters so express "knows" this is custom error handler!
+app.use((err, req, res, next) => {
+    console.log('***SERVER ERROR**\n', err);
+    let message = 'internal server error';
+    if(err.message) message = err.message;
+    else if(typeof err === 'string') message = err;
+    res.status(500).send({ message });
+})
 
-    
-app.listen(3000, () => console.log('APPLICATION IS RUNNING...'));
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log('APPLICATION IS RUNNING...'));
