@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
+const request = require('superagent');
 
 const client = require('./db-client');
 
@@ -12,6 +13,19 @@ app.use(cors());
 app.use(morgan());
 app.use(express.json());
 app.use(express.static('public'));
+
+app.post('/api/users', (req, res, next) => {
+  const body = req.body;
+
+  client.query(`
+    insert into users (
+      username,
+      password
+    )
+    values ($1, $2)
+    returning *;
+  `);
+});
 
 app.post('/api/records', (req, res, next) => {
   const body = req.body;
