@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "drop-tables": "node scripts/drop-tables.js",
     "recreate-tables": "npm run drop-tables && npm run create-tables",
-    "db-load-all":  "npm run recreate-tables && npm run seed-data",
+    "db-load-all": "npm run recreate-tables && npm run seed-data",
     "seed-data": "node scripts/seed-data.js",
     "create-tables": "node scripts/create-tables.js",
     "start:watch": "nodemon server.js",
@@ -18,7 +18,8 @@
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "superagent": "^3.8.3"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
