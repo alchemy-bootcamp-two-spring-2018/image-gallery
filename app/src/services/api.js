@@ -10,6 +10,15 @@ function responseHandler(response) {
   });
 }
 
+export function addUser(user) {
+  return fetch(`${GENRES_URL}/users`, {
+    method: 'POST',
+    headers: { 'Content-Type' : 'application/json' },
+    body: JSON.stringify(user)
+  })
+    .then(responseHandler);
+}
+
 export function getGenres() {
   return fetch(GENRES_URL, {
     headers: { 'Content-Type': 'application/json' }
