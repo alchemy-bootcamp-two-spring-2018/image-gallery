@@ -7,7 +7,7 @@
         :key="album.id"
       >
         <router-link :to="`/albums/${album.id}`">
-          {{ album.title }}
+          {{ album.title }} ({{ album.imageCount }})
         </router-link>
       </li>
     </ul>
@@ -19,17 +19,20 @@
 import { getAlbums } from '../services/api';
 
 export default {
+
   data() {
     return {
       albums: null
     };
   },
+
   created() {
     getAlbums()
       .then(albums => {
         this.albums = albums;
       });
   }
+
 };
 </script>
 

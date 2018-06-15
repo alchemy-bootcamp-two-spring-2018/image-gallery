@@ -1,3 +1,4 @@
+require('dotenv').config();
 const client = require('../db-client');
 
 client.query(`
@@ -13,6 +14,12 @@ client.query(`
     title VARCHAR(256) NOT NULL,
     description VARCHAR(512),
     url VARCHAR(512) NOT NULL
+  );
+
+  CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(32) NOT NULL,
+    password VARCHAR(64) NOT NULL
   );
 `).then(
   () => console.log('create tables complete'),
