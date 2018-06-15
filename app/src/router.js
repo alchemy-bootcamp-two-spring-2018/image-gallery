@@ -8,12 +8,14 @@ import GalleryViewer from './components/GalleryViewer.vue';
 import ListViewer from './components/ListViewer.vue';
 import AddImage from './components/AddImage.vue';
 import AddAlbum from './components/AddAlbum.vue';
+import UserForm from './components/UserForm.vue';
 
 
 export default new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/about', component: About },
+    { path: '/login', component: UserForm },
     { path: '/albums', component: Albums },
     { path: '/albums/new', component: AddAlbum },
     {

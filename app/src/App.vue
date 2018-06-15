@@ -5,6 +5,7 @@
       <nav class="main-nav">
         <router-link to="/about">About</router-link>
         <router-link to="/albums">Albums</router-link>
+        <router-link to="/login">Sign up</router-link>
       </nav>
     </header>
     <router-view class="content"/>

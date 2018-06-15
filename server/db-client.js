@@ -1,4 +1,5 @@
-const DATABASE_URL = 'postgres://localhost:5432/animals';
+
+const DATABASE_URL = process.env.DATABASE_URL;
 const pg = require('pg');
 const Client = pg.Client;
 
