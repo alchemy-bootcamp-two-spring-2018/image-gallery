@@ -1,5 +1,5 @@
 
-const URL = 'http://localhost:3000/api';
+const URL = '/api';
 
 function responseHandler(response) {
   if(response.ok) return response.json();
