@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 
 // superagent client AJAX library for calling 3rd party APIs
+//eslint-disable-next-line
 const request = require('superagent');
 
 // middleware (cors and read json body)
@@ -35,11 +36,11 @@ app.get('/api/albums/stats', (req, res, next) => {
     GROUP BY a.id
     ) subquery;
     `).then(result => {
-   res.send(result.rows[0]);
- })
-  .catch(next);
+    res.send(result.rows[0]);
+  })
+    .catch(next);
 
-})
+});
 
 app.get('/api/albums', (req, res, next) => {
 
@@ -58,7 +59,7 @@ app.get('/api/albums', (req, res, next) => {
     .then(result => {
       res.send(result.rows);
     })
-      .catch(next);
+    .catch(next);
 });
 
 app.get('/api/images', (req, res, next) => {
@@ -89,7 +90,7 @@ app.post('/api/images', (req, res, next) => {
   ).then(result => {
     res.send(result.rows[0]);
   })
-  .catch(next);
+    .catch(next);
 });
 
 app.post('/api/albums', (req, res, next) => {
@@ -105,7 +106,7 @@ app.post('/api/albums', (req, res, next) => {
   ).then(result => {
     res.send(result.rows[0]);
   })
-  .catch(next);
+    .catch(next);
 });
 
 
@@ -144,6 +145,7 @@ app.get('/api/albums/:id', (req, res, next) => {
     .catch(next);
 });
 
+//eslint-disable-next-line
 app.use((err, req, res, next) => {
   console.log('***SERVER ERROR**\n', err);
   let message = 'internal server error';
