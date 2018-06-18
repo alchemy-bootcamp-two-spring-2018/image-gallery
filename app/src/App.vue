@@ -1,28 +1,49 @@
 <template>
   <div id="app">
-    <h1>Photos APP</h1>
+    <h1>Photo Albums!</h1>
     <nav>
-    <router-link to="/" class="nav">Go Home</router-link>
+    <router-link to="/" class="nav">Home</router-link>
     <router-link to="/albums" class="nav">Albums</router-link>
     <router-link to="/about" class="nav">About</router-link>
     </nav>
-    <router-view></router-view>
-
+    <hr>
+    <router-view
+    :albums="albums"
+    :stats="stats"
+    ></router-view>
   </div>
 </template>
 
 <script>
-import Home from './components/Home';
-import About from './components/About';
-import Albums from './components/Albums';
+import { getAlbums, getStats } from './services/api.js';
 
 export default {
-  name: 'app',
-  components: {
-    Home,
-    About,
-    Albums
+  data() {
+    return {
+      albums: null,
+      stats: ''
+    };
+  },
+
+  created() {
+    getAlbums()
+      .then(albums => {
+        this.albums = albums;
+      })
+      .catch(err => {
+        this.error = err;
+      });
+
+    getStats()
+      .then(stats => {
+        this.stats = stats;
+      })
+      .catch(err => {
+        this.error = err;
+      });    
   }
+
+
 };
 </script>
 
@@ -31,10 +52,10 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  border: 2px solid black;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .nav {

@@ -1,0 +1,92 @@
+[
+    {
+        "album_id": "1",
+        "title": "Elvis1",
+        "description": "Elvis1",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/elvis1.jpg?raw=true"
+    },
+    {
+        "album_id": "1",
+        "title": "Elvis2",
+        "description": "Elvis2",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/elvis2.jpg?raw=true"
+    },
+    {
+        "album_id": "1",
+        "title": "Elvis3",
+        "description": "Elvis3",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/elvis3.jpg?raw=true"
+    },
+    {
+        "album_id": "1",
+        "title": "Elvis4",
+        "description": "Elvis4",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/elvis4.jpg?raw=true"
+    },
+    {
+        "album_id": "1",
+        "title": "Elvis5",
+        "description": "Elvis5",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/elvis5.jpg?raw=true"
+    },
+    {
+        "album_id": "2",
+        "title": "Motorcycle1",
+        "description": "Motorcycle1",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/motorcycle1.jpg?raw=true"
+    },
+    {
+        "album_id": "2",
+        "title": "Motorcycle2",
+        "description": "Motorcycle2",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/motorcycle2.jpg?raw=true"
+    },
+    {
+        "album_id": "2",
+        "title": "Motorcycle3",
+        "description": "Motorcycle3",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/motorcycle3.jpg?raw=true"
+    },
+    {
+        "album_id": "2",
+        "title": "Motorcycle4",
+        "description": "Motorcycle4",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/motorcycle4.jpg?raw=true"
+    },
+    {
+        "album_id": "2",
+        "title": "Motorcycle5",
+        "description": "Motorcycle5",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/motorcycle5.jpg?raw=true"
+    },
+    {
+        "album_id": "3",
+        "title": "Cambodian",
+        "description": "Delicious amok",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/food1.jpg?raw=true"
+    },
+    {
+        "album_id": "3",
+        "title": "Cajun",
+        "description": "Fried seafood dish",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/food2.jpg?raw=true"
+    },
+    {
+        "album_id": "3",
+        "title": "American",
+        "description": "Classic cheeseburger",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/food3.jpg?raw=true"
+    },
+    {
+        "album_id": "3",
+        "title": "Japanese",
+        "description": "Sashimi platter",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/food4.jpg?raw=true"
+    },
+    {
+        "album_id": "3",
+        "title": "Thai",
+        "description": "Curry",
+        "url": "https://github.com/grayson073/image-gallery/blob/master/app/src/assets/food5.jpg?raw=true"
+    }
+]
