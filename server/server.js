@@ -1,3 +1,5 @@
+require('dotenv').config();
+const PORT = process.env.PORT;
 // basic express app
 const express = require('express');
 const app = express();
@@ -6,40 +8,85 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public'));
 
 const client = require('./db-client');
 
-// routes
-app.get('/api/albums', (req, res) => {
-
+app.get('/api/albums/stats', (req, res) => {
   client.query(`
-    SELECT *
-    FROM albums;
-  `).then(result => {
-    res.send(result.rows);
-  });
+    SELECT
+      AVG("imageCount"),
+      MIN("imageCount"),
+      MAX("imageCount")
+    FROM (SELECT
+      a.id,
+      a.title,
+      a.description,
+      COUNT(i.albumid) as "imageCount"
+    FROM albums a
+    LEFT JOIN images i
+    ON i.albumid = a.id
+    GROUP BY a.id) stats;
+  `).then(result => res.send(result.rows[0]));
 });
 
-// app.post('/api/neighborhoods', (req, res) => {
-//   const body = req.body;
 
-//   client.query(`
-//     insert into neighborhoods (name, quadrant_id, population, founded, description)
-//     values ($1, $2, $3, $4, $5)
-//     returning *, quadrant_id as "quadrantId";
-//   `,
-//   [body.name, body.quadrantId, body.population, body.founded, body.description]
-//   ).then(result => {
-//     // send back object
-//     res.send(result.rows[0]);
-//   });
-// });
+// GET albums
+app.get('/api/albums', (req, res) => {
+  client.query(`
+    SELECT
+      a.id,
+      a.title,
+      a.description,
+      COUNT(i.albumid) as "imageCount"
+    FROM albums a
+    LEFT JOIN images i
+    ON i.albumid = a.id
+    GROUP BY a.id;
+  `).then(result => res.send(result.rows));
+});
 
+// GET images
+app.get('/api/images/:id', (req, res, next) => {
+  client.query(`
+  SELECT * FROM images
+  WHERE albumid=$1;
+  `, [req.params.id])
+    .then(result => {
+      return res.send(result.rows);
+    })
+    .catch(next);
+});
 
-// Update image info
-app.put('/api/images', (req, res) => {
+// INSERT album
+app.post('/api/albums', (req, res, next) => {
   const body = req.body;
+  client.query(`
+    INSERT INTO albums (title, description)
+    VALUES ($1, $2)
+    RETURNING *;
+  `,
+  [body.title, body.description])
+    .then(result => res.send(result.rows[0]))
+    .catch(next);
+});
 
+// INSERT image
+app.post('/api/images', (req, res, next) => {
+  const body = req.body;
+  client.query(`
+    INSERT INTO images (title, description, albumid, url)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *;
+  `,
+  [body.title, body.description, body.albumid, body.url])
+    .then(result => res.send(result.rows[0]))
+    .catch(next);
+});
+
+// UPDATE image info
+app.put('/api/images', (req, res, next) => {
+  const body = req.body;
   client.query(`
     UPDATE images
     SET
@@ -51,11 +98,12 @@ app.put('/api/images', (req, res) => {
     returning *;
   `,
   [body.albumid, body.title, body.url, body.description, body.id]
-  ).then(() => res.send({ updated: true }));
+  ).then(() => res.send({ updated: true }))
+    .catch(next);
 });
 
-// DELETE FROM images WHERE albumid=$1;
-app.delete('/api/albums/:id', (req, res) => {
+// DELETE album
+app.delete('/api/albums/:id', (req, res, next) => {
   const promiseAlbum = client.query(`
     DELETE FROM albums WHERE id=$1;
   `,
@@ -65,56 +113,56 @@ app.delete('/api/albums/:id', (req, res) => {
     DELETE FROM images where albumid=$1;
   `,
   [req.params.id]
-  ).then(() => true);
+  ).then(() => true)
+    .catch(next);
   if(promiseAlbum && promiseImages) {
     res.send({ removed: true });
   }
 });
 
-app.delete('/api/images/:id', (req, res) => {
+// DELETE image
+app.delete('/api/images/:id', (req, res, next) => {
   client.query(`
     DELETE FROM images WHERE id=$1;
   `,
   [req.params.id]
   ).then(() => {
     res.send({ removed: true });
-  });
+  })
+    .catch(next);
 });
 
-app.get('/api/images/:id', (req, res) => {
-  client.query(`
-    SELECT * FROM images
-    WHERE albumid=$1;
-  `, [req.params.id])
-    .then(result => {
-      res.send(result.rows);
-    });
-});
-
-// app.get('/api/restaurants', (req, res) => {
-//   client.query(`
-//     select * 
-//     from restaurants
-//     where neighborhood_id=$1
-//   `,
-//   [req.query.neighborhoodId]
-//   )
-//     .then(result => {
-//       res.send(result.rows);
-//     });
-// });
-
-app.post('/api/images', (req, res) => {
+app.post('/api/auth/signup', (req, res, next) => {
   const body = req.body;
   client.query(`
-    INSERT INTO images (title, description, albumid, url)
-    VALUES ($1, $2, $3, $4)
-    RETURNING *;
-  `,
-  [body.title, body.description, body.albumid, body.url])
+    GET username
+    FROM users
+    WHERE name=$1;
+  `, [body.username])
     .then(result => {
-      res.send(result.rows[0]);
+      if(result.length > 0) {
+        res.send({ error: 'username already exists!' });
+      }
     });
+
+  client.query(`
+    INSERT INTO users (name, password)
+    VALUES ($1, $2)
+    RETURNING *;
+  `, [body.username, body.password])
+    .then(result => res.send(result.rows[0]))
+    .catch(next);
 });
 
-app.listen(3000, () => console.log('server running...'));
+
+// Must add all 4 params so express "knows" this is custom error handler!
+// eslint-disable-next-line
+app.use((err, req, res, next) => {
+  console.log('**** SERVER ERROR ****\n', err);
+  let message = 'internal server error';
+  if(err.message) message = err.message;
+  else if(typeof err === 'string') message = err;
+  res.status(500).send({ message });
+});
+
+app.listen(PORT, () => console.log('server running...'));
