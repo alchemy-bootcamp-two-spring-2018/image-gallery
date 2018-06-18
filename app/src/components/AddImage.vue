@@ -1,6 +1,6 @@
 <template>
   <div id="add-image">
-    <h2>This is the Add Image component</h2>
+    <h2>Add a New Image</h2>
     <section>
     <form @submit.prevent="handleSubmit">
       <label>
@@ -28,6 +28,7 @@
         >cancel</button>
       </label>
     </form>
+    <pre> {{ error }}</pre>
   </section>
 
 
@@ -45,7 +46,8 @@ export default {
         description: '',
         url: '',
         albumId: null
-      }
+      },
+      error: null
     };
   },
   created() {
@@ -53,13 +55,17 @@ export default {
   },
   methods: {
     handleSubmit() {
-        return addImage(this.image)
-        .then(() => {
-          this.$router.push(`/albums/${this.image.albumId}`);
-        });
+      this.error = '';
+      return addImage(this.image)
+      .then(() => {
+        this.$router.push(`/albums/${this.image.albumId}`);
+      })
+      .catch(err => {
+          this.error = err;
+      });
     },
     handleCancel() {
-      // go somewhere
+      this.$router.push(`/albums/${this.image.albumId}`);
     }
   }
 };

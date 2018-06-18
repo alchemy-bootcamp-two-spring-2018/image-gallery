@@ -1,6 +1,7 @@
 <template>
   <div id="list-viewer">
     <h2>List View</h2>
+    <pre v-if="error">{{ error }}</pre>
     <div v-if="images !== null">
       <div class ="list-image"
         v-for="image in images"
@@ -8,14 +9,11 @@
       >
         <img v-bind:src="image.url" :title="image.title"/> 
         <p><strong>{{ image.title }}</strong><br>
-        {{ image.description }}
-      </p>
-        </div>  
-        
-        
-      </div>
-    </div> 
-  </div>
+          {{ image.description }}
+        </p>
+      </div>  
+    </div>
+  </div> 
 </template>
 
 <script>
@@ -24,16 +22,20 @@ import { getImages } from '../services/api';
 export default {
     data() {
       return {
-        images: null
+        images: null,
+        error: null
       };
     },
     created() {
+      this.error = '';
       getImages(this.$route.params.id)
         .then(result => {
           this.images = result;
+        })
+        .catch(err => {
+          this.error = err;
         });
     }
-
 }
 </script>
 
@@ -63,7 +65,6 @@ p {
   margin-top: 5px;
   font-size: 18px;
   font-weight: 300;
-
 }
 
 </style>
