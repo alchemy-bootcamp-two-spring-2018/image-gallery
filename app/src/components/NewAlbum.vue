@@ -1,17 +1,11 @@
 <template>
   <div id="container-add">
-    <h4>Add a new image</h4>
-    <form @submit.prevent="handleAdd">
-      <label>
-        URL:
-        <input type="text" name="url" required
-          v-model="newImage.url"
-        >
-      </label>
+    <h4>Add a new album</h4>
+    <form @submit.prevent="submitAdd">
       <label>
         Title:
         <input
-          v-model="newImage.title"
+          v-model="newAlbum.title"
           type="text"
           name="title"
           required
@@ -20,7 +14,7 @@
       <label>
         Description:
         <textarea
-          v-model="newImage.description"
+          v-model="newAlbum.description"
           type="text"
           name="description"
           required
@@ -28,33 +22,30 @@
       </label>
      <input type="submit">
     </form>
-    <img :src="newImage.url">
     <div id="message"></div>
+    {{ albums }}
   </div>
 </template>
 
 <script>
-import { addImage } from '../services/api.js';
-
 export default {
   data() {
     return {
-      newImage: {}
+      newAlbum: {}
     };
   },
-  props: ['images'],
+  props: {
+    albums: Array,
+    handleAdd: {
+      type: Function,
+      required: true
+    }
+  },
   methods: {
-    handleAdd() {
-      this.newImage.albumid = this.$route.params.id;
-      return addImage(this.newImage)
-        .then((result) => {
-          this.images.push(result);
-          this.newImage = {};
-          document.getElementById('message').textContent = 'Image sucessfully added!';
-        });
+    submitAdd() {
+      this.handleAdd(this.newAlbum);
     }
   }
-
 };
 </script>
 
