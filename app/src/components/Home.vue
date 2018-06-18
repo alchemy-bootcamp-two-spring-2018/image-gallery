@@ -1,14 +1,36 @@
 <template>
-  <section id="home">
-    <img src="/assets/vinyl.png" />
-  </section>
- 
+ <div>
+   <h2>Welcome! Your collection contains {{ genres.length }} different genres!</h2>
+    <p>At a minimum, your genres contain {{ stats[0].min }} records</p>
+    <p>At the maximum, your genres contain {{ stats[0].max }} records</p>
+    <p>On average, your genres contain {{ stats[0].avg }} records</p>
+ </div>
 </template>
 
 <script>
-export default {
+import {
+  getStats
+} from '../services/api.js';
 
-}
+export default {
+  data() {
+    return {
+      stats: ''
+    };
+  },
+  created() {
+    getStats()
+      .then(stats => {
+        this.stats = stats;
+      })
+      .catch(err => {
+        this.error = err;
+      });
+  },
+
+  props:['genres']
+
+};
 </script>
 
 <style>

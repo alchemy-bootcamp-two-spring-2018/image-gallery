@@ -25,10 +25,14 @@
   "homepage": "https://github.com/rbtprograms/image-gallery#readme",
   "dependencies": {
     "cors": "^2.8.4",
+    "dot-env": "0.0.1",
+    "dotenv": "^6.0.0",
+    "env": "0.0.2",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.5",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "superagent": "^3.8.3"
   }
 }

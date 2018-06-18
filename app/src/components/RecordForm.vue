@@ -52,9 +52,9 @@ export default {
   methods: {
     handleSubmit() {
       this.onAdd(this.record, this.genre)
-      .then(() => {
-        this.record = initRecord();
-      });
+        .then(() => {
+          this.record = initRecord();
+        });
     }
   }
 };
