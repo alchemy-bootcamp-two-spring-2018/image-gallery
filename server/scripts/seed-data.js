@@ -1,3 +1,4 @@
+require('dotenv').config()
 const client = require('../db-client');
 const albums = require('../data/albums.json');
 const images = require('../data/images.json');

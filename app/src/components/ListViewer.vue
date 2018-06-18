@@ -2,14 +2,12 @@
   <div>
     <ul v-if="images">
       <span class="links">
-      <p
+      <li
       v-for="image in images"
       :key="image.id"
       >
-      <router-link :to="`/gallery/${image.id}`">
-      {{ image.title }}
-      </router-link>
-      </p>
+      <strong>{{ image.title }}:</strong> {{ image.description }}
+      </li>
       </span>
     </ul>
   </div>
@@ -22,15 +20,12 @@ export default {
 </script>
 
 <style scoped>
-img {
-  width: 120px;
+ul {
+  list-style-type: none;
+  text-align: left;
 }
-p {
-  display: inline;
-  flex-flow: column wrap;
-  overflow: auto;
+li {
   margin: 5px;
-  overflow: auto;
 }
 .links {
   width: 700px;

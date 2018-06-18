@@ -3,59 +3,66 @@
     <h2>
       This is the NEW IMAGE component
     </h2>
-
+    <section>
     <form @submit.prevent="handleSubmit">
       <label>
         Title:
-        <input type="text" placeholder="Title" required v-model="image.title">
+        <input name="title" type="text" placeholder="Title" required v-model="image.title">
       </label>
 
       <label>
         Description:
-        <input type="text" placeholder="Description" required v-model="image.description">
+        <textarea name="description" placeholder="Description" required v-model="image.description"></textarea>
       </label>
 
       <label>
         Image URL:
-        <input type="text" placeholder="Image URL" required v-model="image.url">
+        <input name="url" type="text" placeholder="https://github.com/..." required v-model="image.url">
       </label>
       <button type="submit">Add Image</button>
     </form>
+    </section>
   </div>
 </template>
 
 <script>
-import { addImage } from '../services/api';
-
-const initImage = () => {
-  return {
-    title: '',
-    albumId: '',
-    description: '',
-    url: ''
-  };
-};
 
 export default {
   data() {
     return {
-      edit: this.image ? Object.assign({}, this.image) : initImage()
+      image: {
+        title: '',
+        description: '',
+        url: ''
+      }
     };
   },
 
+  props: ['onAdd'],
+
   methods: {
-    handleSubmit(image) {
-      image.albumId = this.albumId;
-      return addImage(image)
-        .then(saved => {
-          this.images.push(saved);
-          this.$router.push('/albums/${this.albumId}');
-        });
+    handleSubmit() {
+      this.onAdd(this.image);
     }
   }
+
+
 };
+
 </script>
 
-<style>
+<style scoped>
+form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+button {
+  width: 85px;
+}
+label {
+  text-align: left;
+  margin: 10px;
+}
+
 
 </style>

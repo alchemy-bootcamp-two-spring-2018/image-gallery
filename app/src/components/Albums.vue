@@ -8,15 +8,21 @@
       {{ album.title }}
       </router-link>
       <p>
-      {{ album.description}}
+      {{ album.description }}
       </p>
+      ({{ album.imagesCount }} images)
       </li>
     </ul>
+    <router-link :to="`/albums/new`">Create Album</router-link>
+
+    <router-view
+    :on-add="handleAdd"
+    ></router-view>
   </div>
 </template>
 
 <script>
-import { getAlbums } from '../services/api';
+import { getAlbums, addAlbum } from '../services/api';
 
 export default {
   data() {
@@ -29,6 +35,17 @@ export default {
       .then(albums => {
         this.albums = albums;
       });
+  },
+
+  methods: {
+    handleAdd(album) {
+      album.albumId = this.album;
+      return addAlbum(album)
+        .then(saved => {
+          this.albums.push(saved);
+          this.$router.push(`/albums/${saved.id}`);
+        });
+    }
   }
 };
 
