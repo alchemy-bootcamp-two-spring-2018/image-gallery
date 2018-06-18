@@ -3,7 +3,9 @@
   <div class="hello">
     <h1>ALBUM ART AFFINITY</h1>
     <nav>
-      <router-link to ="/">HOME</router-link>
+      <router-link v-if="authenticated" to="/" v-on:click="logout()" replace>Logout</router-link>
+      &nbsp;
+      <router-link to ="/home">HOME</router-link>
       &nbsp;
       <router-link to ="/about">ABOUT</router-link>
       &nbsp;
@@ -12,18 +14,55 @@
       <router-link to ="/new">ADD A GENRE</router-link>
     </nav>
 
-    <router-view></router-view>
-
+    <router-view
+    :genres="genres"
+    ></router-view>
+    <section id="home">
+    <img src="./assets/vinyl.png" />
+  </section>
   </div>
 </template>
 
 <script>
-
+import {
+  getGenres
+} from './services/api.js';
 
 export default {
-  
-  
-}
+  data() {
+    return {
+      genres: '',
+      authenticated: false,
+      mockAccount: {
+        username: "alchemy",
+        password: "codelab"
+      }
+    }
+  },
+  created() {
+    getGenres()
+      .then(genres => {
+        this.genres = genres;
+      })
+      .catch(err => {
+        this.error = err;
+      });
+  },
+  mounted() {
+    if(!this.authenticated) {
+      this.$routed.replace({ name: "login" });
+    }
+  },
+  methods: {
+    setAuthenticated(status) {
+      this.authenticated = status;
+    },
+    logout() {
+      this.authenticated = false;
+    }
+  }
+
+};
 </script>
 
 <style>

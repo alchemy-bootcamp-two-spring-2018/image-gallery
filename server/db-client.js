@@ -1,9 +1,9 @@
-// const DATABASE_URL = 'postgres://localhost:5432/music';
-const DATABASE_URL = 'postgres://postgres:1234@localhost:5432/music';
+require('dotenv').config();
+
+const DATABASE_URL = process.env.DATABASE_URL;
+console.log('HERE IS URL', DATABASE_URL)
 const pg = require('pg');
 const Client = pg.Client;
-
-//please work
 
 const client = new Client(DATABASE_URL);
 client.connect()
