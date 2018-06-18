@@ -9,12 +9,14 @@
   },
   "dependencies": {
     "vue": "^2.5.16",
+    "vue-gallery": "^1.4.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.16",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.16",
     "@vue/cli-service": "^3.0.0-beta.16",
+    "eslint-plugin-html": "^4.0.3",
     "vue-template-compiler": "^2.5.16"
   },
   "eslintConfig": {

@@ -22,6 +22,7 @@
           >cancel</button>
         </label>
       </form>
+      <pre>{{ error }}</pre>
     </section>
   </div>
 </template>
@@ -35,15 +36,20 @@ export default {
       album: {
         title: '',
         description: ''
-      }
+      },
+      error: null
     };
   },
   methods: {
     handleSubmit() {
-        return addAlbum(this.album)
-        .then(result => {
-          this.$router.push(`/albums/${result.id}`);
-        });
+      this.error = '';
+      return addAlbum(this.album)
+      .then(result => {
+        this.$router.push(`/albums/${result.id}`);
+      })
+      .catch(err => {
+          this.error = err;
+      });
     },
     handleCancel() {
       this.$router.push(`/albums`);
