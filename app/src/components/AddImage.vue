@@ -16,6 +16,7 @@
       </label>
       <button type="submit">Add</button>
     </form>
+    <pre>{{ error }}</pre>
   </div>
 </template>
 
@@ -27,7 +28,8 @@ export default {
         url: '',
         title: '',
         description: ''
-      }
+      },
+      error: null
     };
   },
 
@@ -35,7 +37,11 @@ export default {
 
   methods: {
     handleSubmit() {
-      this.onAdd(this.newImage);
+      this.error = null;
+      this.onAdd(this.newImage)
+        .catch(err => {
+          this.error = err;
+        });
     }
   }
 };
